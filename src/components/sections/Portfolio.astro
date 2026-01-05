@@ -1,0 +1,81 @@
+---
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+import Card from '../ui/Card.astro';
+import Button from '../ui/Button.astro';
+---
+
+<Section id="portfolio">
+  <Container>
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+        Nuestro Portafolio
+      </h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        Proyectos que demuestran nuestra experiencia y capacidad.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Project 1 -->
+      <Card class="overflow-hidden">
+        <div class="aspect-video bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+          <span class="text-white text-lg font-semibold">Proyecto 1</span>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-slate-900 mb-2">
+            E-commerce Platform
+          </h3>
+          <p class="text-slate-600 mb-4">
+            Plataforma de comercio electrónico completa con pasarela de pagos.
+          </p>
+          <Button href="#" variant="outline" size="sm">
+            Ver Proyecto
+          </Button>
+        </div>
+      </Card>
+
+      <!-- Project 2 -->
+      <Card class="overflow-hidden">
+        <div class="aspect-video bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+          <span class="text-white text-lg font-semibold">Proyecto 2</span>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-slate-900 mb-2">
+            Dashboard Analytics
+          </h3>
+          <p class="text-slate-600 mb-4">
+            Panel de control para análisis de datos en tiempo real.
+          </p>
+          <Button href="#" variant="outline" size="sm">
+            Ver Proyecto
+          </Button>
+        </div>
+      </Card>
+
+      <!-- Project 3 -->
+      <Card class="overflow-hidden">
+        <div class="aspect-video bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+          <span class="text-white text-lg font-semibold">Proyecto 3</span>
+        </div>
+        <div class="p-6">
+          <h3 class="text-xl font-semibold text-slate-900 mb-2">
+            Mobile Banking App
+          </h3>
+          <p class="text-slate-600 mb-4">
+            Aplicación móvil para servicios bancarios seguros.
+          </p>
+          <Button href="#" variant="outline" size="sm">
+            Ver Proyecto
+          </Button>
+        </div>
+      </Card>
+    </div>
+
+    <div class="text-center mt-12">
+      <Button href="#" variant="primary" size="lg">
+        Ver Todos los Proyectos
+      </Button>
+    </div>
+  </Container>
+</Section>

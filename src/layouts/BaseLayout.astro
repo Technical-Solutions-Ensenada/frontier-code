@@ -1,0 +1,41 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Frontier Code - Software Development Company',
+  description = 'Expert software development services for modern businesses'
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#2563eb" />
+
+    <title>{title}</title>
+
+    <style is:global>
+      @import "tailwindcss";
+
+      * {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        @apply bg-white text-slate-900;
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <slot />
+  </body>
+</html>

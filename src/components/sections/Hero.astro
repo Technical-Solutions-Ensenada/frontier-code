@@ -1,0 +1,25 @@
+---
+import Container from '../ui/Container.astro';
+import Button from '../ui/Button.astro';
+---
+
+<section id="hero" class="relative bg-gradient-to-br from-blue-600 to-blue-800 text-white py-20 sm:py-28 lg:py-36">
+  <Container>
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+        Transformamos Ideas en Software
+      </h1>
+      <p class="text-xl sm:text-2xl text-blue-100 mb-10 max-w-2xl mx-auto">
+        Desarrollo de software a medida para empresas que buscan innovar y crecer en el mundo digital.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button href="#contact" variant="secondary" size="lg">
+          Contactar
+        </Button>
+        <Button href="#services" variant="outline" size="lg" class="!border-white !text-white hover:!bg-white/10">
+          Servicios
+        </Button>
+      </div>
+    </div>
+  </Container>
+</section>

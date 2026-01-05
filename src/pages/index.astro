@@ -1,18 +1,30 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MainLayout from '../components/layout/MainLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import About from '../components/sections/About.astro';
+import Services from '../components/sections/Services.astro';
+import Portfolio from '../components/sections/Portfolio.astro';
+import Testimonials from '../components/sections/Testimonials.astro';
+import Team from '../components/sections/Team.astro';
+import Contact from '../components/sections/Contact.astro';
+import ScrollToTop from '../components/islands/ScrollToTop.astro';
+import MobileMenu from '../components/islands/MobileMenu.astro';
 ---
-import '../styles/global.css';
----
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Frontier Code - Desarrollo de Software"
+  description="Empresa de desarrollo de software enfocada en soluciones modernas e innovadoras para empresas."
+>
+  <MainLayout>
+    <Hero />
+    <About />
+    <Services />
+    <Portfolio />
+    <Testimonials />
+    <Team />
+    <Contact />
+  </MainLayout>
+  <MobileMenu />
+  <ScrollToTop />
+</BaseLayout>

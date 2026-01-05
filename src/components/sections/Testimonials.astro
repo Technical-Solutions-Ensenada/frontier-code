@@ -1,0 +1,71 @@
+---
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+import Card from '../ui/Card.astro';
+---
+
+<Section id="testimonials" background="slate">
+  <Container>
+    <div class="text-center mb-12">
+      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+        Lo Que Dicen Nuestros Clientes
+      </h2>
+      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        Historias de éxito de empresas que confiaron en nosotros.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Testimonial 1 -->
+      <Card class="p-6">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold">
+            JD
+          </div>
+          <div class="ml-4">
+            <h4 class="font-semibold text-slate-900">Juan Díaz</h4>
+            <p class="text-sm text-slate-600">CEO, TechStartup</p>
+          </div>
+        </div>
+        <p class="text-slate-600 italic">
+          "Frontier Code transformó nuestra visión en realidad. Su equipo profesional y su atención al detalle hicieron que el proyecto fuera un éxito total."
+        </p>
+        <div class="mt-4 text-yellow-400">★★★★★</div>
+      </Card>
+
+      <!-- Testimonial 2 -->
+      <Card class="p-6">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white font-bold">
+            MG
+          </div>
+          <div class="ml-4">
+            <h4 class="font-semibold text-slate-900">María García</h4>
+            <p class="text-sm text-slate-600">CTO, InnovateCo</p>
+          </div>
+        </div>
+        <p class="text-slate-600 italic">
+          "Excelente trabajo en el desarrollo de nuestra plataforma. Cumplieron con todos los plazos y superaron nuestras expectativas."
+        </p>
+        <div class="mt-4 text-yellow-400">★★★★★</div>
+      </Card>
+
+      <!-- Testimonial 3 -->
+      <Card class="p-6">
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center text-white font-bold">
+            CR
+          </div>
+          <div class="ml-4">
+            <h4 class="font-semibold text-slate-900">Carlos Rodríguez</h4>
+            <p class="text-sm text-slate-600">Fundador, CloudApp</p>
+          </div>
+        </div>
+        <p class="text-slate-600 italic">
+          "La mejor decisión que tomamos fue trabajar con Frontier Code. Su experiencia en desarrollo cloud nos ayudó a escalar nuestro negocio."
+        </p>
+        <div class="mt-4 text-yellow-400">★★★★★</div>
+      </Card>
+    </div>
+  </Container>
+</Section>

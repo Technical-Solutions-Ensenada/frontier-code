@@ -1,0 +1,52 @@
+---
+import Container from '../ui/Container.astro';
+import Section from '../ui/Section.astro';
+---
+
+<Section id="about">
+  <Container>
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+          Sobre Nosotros
+        </h2>
+        <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+          Somos un equipo apasionado por la tecnología y la innovación.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h3 class="text-2xl font-semibold text-slate-900 mb-4">
+            Nuestra Historia
+          </h3>
+          <p class="text-slate-600 mb-4">
+            Fundada con la visión de transformar negocios a través del software, Frontier Code se ha consolidado como un referente en desarrollo de soluciones tecnológicas.
+          </p>
+          <p class="text-slate-600">
+            Combinamos experiencia técnica con un profundo entendimiento de las necesidades empresariales para crear productos que generan valor real.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6">
+          <div class="text-center p-6 bg-blue-50 rounded-lg">
+            <div class="text-4xl font-bold text-blue-600 mb-2">50+</div>
+            <div class="text-slate-600">Proyectos</div>
+          </div>
+          <div class="text-center p-6 bg-blue-50 rounded-lg">
+            <div class="text-4xl font-bold text-blue-600 mb-2">5+</div>
+            <div class="text-slate-600">Años</div>
+          </div>
+          <div class="text-center p-6 bg-blue-50 rounded-lg">
+            <div class="text-4xl font-bold text-blue-600 mb-2">30+</div>
+            <div class="text-slate-600">Clientes</div>
+          </div>
+          <div class="text-center p-6 bg-blue-50 rounded-lg">
+            <div class="text-4xl font-bold text-blue-600 mb-2">15+</div>
+            <div class="text-slate-600">Expertos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Container>
+</Section>
