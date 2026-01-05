@@ -86,3 +86,7 @@ Currently implemented islands: `ScrollToTop`, `MobileMenu`, `ContactForm`.
 ### Routing
 
 Astro uses file-based routing in `src/pages/`. The main page is `index.astro` which composes various section components.
+
+Do not commit automatically at least user requests.
+Do not use custom css or classes, just tailwind classes.
+Use primary and secondary colors in themes.css when needed.
