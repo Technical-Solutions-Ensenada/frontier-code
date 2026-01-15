@@ -58,10 +58,7 @@ pnpm run astro ...    # Run Astro CLI commands
 ```
 
 ### Testing & Linting
-No test or lint scripts configured yet. To add testing:
-- Consider Vitest for unit tests
-- Consider Astro's built-in check: `pnpm run astro check`
-- No linting setup (no ESLint/Prettier configured)
+Alway run npm run build after finishing development to ensure there is no errors.
 
 ## Code Structure
 
