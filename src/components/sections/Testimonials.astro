@@ -4,67 +4,72 @@ import Section from '../ui/Section.astro';
 import Card from '../ui/Card.astro';
 ---
 
-<Section id="testimonials" background="slate">
+<Section id="testimonials" class="relative py-16 sm:py-20 lg:py-24 bg-slate-950 overflow-hidden">
+  <div class="absolute top-1/2 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse"></div>
+  <div class="absolute top-1/3 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse" style="animation-delay: 0.5s;"></div>
+  
   <Container>
-    <div class="text-center mb-12">
-      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-        Lo Que Dicen Nuestros Clientes
+    <div class="text-center mb-16">
+      <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-4">
+        <span class="bg-gradient-to-r from-cyan-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent">
+          Lo Que Dicen Nuestros Clientes
+        </span>
       </h2>
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+      <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
         Historias de éxito de empresas que confiaron en nosotros.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       <!-- Testimonial 1 -->
-      <Card class="p-6">
+      <Card class="p-6 border border-slate-800/50 hover:border-cyan-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50">
         <div class="flex items-center mb-4">
-          <div class="w-12 h-12 rounded-full bg-linear-to-br from-blue-400 to-blue-600 flex items-center justify-center text-white font-bold">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400 to-cyan-600 flex items-center justify-center text-white font-bold">
             JD
           </div>
           <div class="ml-4">
-            <h4 class="font-semibold text-slate-900">Juan Díaz</h4>
-            <p class="text-sm text-slate-600">CEO, TechStartup</p>
+            <h4 class="font-semibold text-white">Juan Díaz</h4>
+            <p class="text-sm text-slate-400">CEO, TechStartup</p>
           </div>
         </div>
-        <p class="text-slate-600 italic">
+        <p class="text-slate-300 italic leading-relaxed">
           "Frontier Code transformó nuestra visión en realidad. Su equipo profesional y su atención al detalle hicieron que el proyecto fuera un éxito total."
         </p>
-        <div class="mt-4 text-yellow-400">★★★★★</div>
+        <div class="mt-4 text-cyan-400">★★★★★</div>
       </Card>
 
       <!-- Testimonial 2 -->
-      <Card class="p-6">
+      <Card class="p-6 border border-slate-800/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50">
         <div class="flex items-center mb-4">
-          <div class="w-12 h-12 rounded-full bg-linear-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white font-bold">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center text-white font-bold">
             MG
           </div>
           <div class="ml-4">
-            <h4 class="font-semibold text-slate-900">María García</h4>
-            <p class="text-sm text-slate-600">CTO, InnovateCo</p>
+            <h4 class="font-semibold text-white">María García</h4>
+            <p class="text-sm text-slate-400">CTO, InnovateCo</p>
           </div>
         </div>
-        <p class="text-slate-600 italic">
+        <p class="text-slate-300 italic leading-relaxed">
           "Excelente trabajo en el desarrollo de nuestra plataforma. Cumplieron con todos los plazos y superaron nuestras expectativas."
         </p>
-        <div class="mt-4 text-yellow-400">★★★★★</div>
+        <div class="mt-4 text-purple-400">★★★★★</div>
       </Card>
 
       <!-- Testimonial 3 -->
-      <Card class="p-6">
+      <Card class="p-6 border border-slate-800/50 hover:border-cyan-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50">
         <div class="flex items-center mb-4">
-          <div class="w-12 h-12 rounded-full bg-linear-to-br from-green-400 to-green-600 flex items-center justify-center text-white font-bold">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-400 to-purple-400 flex items-center justify-center text-white font-bold">
             CR
           </div>
           <div class="ml-4">
-            <h4 class="font-semibold text-slate-900">Carlos Rodríguez</h4>
-            <p class="text-sm text-slate-600">Fundador, CloudApp</p>
+            <h4 class="font-semibold text-white">Carlos Rodríguez</h4>
+            <p class="text-sm text-slate-400">Fundador, CloudApp</p>
           </div>
         </div>
-        <p class="text-slate-600 italic">
+        <p class="text-slate-300 italic leading-relaxed">
           "La mejor decisión que tomamos fue trabajar con Frontier Code. Su experiencia en desarrollo cloud nos ayudó a escalar nuestro negocio."
         </p>
-        <div class="mt-4 text-yellow-400">★★★★★</div>
+        <div class="mt-4 text-cyan-400">★★★★★</div>
       </Card>
     </div>
   </Container>

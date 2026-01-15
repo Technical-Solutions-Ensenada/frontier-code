@@ -4,46 +4,52 @@ import Section from '../ui/Section.astro';
 ---
 
 <Section id="about">
+  <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"></div>
+  <div class="absolute top-1/4 right-1/4 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
+  <div class="absolute bottom-1/4 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
+  
   <Container>
-    <div class="max-w-4xl mx-auto">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-          Sobre Nosotros
+    <div class="relative z-10 max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+          <span class="bg-gradient-to-r from-cyan-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent">
+            Sobre Nosotros
+          </span>
         </h2>
-        <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+        <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
           Somos un equipo apasionado por la tecnología y la innovación.
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
         <div>
-          <h3 class="text-2xl font-semibold text-slate-900 mb-4">
+          <h3 class="text-2xl sm:text-3xl font-semibold text-white mb-6">
             Nuestra Historia
           </h3>
-          <p class="text-slate-600 mb-4">
+          <p class="text-slate-400 mb-4 leading-relaxed">
             Fundada con la visión de transformar negocios a través del software, Frontier Code se ha consolidado como un referente en desarrollo de soluciones tecnológicas.
           </p>
-          <p class="text-slate-600">
+          <p class="text-slate-400 leading-relaxed">
             Combinamos experiencia técnica con un profundo entendimiento de las necesidades empresariales para crear productos que generan valor real.
           </p>
         </div>
 
         <div class="grid grid-cols-2 gap-6">
-          <div class="text-center p-6 bg-blue-50 rounded-lg">
-            <div class="text-4xl font-bold text-blue-600 mb-2">50+</div>
-            <div class="text-slate-600">Proyectos</div>
+          <div class="text-center p-6 bg-slate-800/50 border border-cyan-500/30 rounded-lg hover:border-cyan-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50">
+            <div class="text-4xl sm:text-5xl font-bold text-cyan-400 mb-2">50+</div>
+            <div class="text-slate-300">Proyectos</div>
           </div>
-          <div class="text-center p-6 bg-blue-50 rounded-lg">
-            <div class="text-4xl font-bold text-blue-600 mb-2">5+</div>
-            <div class="text-slate-600">Años</div>
+          <div class="text-center p-6 bg-slate-800/50 border border-purple-500/30 rounded-lg hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50">
+            <div class="text-4xl sm:text-5xl font-bold text-purple-400 mb-2">5+</div>
+            <div class="text-slate-300">Años</div>
           </div>
-          <div class="text-center p-6 bg-blue-50 rounded-lg">
-            <div class="text-4xl font-bold text-blue-600 mb-2">30+</div>
-            <div class="text-slate-600">Clientes</div>
+          <div class="text-center p-6 bg-slate-800/50 border border-cyan-500/30 rounded-lg hover:border-cyan-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50">
+            <div class="text-4xl sm:text-5xl font-bold text-cyan-400 mb-2">30+</div>
+            <div class="text-slate-300">Clientes</div>
           </div>
-          <div class="text-center p-6 bg-blue-50 rounded-lg">
-            <div class="text-4xl font-bold text-blue-600 mb-2">15+</div>
-            <div class="text-slate-600">Expertos</div>
+          <div class="text-center p-6 bg-slate-800/50 border border-purple-500/30 rounded-lg hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50">
+            <div class="text-4xl sm:text-5xl font-bold text-purple-400 mb-2">15+</div>
+            <div class="text-slate-300">Expertos</div>
           </div>
         </div>
       </div>
