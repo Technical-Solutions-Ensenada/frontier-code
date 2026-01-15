@@ -23,6 +23,7 @@ Use these skills for detailed patterns on-demand:
 | Skill | Description | URL |
 |-------|-------------|-----|
 | `skill-creator` | Create new AI agent skills | [SKILL.md](skills/skill-creator/SKILL.md) |
+| `frontier-ui` | Frontier Code UI standards (dark theme, cyan/purple accents, gradients) | [SKILL.md](skills/frontier-ui/SKILL.md) |
 
 ### Auto-invoke Skills
 
@@ -34,6 +35,7 @@ When performing these actions, ALWAYS invoke the corresponding skill FIRST:
 | Creating/modifying Astro files (.astro) | `astro` |
 | Writing TypeScript types/interfaces | `typescript` |
 | Working with Tailwind classes | `tailwind-4` |
+| Creating/modifying UI components, sections, or visual elements | `frontier-ui` |
 
 ## Project Overview
 
