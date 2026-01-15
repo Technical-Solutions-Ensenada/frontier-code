@@ -1,0 +1,41 @@
+---
+interface Props {
+  variant?: 'default' | 'primary' | 'secondary';
+  size?: 'sm' | 'md' | 'lg';
+  disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+}
+
+const { 
+  variant = 'default', 
+  size = 'md',
+  disabled = false,
+  type = 'button'
+} = Astro.props;
+---
+
+<button
+  type={type}
+  disabled={disabled}
+  class={`
+    inline-flex items-center justify-center
+    font-medium rounded-md
+    transition-colors duration-200
+    focus:outline-none focus:ring-2 focus:ring-offset-2
+    disabled:opacity-50 disabled:cursor-not-allowed
+    ${size === 'sm' ? 'px-3 py-1.5 text-sm' : ''}
+    ${size === 'md' ? 'px-4 py-2 text-base' : ''}
+    ${size === 'lg' ? 'px-6 py-3 text-lg' : ''}
+    ${variant === 'primary' 
+      ? 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500' 
+      : ''}
+    ${variant === 'secondary' 
+      ? 'bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500' 
+      : ''}
+    ${variant === 'default' 
+      ? 'bg-white text-gray-900 border border-gray-300 hover:bg-gray-50 focus:ring-gray-500' 
+      : ''}
+  `}
+>
+  <slot />
+</button>

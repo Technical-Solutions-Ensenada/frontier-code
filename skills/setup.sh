@@ -4,6 +4,7 @@
 #   - Claude Code: .claude/skills/ symlink + CLAUDE.md copies
 #   - Gemini CLI: .gemini/skills/ symlink + GEMINI.md copies
 #   - Codex (OpenAI): .codex/skills/ symlink + AGENTS.md (native)
+#   - OpenCode: .opencode/skills/ symlink + OPENCODE.md copies
 #   - GitHub Copilot: .github/copilot-instructions.md copy
 #
 # Usage:
@@ -31,6 +32,7 @@ NC='\033[0m' # No Color
 SETUP_CLAUDE=false
 SETUP_GEMINI=false
 SETUP_CODEX=false
+SETUP_OPENCODE=false
 SETUP_COPILOT=false
 
 # =============================================================================
@@ -47,6 +49,7 @@ show_help() {
     echo "  --claude    Configure Claude Code"
     echo "  --gemini    Configure Gemini CLI"
     echo "  --codex     Configure Codex (OpenAI)"
+    echo "  --opencode  Configure OpenCode"
     echo "  --copilot   Configure GitHub Copilot"
     echo "  --help      Show this help message"
     echo ""
@@ -63,8 +66,8 @@ show_menu() {
     echo -e "${CYAN}(Use numbers to toggle, Enter to confirm)${NC}"
     echo ""
 
-    local options=("Claude Code" "Gemini CLI" "Codex (OpenAI)" "GitHub Copilot")
-    local selected=(true false false false)  # Claude selected by default
+    local options=("Claude Code" "Gemini CLI" "Codex (OpenAI)" "OpenCode" "GitHub Copilot")
+    local selected=(true false false false false)  # Claude selected by default
 
     while true; do
         for i in "${!options[@]}"; do
@@ -78,7 +81,7 @@ show_menu() {
         echo -e "  ${YELLOW}a${NC}. Select all"
         echo -e "  ${YELLOW}n${NC}. Select none"
         echo ""
-        echo -n "Toggle (1-4, a, n) or Enter to confirm: "
+        echo -n "Toggle (1-5, a, n) or Enter to confirm: "
 
         read -r choice
 
@@ -87,20 +90,22 @@ show_menu() {
             2) selected[1]=$([ "${selected[1]}" = true ] && echo false || echo true) ;;
             3) selected[2]=$([ "${selected[2]}" = true ] && echo false || echo true) ;;
             4) selected[3]=$([ "${selected[3]}" = true ] && echo false || echo true) ;;
-            a|A) selected=(true true true true) ;;
-            n|N) selected=(false false false false) ;;
+            5) selected[4]=$([ "${selected[4]}" = true ] && echo false || echo true) ;;
+            a|A) selected=(true true true true true) ;;
+            n|N) selected=(false false false false false) ;;
             "") break ;;
             *) echo -e "${RED}Invalid option${NC}" ;;
         esac
 
         # Move cursor up to redraw menu
-        echo -en "\033[10A\033[J"
+        echo -en "\033[11A\033[J"
     done
 
     SETUP_CLAUDE=${selected[0]}
     SETUP_GEMINI=${selected[1]}
     SETUP_CODEX=${selected[2]}
-    SETUP_COPILOT=${selected[3]}
+    SETUP_OPENCODE=${selected[3]}
+    SETUP_COPILOT=${selected[4]}
 }
 
 setup_claude() {
@@ -161,6 +166,26 @@ setup_codex() {
     echo -e "${GREEN}  ✓ Codex uses AGENTS.md natively${NC}"
 }
 
+setup_opencode() {
+    local target="$REPO_ROOT/.opencode/skills"
+
+    if [ ! -d "$REPO_ROOT/.opencode" ]; then
+        mkdir -p "$REPO_ROOT/.opencode"
+    fi
+
+    if [ -L "$target" ]; then
+        rm "$target"
+    elif [ -d "$target" ]; then
+        mv "$target" "$REPO_ROOT/.opencode/skills.backup.$(date +%s)"
+    fi
+
+    ln -s "$SKILLS_SOURCE" "$target"
+    echo -e "${GREEN}  ✓ .opencode/skills -> skills/${NC}"
+
+    # Copy AGENTS.md to AGENTS.md
+    copy_agents_md "AGENTS.md"
+}
+
 setup_copilot() {
     if [ -f "$REPO_ROOT/AGENTS.md" ]; then
         mkdir -p "$REPO_ROOT/.github"
@@ -196,6 +221,7 @@ while [[ $# -gt 0 ]]; do
             SETUP_CLAUDE=true
             SETUP_GEMINI=true
             SETUP_CODEX=true
+            SETUP_OPENCODE=true
             SETUP_COPILOT=true
             shift
             ;;
@@ -209,6 +235,10 @@ while [[ $# -gt 0 ]]; do
             ;;
         --codex)
             SETUP_CODEX=true
+            shift
+            ;;
+        --opencode)
+            SETUP_OPENCODE=true
             shift
             ;;
         --copilot)
@@ -247,13 +277,13 @@ echo -e "${BLUE}Found $SKILL_COUNT skills to configure${NC}"
 echo ""
 
 # Interactive mode if no flags provided
-if [ "$SETUP_CLAUDE" = false ] && [ "$SETUP_GEMINI" = false ] && [ "$SETUP_CODEX" = false ] && [ "$SETUP_COPILOT" = false ]; then
+if [ "$SETUP_CLAUDE" = false ] && [ "$SETUP_GEMINI" = false ] && [ "$SETUP_CODEX" = false ] && [ "$SETUP_OPENCODE" = false ] && [ "$SETUP_COPILOT" = false ]; then
     show_menu
     echo ""
 fi
 
 # Check if at least one selected
-if [ "$SETUP_CLAUDE" = false ] && [ "$SETUP_GEMINI" = false ] && [ "$SETUP_CODEX" = false ] && [ "$SETUP_COPILOT" = false ]; then
+if [ "$SETUP_CLAUDE" = false ] && [ "$SETUP_GEMINI" = false ] && [ "$SETUP_CODEX" = false ] && [ "$SETUP_OPENCODE" = false ] && [ "$SETUP_COPILOT" = false ]; then
     echo -e "${YELLOW}No AI assistants selected. Nothing to do.${NC}"
     exit 0
 fi
@@ -264,6 +294,7 @@ TOTAL=0
 [ "$SETUP_CLAUDE" = true ] && TOTAL=$((TOTAL + 1))
 [ "$SETUP_GEMINI" = true ] && TOTAL=$((TOTAL + 1))
 [ "$SETUP_CODEX" = true ] && TOTAL=$((TOTAL + 1))
+[ "$SETUP_OPENCODE" = true ] && TOTAL=$((TOTAL + 1))
 [ "$SETUP_COPILOT" = true ] && TOTAL=$((TOTAL + 1))
 
 if [ "$SETUP_CLAUDE" = true ]; then
@@ -284,6 +315,12 @@ if [ "$SETUP_CODEX" = true ]; then
     STEP=$((STEP + 1))
 fi
 
+if [ "$SETUP_OPENCODE" = true ]; then
+    echo -e "${YELLOW}[$STEP/$TOTAL] Setting up OpenCode...${NC}"
+    setup_opencode
+    STEP=$((STEP + 1))
+fi
+
 if [ "$SETUP_COPILOT" = true ]; then
     echo -e "${YELLOW}[$STEP/$TOTAL] Setting up GitHub Copilot...${NC}"
     setup_copilot
@@ -299,6 +336,7 @@ echo "Configured:"
 [ "$SETUP_CLAUDE" = true ] && echo "  • Claude Code:    .claude/skills/ + CLAUDE.md"
 [ "$SETUP_CODEX" = true ] && echo "  • Codex (OpenAI): .codex/skills/ + AGENTS.md (native)"
 [ "$SETUP_GEMINI" = true ] && echo "  • Gemini CLI:     .gemini/skills/ + GEMINI.md"
+[ "$SETUP_OPENCODE" = true ] && echo "  • OpenCode:       .opencode/skills/ + OPENCODE.md"
 [ "$SETUP_COPILOT" = true ] && echo "  • GitHub Copilot: .github/copilot-instructions.md"
 echo ""
 echo -e "${BLUE}Note: Restart your AI assistant to load the skills.${NC}"

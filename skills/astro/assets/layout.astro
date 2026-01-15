@@ -1,0 +1,31 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalURL?: string;
+}
+
+const { 
+  title, 
+  description = 'Default description',
+  canonicalURL
+} = Astro.props;
+
+const url = canonicalURL || new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={url} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
