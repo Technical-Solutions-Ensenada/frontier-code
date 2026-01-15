@@ -1,25 +1,172 @@
 ---
 import Container from '../ui/Container.astro';
-import Button from '../ui/Button.astro';
 ---
 
-<section id="hero" class="relative bg-linear-to-br from-blue-600 to-blue-800 text-white py-20 sm:py-28 lg:py-36">
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-950">
+  <div id="particles" class="absolute inset-0 opacity-20"></div>
+  
+  <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"></div>
+  
+  <div class="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl animate-pulse"></div>
+  <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-3xl"></div>
+  
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(0,245,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,245,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+  
   <Container>
-    <div class="max-w-4xl mx-auto text-center">
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-        Transformamos Ideas en Software
+    <div class="relative z-10 max-w-5xl mx-auto text-center">
+      <div class="mb-8 inline-block">
+        <span class="px-4 py-2 bg-slate-800/50 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-mono">
+          &lt;Frontier /&gt;
+        </span>
+      </div>
+      
+      <h1 class="mb-8">
+        <span id="frontier-text" class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold inline-block transition-all duration-500">
+          <span class="bg-gradient-to-r from-cyan-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent animate-pulse"
+                style="text-shadow: 0 0 40px rgba(0, 245, 255, 0.5);">
+            Frontier
+          </span>
+        </span>
+        <span id="code-text" class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold font-mono ml-2">
+          <span class="text-green-400">&lt;</span>
+          <span class="text-green-400">Code</span>
+          <span class="text-green-400">/&gt;</span>
+        </span>
       </h1>
-      <p class="text-xl sm:text-2xl text-blue-100 mb-10 max-w-2xl mx-auto">
-        Desarrollo de software a medida para empresas que buscan innovar y crecer en el mundo digital.
+      
+      <div class="h-20 sm:h-24 md:h-28 mb-12">
+        <p class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-slate-300">
+          <span id="prefix-text" class="text-slate-400">Creamos</span>
+          <span id="dynamic-word" class="text-transparent bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text font-semibold ml-3 transition-all duration-300"></span>
+          <span id="suffix-text" class="text-slate-400"></span>
+          <span id="word-cursor" class="inline-block w-2 h-8 sm:h-10 md:h-12 bg-purple-400 ml-2 animate-blink" style="animation-delay: 0.2s;"></span>
+        </p>
+      </div>
+      
+      <p class="text-lg sm:text-xl text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+        Transformamos visiones ambiciosas en soluciones digitales de vanguardia. 
+        Código limpio, arquitectura sólida y experiencias que impresionan.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button href="#contact" variant="secondary" size="lg">
-          Contactar
-        </Button>
-        <Button href="#services" variant="outline" size="lg" class="!border-white !text-white hover:!bg-white/10">
-          Servicios
-        </Button>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a 
+          href="#contact"
+          class="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50"
+        >
+          <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <span class="relative flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            <span id="dynamic-cta">Impulsa Tu Eficiencia</span>
+          </span>
+        </a>
+        
+        <a 
+          href="#services"
+          class="px-8 py-4 border-2 border-cyan-500/50 text-cyan-400 font-semibold rounded-lg hover:bg-cyan-500/10 hover:border-cyan-400 hover:text-cyan-300 transition-all duration-300 hover:scale-105"
+        >
+          Ver Servicios
+        </a>
+      </div>
+      
+      <div class="mt-16 flex flex-wrap justify-center gap-8 text-slate-500 text-sm font-mono">
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+          <span>Eficiencia Operativa</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-cyan-500 rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+          <span>Automatización Inteligente</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-purple-500 rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
+          <span>Reducción de Costos</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-blue-500 rounded-full animate-pulse" style="animation-delay: 0.6s;"></div>
+          <span>Escalabilidad de Operaciones</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-orange-500 rounded-full animate-pulse" style="animation-delay: 0.8s;"></div>
+          <span>Resultados Medibles</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-pink-500 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+          <span>Procesos Integrados</span>
+        </div>
       </div>
     </div>
   </Container>
+  
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
 </section>
+
+<style>
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  
+  .animate-blink {
+    animation: blink 1s infinite;
+  }
+</style>
+
+<script define:vars={{ words: ['eficiencia', 'automatización', 'rentabilidad', 'escalamiento', 'inteligencia', 'crecimiento', 'innovación', 'transformación'] }}>
+  const dynamicWord = document.getElementById('dynamic-word');
+  const wordCursor = document.getElementById('word-cursor');
+  const dynamicCTA = document.getElementById('dynamic-cta');
+  
+  let wordIndex = 0;
+  let charIndexWord = 0;
+  let isDeletingWord = false;
+  
+  const ctaPhrases = [
+    'Impulsa Tu Eficiencia',
+    'Maximiza Resultados Hoy',
+    'Escala Tu Operación',
+    'Automatiza Procesos Ya'
+  ];
+  
+  const randomCTAIndex = Math.floor(Math.random() * ctaPhrases.length);
+  dynamicCTA.textContent = ctaPhrases[randomCTAIndex];
+  
+  function typeDynamicWord() {
+    const currentWord = words[wordIndex];
+    
+    if (!isDeletingWord) {
+      dynamicWord.textContent = currentWord.substring(0, charIndexWord + 1);
+      charIndexWord++;
+      
+      if (charIndexWord === currentWord.length) {
+        setTimeout(() => {
+          isDeletingWord = true;
+          setTimeout(typeDynamicWord, 2000);
+        }, 2000);
+        return;
+      }
+    } else {
+      dynamicWord.textContent = currentWord.substring(0, charIndexWord - 1);
+      charIndexWord--;
+      
+      if (charIndexWord === 0) {
+        isDeletingWord = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        setTimeout(typeDynamicWord, 500);
+        return;
+      }
+    }
+    
+    setTimeout(typeDynamicWord, isDeletingWord ? 50 : 100);
+  }
+  
+  setTimeout(() => {
+    typeDynamicWord();
+  }, 2500);
+</script>
