@@ -3,56 +3,94 @@ import Container from '../ui/Container.astro';
 import Section from '../ui/Section.astro';
 ---
 
-<Section id="about">
-  <div class="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950"></div>
-  <div class="absolute top-1/4 right-1/4 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl"></div>
-  <div class="absolute bottom-1/4 left-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
-  
+<Section id="about" background="dark">
   <Container>
-    <div class="relative z-10 max-w-6xl mx-auto">
-      <div class="text-center mb-16">
-        <h2 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-          <span class="bg-gradient-to-r from-cyan-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent">
-            Sobre Nosotros
-          </span>
-        </h2>
-        <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
-          Somos un equipo apasionado por la tecnología y la innovación.
-        </p>
-      </div>
+    <div class="text-center mb-16">
+      <span class="text-sm sm:text-base font-mono text-cyan-400 tracking-widest uppercase mb-4 block">
+        Cómo Trabajamos
+      </span>
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-300 mb-6">
+        <span class="bg-gradient-to-r from-cyan-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent">
+          Nuestro Proceso
+        </span>
+      </h2>
+    </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <div>
-          <h3 class="text-2xl sm:text-3xl font-semibold text-white mb-6">
-            Nuestra Historia
-          </h3>
-          <p class="text-slate-400 mb-4 leading-relaxed">
-            Fundada con la visión de transformar negocios a través del software, Frontier Code se ha consolidado como un referente en desarrollo de soluciones tecnológicas.
-          </p>
-          <p class="text-slate-400 leading-relaxed">
-            Combinamos experiencia técnica con un profundo entendimiento de las necesidades empresariales para crear productos que generan valor real.
-          </p>
+    <div class="relative">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="relative">
+          <div class="flex flex-col items-center text-center">
+            <div class="relative mb-6 group">
+              <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center shadow-lg shadow-cyan-500/50 transition-all duration-300 hover:scale-110 hover:shadow-cyan-500/70">
+                <span class="text-2xl font-bold text-white">01</span>
+              </div>
+              <div class="absolute top-1/2 -right-8 w-8 h-0.5 bg-gradient-to-r from-cyan-500/50 to-transparent hidden lg:block"></div>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-300 mb-3">
+              Levantamiento de Requerimientos
+            </h3>
+            <p class="text-slate-400 leading-relaxed">
+              Análisis detallado de sistemas actuales y definición precisa de las necesidades del cliente.
+            </p>
+          </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-6">
-          <div class="text-center p-6 bg-slate-800/50 border border-cyan-500/30 rounded-lg hover:border-cyan-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50">
-            <div class="text-4xl sm:text-5xl font-bold text-cyan-400 mb-2">50+</div>
-            <div class="text-slate-300">Proyectos</div>
+        <div class="relative">
+          <div class="flex flex-col items-center text-center">
+            <div class="relative mb-6 group">
+              <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg shadow-purple-500/50 transition-all duration-300 hover:scale-110 hover:shadow-purple-500/70">
+                <span class="text-2xl font-bold text-white">02</span>
+              </div>
+              <div class="absolute top-1/2 -right-8 w-8 h-0.5 bg-gradient-to-r from-purple-500/50 to-transparent hidden lg:block"></div>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-300 mb-3">
+              Prototipo
+            </h3>
+            <p class="text-slate-400 leading-relaxed">
+              Diseño basado en información recopilada, creando modelos interactivos para validación.
+            </p>
           </div>
-          <div class="text-center p-6 bg-slate-800/50 border border-purple-500/30 rounded-lg hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50">
-            <div class="text-4xl sm:text-5xl font-bold text-purple-400 mb-2">5+</div>
-            <div class="text-slate-300">Años</div>
+        </div>
+
+        <div class="relative">
+          <div class="flex flex-col items-center text-center">
+            <div class="relative mb-6 group">
+              <div class="w-20 h-20 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center shadow-lg shadow-cyan-500/50 transition-all duration-300 hover:scale-110 hover:shadow-cyan-500/70">
+                <span class="text-2xl font-bold text-white">03</span>
+              </div>
+              <div class="absolute top-1/2 -right-8 w-8 h-0.5 bg-gradient-to-r from-cyan-500/50 to-transparent hidden lg:block"></div>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-300 mb-3">
+              Desarrollo
+            </h3>
+            <p class="text-slate-400 leading-relaxed">
+              Implementación de la solución con las mejores prácticas y tecnologías del mercado.
+            </p>
           </div>
-          <div class="text-center p-6 bg-slate-800/50 border border-cyan-500/30 rounded-lg hover:border-cyan-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50">
-            <div class="text-4xl sm:text-5xl font-bold text-cyan-400 mb-2">30+</div>
-            <div class="text-slate-300">Clientes</div>
-          </div>
-          <div class="text-center p-6 bg-slate-800/50 border border-purple-500/30 rounded-lg hover:border-purple-400 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-purple-500/50">
-            <div class="text-4xl sm:text-5xl font-bold text-purple-400 mb-2">15+</div>
-            <div class="text-slate-300">Expertos</div>
+        </div>
+
+        <div class="relative">
+          <div class="flex flex-col items-center text-center">
+            <div class="relative mb-6 group">
+              <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg shadow-purple-500/50 transition-all duration-300 hover:scale-110 hover:shadow-purple-500/70">
+                <span class="text-2xl font-bold text-white">04</span>
+              </div>
+            </div>
+            <h3 class="text-xl font-semibold text-slate-300 mb-3">
+              Evaluación
+            </h3>
+            <p class="text-slate-400 leading-relaxed">
+              Pruebas exhaustivas, validación de resultados y entrega final con documentación completa.
+            </p>
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="mt-16 text-center max-w-3xl mx-auto">
+      <p class="text-slate-400 leading-relaxed">
+        Nuestras soluciones de software son adaptables a diversos sectores, optimizando procesos e impulsando la transformación digital en industrias textil, industrial, comercial y de servicios.
+      </p>
     </div>
   </Container>
 </Section>
