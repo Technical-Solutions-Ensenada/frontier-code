@@ -1,16 +1,17 @@
 ---
 interface Props {
   class?: string;
-  background?: 'white' | 'slate' | 'blue';
+  background?: 'light' | 'slate' | 'blue' | 'dark';
   id?: string;
 }
 
-const { class: className = '', background = 'white', id } = Astro.props;
+const { class: className = '', background = 'dark', id } = Astro.props;
 
 const backgrounds = {
-  white: 'bg-white',
-  slate: 'bg-slate-50',
-  blue: 'bg-blue-50'
+  light: 'bg-slate-900',
+  slate: 'bg-slate-950',
+  blue: 'bg-blue-950/50',
+  dark: 'bg-slate-950'
 };
 ---
 

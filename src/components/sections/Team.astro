@@ -4,59 +4,59 @@ import Section from '../ui/Section.astro';
 import Card from '../ui/Card.astro';
 ---
 
-<Section id="team">
+<Section id="team" class="bg-slate-950">
   <Container>
     <div class="text-center mb-12">
-      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
         Nuestro Equipo
       </h2>
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+      <p class="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed">
         Profesionales apasionados por la tecnología y la innovación.
       </p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       <!-- Team Member 1 -->
-      <Card class="overflow-hidden">
-        <div class="aspect-square bg-linear-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+      <Card class="overflow-hidden group hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50">
+        <div class="aspect-square bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center group-hover:from-cyan-400 group-hover:to-purple-400 transition-all duration-300">
           <span class="text-white text-4xl font-bold">LP</span>
         </div>
         <div class="p-4 text-center">
-          <h3 class="text-lg font-semibold text-slate-900">Laura Pérez</h3>
-          <p class="text-slate-600 text-sm">CEO & Fundadora</p>
+          <h3 class="text-lg font-semibold text-white">Laura Pérez</h3>
+          <p class="text-cyan-400 text-sm">CEO & Fundadora</p>
         </div>
       </Card>
 
       <!-- Team Member 2 -->
-      <Card class="overflow-hidden">
-        <div class="aspect-square bg-linear-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+      <Card class="overflow-hidden group hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50">
+        <div class="aspect-square bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center group-hover:from-purple-400 group-hover:to-cyan-400 transition-all duration-300">
           <span class="text-white text-4xl font-bold">RM</span>
         </div>
         <div class="p-4 text-center">
-          <h3 class="text-lg font-semibold text-slate-900">Roberto Martínez</h3>
-          <p class="text-slate-600 text-sm">CTO</p>
+          <h3 class="text-lg font-semibold text-white">Roberto Martínez</h3>
+          <p class="text-purple-400 text-sm">CTO</p>
         </div>
       </Card>
 
       <!-- Team Member 3 -->
-      <Card class="overflow-hidden">
-        <div class="aspect-square bg-linear-to-br from-green-400 to-green-600 flex items-center justify-center">
+      <Card class="overflow-hidden group hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/50">
+        <div class="aspect-square bg-gradient-to-br from-cyan-500 to-purple-500 flex items-center justify-center group-hover:from-cyan-400 group-hover:to-purple-400 transition-all duration-300">
           <span class="text-white text-4xl font-bold">AS</span>
         </div>
         <div class="p-4 text-center">
-          <h3 class="text-lg font-semibold text-slate-900">Ana Sánchez</h3>
-          <p class="text-slate-600 text-sm">Lead Developer</p>
+          <h3 class="text-lg font-semibold text-white">Ana Sánchez</h3>
+          <p class="text-cyan-400 text-sm">Lead Developer</p>
         </div>
       </Card>
 
       <!-- Team Member 4 -->
-      <Card class="overflow-hidden">
-        <div class="aspect-square bg-linear-to-br from-orange-400 to-orange-600 flex items-center justify-center">
+      <Card class="overflow-hidden group hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50">
+        <div class="aspect-square bg-gradient-to-br from-purple-500 to-cyan-500 flex items-center justify-center group-hover:from-purple-400 group-hover:to-cyan-400 transition-all duration-300">
           <span class="text-white text-4xl font-bold">DL</span>
         </div>
         <div class="p-4 text-center">
-          <h3 class="text-lg font-semibold text-slate-900">David López</h3>
-          <p class="text-slate-600 text-sm">UX Designer</p>
+          <h3 class="text-lg font-semibold text-white">David López</h3>
+          <p class="text-purple-400 text-sm">UX Designer</p>
         </div>
       </Card>
     </div>

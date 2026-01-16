@@ -7,6 +7,6 @@ interface Props {
 const { class: className = '', hover = true } = Astro.props;
 ---
 
-<div class={`bg-white rounded-lg shadow-md border border-slate-200 ${hover ? 'hover:shadow-lg transition-shadow duration-200' : ''} ${className}`}>
+<div class={`bg-slate-900 rounded-lg shadow-lg border border-slate-800 ${hover ? 'hover:shadow-lg hover:shadow-cyan-500/50 hover:border-cyan-500/30 hover:scale-105 transition-all duration-300' : ''} ${className}`}>
   <slot />
 </div>

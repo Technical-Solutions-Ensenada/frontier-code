@@ -3,79 +3,41 @@ import Container from '../ui/Container.astro';
 import Section from '../ui/Section.astro';
 import Card from '../ui/Card.astro';
 import Button from '../ui/Button.astro';
+import bisteDemo from '../../assets/biste-demo.png';
 ---
 
 <Section id="portfolio">
   <Container>
     <div class="text-center mb-12">
-      <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-        Nuestro Portafolio
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-slate-300 mb-4">
+        <span class="bg-gradient-to-r from-cyan-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent">
+          Nuestro Portafolio
+        </span>
       </h2>
-      <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+      <p class="text-lg sm:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
         Proyectos que demuestran nuestra experiencia y capacidad.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Project 1 -->
-      <Card class="overflow-hidden">
-        <div class="aspect-video bg-linear-to-br from-blue-400 to-blue-600 flex items-center justify-center">
-          <span class="text-white text-lg font-semibold">Proyecto 1</span>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <Card class="overflow-hidden group hover:scale-105 transition-all duration-300">
+        <div class="aspect-video overflow-hidden">
+          <img src={bisteDemo.src} alt="Bisté Demo" class="w-full h-full object-cover" />
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-semibold text-slate-900 mb-2">
-            E-commerce Platform
+          <h3 class="text-xl font-semibold text-slate-300 mb-2">
+            Bisté
           </h3>
-          <p class="text-slate-600 mb-4">
-            Plataforma de comercio electrónico completa con pasarela de pagos.
+          <p class="text-slate-400 leading-relaxed mb-4">
+            Punto de venta con ORM para carnicerías.
           </p>
-          <Button href="#" variant="outline" size="sm">
-            Ver Proyecto
-          </Button>
-        </div>
-      </Card>
-
-      <!-- Project 2 -->
-      <Card class="overflow-hidden">
-        <div class="aspect-video bg-linear-to-br from-purple-400 to-purple-600 flex items-center justify-center">
-          <span class="text-white text-lg font-semibold">Proyecto 2</span>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-slate-900 mb-2">
-            Dashboard Analytics
-          </h3>
-          <p class="text-slate-600 mb-4">
-            Panel de control para análisis de datos en tiempo real.
-          </p>
-          <Button href="#" variant="outline" size="sm">
-            Ver Proyecto
-          </Button>
-        </div>
-      </Card>
-
-      <!-- Project 3 -->
-      <Card class="overflow-hidden">
-        <div class="aspect-video bg-linear-to-br from-green-400 to-green-600 flex items-center justify-center">
-          <span class="text-white text-lg font-semibold">Proyecto 3</span>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-semibold text-slate-900 mb-2">
-            Mobile Banking App
-          </h3>
-          <p class="text-slate-600 mb-4">
-            Aplicación móvil para servicios bancarios seguros.
-          </p>
-          <Button href="#" variant="outline" size="sm">
+          <Button href="https://biste-frontend.vercel.app/demo" variant="outline" size="sm" target="_blank">
             Ver Proyecto
           </Button>
         </div>
       </Card>
     </div>
 
-    <div class="text-center mt-12">
-      <Button href="#" variant="primary" size="lg">
-        Ver Todos los Proyectos
-      </Button>
-    </div>
+
   </Container>
 </Section>

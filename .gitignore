@@ -22,3 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# AI assistants skills symlinks
+.claude/
+.gemini/
+.codex/
+.opencode/
