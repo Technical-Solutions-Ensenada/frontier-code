@@ -1,0 +1,26 @@
+---
+const { number, title, subtitle } = Astro.props;
+---
+
+<div class="relative bg-gradient-to-br from-blue-500/20 to-purple-500/20 backdrop-blur border border-white/20 rounded-2xl p-8 w-full max-w-sm">
+  <div class="absolute top-0 right-0 w-32 h-32 bg-blue-400 rounded-full blur-3xl opacity-20"></div>
+
+  <div class="relative z-10">
+    <div class="text-6xl font-light text-white mb-2">
+      {number}
+    </div>
+
+    <div class="text-blue-200 font-semibold uppercase tracking-wide">
+      {title}
+    </div>
+
+    <div class="text-blue-300 text-sm mt-1">
+      {subtitle}
+    </div>
+
+    <div class="mt-4 w-16 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></div>
+  </div>
+</div>
+
+
+
