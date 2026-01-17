@@ -440,7 +440,6 @@ function initCarousel() {
     
     let currentIndex = 0;
     const totalSlides = 6;
-    let autoplayInterval;
     let startX = 0;
     let isDragging = false;
 
@@ -481,52 +480,28 @@ function initCarousel() {
         updateCarousel();
     }
 
-    function startAutoplay() {
-        autoplayInterval = setInterval(nextSlide, 5000);
-    }
-
-    function stopAutoplay() {
-        clearInterval(autoplayInterval);
-    }
-
     // Event listeners
     prevBtn.addEventListener('click', () => {
         prevSlide();
-        stopAutoplay();
-        startAutoplay();
     });
 
     nextBtn.addEventListener('click', () => {
         nextSlide();
-        stopAutoplay();
-        startAutoplay();
     });
 
     indicators.forEach((indicator) => {
         indicator.addEventListener('click', () => {
             const index = parseInt(indicator.getAttribute('data-index'));
             goToSlide(index);
-            stopAutoplay();
-            startAutoplay();
         });
     });
-
-    // Pause autoplay on hover
-    if (carouselContainer) {
-        carouselContainer.addEventListener('mouseenter', stopAutoplay);
-        carouselContainer.addEventListener('mouseleave', startAutoplay);
-    }
 
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') {
             prevSlide();
-            stopAutoplay();
-            startAutoplay();
         } else if (e.key === 'ArrowRight') {
             nextSlide();
-            stopAutoplay();
-            startAutoplay();
         }
     });
 
@@ -555,14 +530,12 @@ function initCarousel() {
                 } else {
                     prevSlide();
                 }
-                stopAutoplay();
-                startAutoplay();
             }
         });
     }
 
-    // Start autoplay
-    startAutoplay();
+    // Initialize first slide as active
+    updateCarousel();
 }
 
 if (document.readyState === 'loading') {
