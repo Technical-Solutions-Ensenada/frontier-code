@@ -147,20 +147,20 @@ import Card from '../ui/Card.astro';
                     <div class="overflow-hidden">
                         <div id="carousel-track" class="flex transition-transform duration-500 ease-out">
                             <!-- Slide 1 -->
-                            <div class="carousel-slide w-full flex-shrink-0 px-4">
-                                <div class="group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-cyan-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10">
-                                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    <div class="absolute -top-1 -right-1 w-20 h-20 bg-cyan-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="carousel-slide w-full flex-shrink-0 px-4 active">
+                                <div class="slide-card group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-cyan-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10">
+                                    <div class="slide-glow absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-cyan-500/5 rounded-2xl opacity-0 transition-opacity duration-500"></div>
+                                    <div class="slide-blur absolute -top-1 -right-1 w-20 h-20 bg-cyan-500/10 rounded-full blur-2xl opacity-0 transition-opacity duration-500"></div>
 
                                     <div class="relative">
                                         <div class="flex items-start gap-5 mb-5">
                                             <div class="flex-shrink-0">
-                                                <div class="w-14 h-14 bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 border-2 border-cyan-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-cyan-400/60 transition-all duration-500 shadow-lg shadow-cyan-500/20">
+                                                <div class="slide-badge w-14 h-14 bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 border-2 border-cyan-500/40 rounded-xl flex items-center justify-center transition-all duration-500 shadow-lg shadow-cyan-500/20">
                                                     <span class="text-2xl font-bold bg-gradient-to-br from-cyan-400 to-cyan-300 text-transparent bg-clip-text">01</span>
                                                 </div>
                                             </div>
                                             <div class="flex-1">
-                                                <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-cyan-300 transition-colors duration-300">
+                                                <h4 class="slide-title text-lg font-bold text-slate-200 mb-2 transition-colors duration-300">
                                                     Infraestructura Cloud
                                                 </h4>
                                                 <p class="text-slate-400 leading-relaxed text-sm">
@@ -168,26 +168,26 @@ import Card from '../ui/Card.astro';
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full transition-all duration-700"></div>
+                                        <div class="slide-bar h-1 w-0 bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full transition-all duration-700"></div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Slide 2 -->
                             <div class="carousel-slide w-full flex-shrink-0 px-4">
-                                <div class="group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-purple-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10">
-                                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    <div class="absolute -top-1 -right-1 w-20 h-20 bg-purple-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="slide-card group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-purple-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10">
+                                    <div class="slide-glow absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/5 rounded-2xl opacity-0 transition-opacity duration-500"></div>
+                                    <div class="slide-blur absolute -top-1 -right-1 w-20 h-20 bg-purple-500/10 rounded-full blur-2xl opacity-0 transition-opacity duration-500"></div>
 
                                     <div class="relative">
                                         <div class="flex items-start gap-5 mb-5">
                                             <div class="flex-shrink-0">
-                                                <div class="w-14 h-14 bg-gradient-to-br from-purple-500/30 to-purple-600/20 border-2 border-purple-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-purple-400/60 transition-all duration-500 shadow-lg shadow-purple-500/20">
+                                                <div class="slide-badge w-14 h-14 bg-gradient-to-br from-purple-500/30 to-purple-600/20 border-2 border-purple-500/40 rounded-xl flex items-center justify-center transition-all duration-500 shadow-lg shadow-purple-500/20">
                                                     <span class="text-2xl font-bold bg-gradient-to-br from-purple-400 to-purple-300 text-transparent bg-clip-text">02</span>
                                                 </div>
                                             </div>
                                             <div class="flex-1">
-                                                <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-purple-300 transition-colors duration-300">
+                                                <h4 class="slide-title text-lg font-bold text-slate-200 mb-2 transition-colors duration-300">
                                                     Automatización de Procesos
                                                 </h4>
                                                 <p class="text-slate-400 leading-relaxed text-sm">
@@ -195,26 +195,26 @@ import Card from '../ui/Card.astro';
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full transition-all duration-700"></div>
+                                        <div class="slide-bar h-1 w-0 bg-gradient-to-r from-purple-500 to-purple-400 rounded-full transition-all duration-700"></div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Slide 3 -->
                             <div class="carousel-slide w-full flex-shrink-0 px-4">
-                                <div class="group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-cyan-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10">
-                                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    <div class="absolute -top-1 -right-1 w-20 h-20 bg-cyan-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="slide-card group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-cyan-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10">
+                                    <div class="slide-glow absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-cyan-500/5 rounded-2xl opacity-0 transition-opacity duration-500"></div>
+                                    <div class="slide-blur absolute -top-1 -right-1 w-20 h-20 bg-cyan-500/10 rounded-full blur-2xl opacity-0 transition-opacity duration-500"></div>
 
                                     <div class="relative">
                                         <div class="flex items-start gap-5 mb-5">
                                             <div class="flex-shrink-0">
-                                                <div class="w-14 h-14 bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 border-2 border-cyan-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-cyan-400/60 transition-all duration-500 shadow-lg shadow-cyan-500/20">
+                                                <div class="slide-badge w-14 h-14 bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 border-2 border-cyan-500/40 rounded-xl flex items-center justify-center transition-all duration-500 shadow-lg shadow-cyan-500/20">
                                                     <span class="text-2xl font-bold bg-gradient-to-br from-cyan-400 to-cyan-300 text-transparent bg-clip-text">03</span>
                                                 </div>
                                             </div>
                                             <div class="flex-1">
-                                                <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-cyan-300 transition-colors duration-300">
+                                                <h4 class="slide-title text-lg font-bold text-slate-200 mb-2 transition-colors duration-300">
                                                     Seguridad y Trazabilidad
                                                 </h4>
                                                 <p class="text-slate-400 leading-relaxed text-sm">
@@ -222,26 +222,26 @@ import Card from '../ui/Card.astro';
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full transition-all duration-700"></div>
+                                        <div class="slide-bar h-1 w-0 bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full transition-all duration-700"></div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Slide 4 -->
                             <div class="carousel-slide w-full flex-shrink-0 px-4">
-                                <div class="group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-purple-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10">
-                                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    <div class="absolute -top-1 -right-1 w-20 h-20 bg-purple-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="slide-card group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-purple-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10">
+                                    <div class="slide-glow absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/5 rounded-2xl opacity-0 transition-opacity duration-500"></div>
+                                    <div class="slide-blur absolute -top-1 -right-1 w-20 h-20 bg-purple-500/10 rounded-full blur-2xl opacity-0 transition-opacity duration-500"></div>
 
                                     <div class="relative">
                                         <div class="flex items-start gap-5 mb-5">
                                             <div class="flex-shrink-0">
-                                                <div class="w-14 h-14 bg-gradient-to-br from-purple-500/30 to-purple-600/20 border-2 border-purple-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-purple-400/60 transition-all duration-500 shadow-lg shadow-purple-500/20">
+                                                <div class="slide-badge w-14 h-14 bg-gradient-to-br from-purple-500/30 to-purple-600/20 border-2 border-purple-500/40 rounded-xl flex items-center justify-center transition-all duration-500 shadow-lg shadow-purple-500/20">
                                                     <span class="text-2xl font-bold bg-gradient-to-br from-purple-400 to-purple-300 text-transparent bg-clip-text">04</span>
                                                 </div>
                                             </div>
                                             <div class="flex-1">
-                                                <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-purple-300 transition-colors duration-300">
+                                                <h4 class="slide-title text-lg font-bold text-slate-200 mb-2 transition-colors duration-300">
                                                     Integración de Sistemas
                                                 </h4>
                                                 <p class="text-slate-400 leading-relaxed text-sm">
@@ -249,26 +249,26 @@ import Card from '../ui/Card.astro';
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full transition-all duration-700"></div>
+                                        <div class="slide-bar h-1 w-0 bg-gradient-to-r from-purple-500 to-purple-400 rounded-full transition-all duration-700"></div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Slide 5 -->
                             <div class="carousel-slide w-full flex-shrink-0 px-4">
-                                <div class="group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-cyan-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10">
-                                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    <div class="absolute -top-1 -right-1 w-20 h-20 bg-cyan-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="slide-card group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-cyan-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10">
+                                    <div class="slide-glow absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-cyan-500/5 rounded-2xl opacity-0 transition-opacity duration-500"></div>
+                                    <div class="slide-blur absolute -top-1 -right-1 w-20 h-20 bg-cyan-500/10 rounded-full blur-2xl opacity-0 transition-opacity duration-500"></div>
 
                                     <div class="relative">
                                         <div class="flex items-start gap-5 mb-5">
                                             <div class="flex-shrink-0">
-                                                <div class="w-14 h-14 bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 border-2 border-cyan-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-cyan-400/60 transition-all duration-500 shadow-lg shadow-cyan-500/20">
+                                                <div class="slide-badge w-14 h-14 bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 border-2 border-cyan-500/40 rounded-xl flex items-center justify-center transition-all duration-500 shadow-lg shadow-cyan-500/20">
                                                     <span class="text-2xl font-bold bg-gradient-to-br from-cyan-400 to-cyan-300 text-transparent bg-clip-text">05</span>
                                                 </div>
                                             </div>
                                             <div class="flex-1">
-                                                <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-cyan-300 transition-colors duration-300">
+                                                <h4 class="slide-title text-lg font-bold text-slate-200 mb-2 transition-colors duration-300">
                                                     DevOps y CI/CD
                                                 </h4>
                                                 <p class="text-slate-400 leading-relaxed text-sm">
@@ -276,26 +276,26 @@ import Card from '../ui/Card.astro';
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full transition-all duration-700"></div>
+                                        <div class="slide-bar h-1 w-0 bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full transition-all duration-700"></div>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- Slide 6 -->
                             <div class="carousel-slide w-full flex-shrink-0 px-4">
-                                <div class="group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-purple-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10">
-                                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    <div class="absolute -top-1 -right-1 w-20 h-20 bg-purple-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                <div class="slide-card group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-purple-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10">
+                                    <div class="slide-glow absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/5 rounded-2xl opacity-0 transition-opacity duration-500"></div>
+                                    <div class="slide-blur absolute -top-1 -right-1 w-20 h-20 bg-purple-500/10 rounded-full blur-2xl opacity-0 transition-opacity duration-500"></div>
 
                                     <div class="relative">
                                         <div class="flex items-start gap-5 mb-5">
                                             <div class="flex-shrink-0">
-                                                <div class="w-14 h-14 bg-gradient-to-br from-purple-500/30 to-purple-600/20 border-2 border-purple-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-purple-400/60 transition-all duration-500 shadow-lg shadow-purple-500/20">
+                                                <div class="slide-badge w-14 h-14 bg-gradient-to-br from-purple-500/30 to-purple-600/20 border-2 border-purple-500/40 rounded-xl flex items-center justify-center transition-all duration-500 shadow-lg shadow-purple-500/20">
                                                     <span class="text-2xl font-bold bg-gradient-to-br from-purple-400 to-purple-300 text-transparent bg-clip-text">06</span>
                                                 </div>
                                             </div>
                                             <div class="flex-1">
-                                                <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-purple-300 transition-colors duration-300">
+                                                <h4 class="slide-title text-lg font-bold text-slate-200 mb-2 transition-colors duration-300">
                                                     Escalabilidad y Performance
                                                 </h4>
                                                 <p class="text-slate-400 leading-relaxed text-sm">
@@ -303,7 +303,7 @@ import Card from '../ui/Card.astro';
                                                 </p>
                                             </div>
                                         </div>
-                                        <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full transition-all duration-700"></div>
+                                        <div class="slide-bar h-1 w-0 bg-gradient-to-r from-purple-500 to-purple-400 rounded-full transition-all duration-700"></div>
                                     </div>
                                 </div>
                             </div>
@@ -358,6 +358,54 @@ import Card from '../ui/Card.astro';
         transform: translateY(0);
     }
 }
+
+/* Carousel slide animations */
+.carousel-slide.active .slide-glow {
+    opacity: 1;
+}
+
+.carousel-slide.active .slide-blur {
+    opacity: 1;
+}
+
+.carousel-slide.active .slide-badge {
+    transform: scale(1.1);
+    border-color: currentColor;
+}
+
+.carousel-slide.active .slide-bar {
+    width: 100%;
+}
+
+.carousel-slide.active .slide-card {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Cyan slides */
+.carousel-slide.active .slide-card:has(.from-cyan-500) {
+    border-color: rgba(6, 182, 212, 0.5);
+}
+
+.carousel-slide.active .slide-card:has(.from-cyan-500) .slide-title {
+    color: rgb(103, 232, 249);
+}
+
+.carousel-slide.active .slide-card:has(.from-cyan-500) .slide-badge {
+    border-color: rgba(6, 182, 212, 0.6);
+}
+
+/* Purple slides */
+.carousel-slide.active .slide-card:has(.from-purple-500) {
+    border-color: rgba(168, 85, 247, 0.5);
+}
+
+.carousel-slide.active .slide-card:has(.from-purple-500) .slide-title {
+    color: rgb(216, 180, 254);
+}
+
+.carousel-slide.active .slide-card:has(.from-purple-500) .slide-badge {
+    border-color: rgba(168, 85, 247, 0.6);
+}
 </style>
 
 <script>
@@ -398,6 +446,14 @@ function initCarousel() {
 
     function updateCarousel() {
         track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Remove active class from all slides
+        document.querySelectorAll('.carousel-slide').forEach(slide => {
+            slide.classList.remove('active');
+        });
+        
+        // Add active class to current slide
+        document.querySelectorAll('.carousel-slide')[currentIndex].classList.add('active');
         
         indicators.forEach((indicator, index) => {
             if (index === currentIndex) {
