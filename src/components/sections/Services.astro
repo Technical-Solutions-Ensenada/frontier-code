@@ -28,7 +28,6 @@ import Card from '../ui/Card.astro';
             </div>
 
             <!-- Main Services Cards -->
-            <!-- Main Services (Same design as feature cards) -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-32">
 
                 <!-- Service 01 -->
@@ -129,7 +128,7 @@ import Card from '../ui/Card.astro';
 
             </div>
 
-            <!-- Additional Features Section -->
+            <!-- Carousel Section -->
             <div class="relative">
                 <div class="text-center mb-16">
                     <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-200 mb-4">
@@ -142,155 +141,195 @@ import Card from '../ui/Card.astro';
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Feature 1 -->
-                    <div class="feature-card group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-cyan-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-cyan-500/10">
-                        <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute -top-1 -right-1 w-20 h-20 bg-cyan-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <!-- Carousel Container -->
+                <div class="relative max-w-4xl mx-auto">
+                    <!-- Carousel Wrapper -->
+                    <div class="overflow-hidden">
+                        <div id="carousel-track" class="flex transition-transform duration-500 ease-out">
+                            <!-- Slide 1 -->
+                            <div class="carousel-slide w-full flex-shrink-0 px-4">
+                                <div class="group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-cyan-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    <div class="absolute -top-1 -right-1 w-20 h-20 bg-cyan-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                        <div class="relative">
-                            <div class="flex items-start gap-5 mb-5">
-                                <div class="flex-shrink-0">
-                                    <div class="w-14 h-14 bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 border-2 border-cyan-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-cyan-400/60 transition-all duration-500 shadow-lg shadow-cyan-500/20">
-                                        <span class="text-2xl font-bold bg-gradient-to-br from-cyan-400 to-cyan-300 text-transparent bg-clip-text">01</span>
+                                    <div class="relative">
+                                        <div class="flex items-start gap-5 mb-5">
+                                            <div class="flex-shrink-0">
+                                                <div class="w-14 h-14 bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 border-2 border-cyan-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-cyan-400/60 transition-all duration-500 shadow-lg shadow-cyan-500/20">
+                                                    <span class="text-2xl font-bold bg-gradient-to-br from-cyan-400 to-cyan-300 text-transparent bg-clip-text">01</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-1">
+                                                <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-cyan-300 transition-colors duration-300">
+                                                    Infraestructura Cloud
+                                                </h4>
+                                                <p class="text-slate-400 leading-relaxed text-sm">
+                                                    Dominio en arquitecturas AWS y microservicios enfocado en eficiencia de costos, rentabilidad operativa y capacidad de manejar alta carga.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full transition-all duration-700"></div>
                                     </div>
                                 </div>
-                                <div class="flex-1">
-                                    <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-cyan-300 transition-colors duration-300">
-                                        Infraestructura Cloud
-                                    </h4>
-                                    <p class="text-slate-400 leading-relaxed text-sm">
-                                        Dominio en arquitecturas AWS y microservicios enfocado en eficiencia de costos, rentabilidad operativa y capacidad de manejar alta carga.
-                                    </p>
+                            </div>
+
+                            <!-- Slide 2 -->
+                            <div class="carousel-slide w-full flex-shrink-0 px-4">
+                                <div class="group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-purple-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    <div class="absolute -top-1 -right-1 w-20 h-20 bg-purple-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                    <div class="relative">
+                                        <div class="flex items-start gap-5 mb-5">
+                                            <div class="flex-shrink-0">
+                                                <div class="w-14 h-14 bg-gradient-to-br from-purple-500/30 to-purple-600/20 border-2 border-purple-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-purple-400/60 transition-all duration-500 shadow-lg shadow-purple-500/20">
+                                                    <span class="text-2xl font-bold bg-gradient-to-br from-purple-400 to-purple-300 text-transparent bg-clip-text">02</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-1">
+                                                <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-purple-300 transition-colors duration-300">
+                                                    Automatización de Procesos
+                                                </h4>
+                                                <p class="text-slate-400 leading-relaxed text-sm">
+                                                    Eliminación de procesos manuales mediante CI/CD, integración con sistemas contables y optimización de cadenas de suministro.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full transition-all duration-700"></div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full transition-all duration-700"></div>
+
+                            <!-- Slide 3 -->
+                            <div class="carousel-slide w-full flex-shrink-0 px-4">
+                                <div class="group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-cyan-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    <div class="absolute -top-1 -right-1 w-20 h-20 bg-cyan-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                    <div class="relative">
+                                        <div class="flex items-start gap-5 mb-5">
+                                            <div class="flex-shrink-0">
+                                                <div class="w-14 h-14 bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 border-2 border-cyan-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-cyan-400/60 transition-all duration-500 shadow-lg shadow-cyan-500/20">
+                                                    <span class="text-2xl font-bold bg-gradient-to-br from-cyan-400 to-cyan-300 text-transparent bg-clip-text">03</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-1">
+                                                <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-cyan-300 transition-colors duration-300">
+                                                    Seguridad y Trazabilidad
+                                                </h4>
+                                                <p class="text-slate-400 leading-relaxed text-sm">
+                                                    Integridad de la información con control de activos, monitoreo en tiempo real de seguridad y cumplimiento normativo.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full transition-all duration-700"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 4 -->
+                            <div class="carousel-slide w-full flex-shrink-0 px-4">
+                                <div class="group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-purple-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    <div class="absolute -top-1 -right-1 w-20 h-20 bg-purple-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                    <div class="relative">
+                                        <div class="flex items-start gap-5 mb-5">
+                                            <div class="flex-shrink-0">
+                                                <div class="w-14 h-14 bg-gradient-to-br from-purple-500/30 to-purple-600/20 border-2 border-purple-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-purple-400/60 transition-all duration-500 shadow-lg shadow-purple-500/20">
+                                                    <span class="text-2xl font-bold bg-gradient-to-br from-purple-400 to-purple-300 text-transparent bg-clip-text">04</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-1">
+                                                <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-purple-300 transition-colors duration-300">
+                                                    Integración de Sistemas
+                                                </h4>
+                                                <p class="text-slate-400 leading-relaxed text-sm">
+                                                    Conectamos sistemas heredados con plataformas modernas, migraciones complejas y sincronización en tiempo real.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full transition-all duration-700"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 5 -->
+                            <div class="carousel-slide w-full flex-shrink-0 px-4">
+                                <div class="group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-cyan-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-cyan-500/10">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    <div class="absolute -top-1 -right-1 w-20 h-20 bg-cyan-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                    <div class="relative">
+                                        <div class="flex items-start gap-5 mb-5">
+                                            <div class="flex-shrink-0">
+                                                <div class="w-14 h-14 bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 border-2 border-cyan-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-cyan-400/60 transition-all duration-500 shadow-lg shadow-cyan-500/20">
+                                                    <span class="text-2xl font-bold bg-gradient-to-br from-cyan-400 to-cyan-300 text-transparent bg-clip-text">05</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-1">
+                                                <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-cyan-300 transition-colors duration-300">
+                                                    DevOps y CI/CD
+                                                </h4>
+                                                <p class="text-slate-400 leading-relaxed text-sm">
+                                                    Pipelines automatizados, despliegues continuos, monitoreo de performance y gestión de infraestructura como código.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full transition-all duration-700"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 6 -->
+                            <div class="carousel-slide w-full flex-shrink-0 px-4">
+                                <div class="group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-purple-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10">
+                                    <div class="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                                    <div class="absolute -top-1 -right-1 w-20 h-20 bg-purple-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                    <div class="relative">
+                                        <div class="flex items-start gap-5 mb-5">
+                                            <div class="flex-shrink-0">
+                                                <div class="w-14 h-14 bg-gradient-to-br from-purple-500/30 to-purple-600/20 border-2 border-purple-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-purple-400/60 transition-all duration-500 shadow-lg shadow-purple-500/20">
+                                                    <span class="text-2xl font-bold bg-gradient-to-br from-purple-400 to-purple-300 text-transparent bg-clip-text">06</span>
+                                                </div>
+                                            </div>
+                                            <div class="flex-1">
+                                                <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-purple-300 transition-colors duration-300">
+                                                    Escalabilidad y Performance
+                                                </h4>
+                                                <p class="text-slate-400 leading-relaxed text-sm">
+                                                    Arquitecturas optimizadas para crecimiento exponencial, balanceo de carga y bases de datos distribuidas de alto rendimiento.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full transition-all duration-700"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Feature 2 -->
-                    <div class="feature-card group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-purple-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/10" style="animation-delay: 0.1s;">
-                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute -top-1 -right-1 w-20 h-20 bg-purple-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <!-- Navigation Buttons -->
+                    <button id="prev-btn" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 sm:-translate-x-12 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-600/50 hover:border-cyan-500/50 rounded-full p-3 transition-all duration-300 hover:scale-110 shadow-lg">
+                        <svg class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    <button id="next-btn" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 sm:translate-x-12 bg-slate-800/80 hover:bg-slate-700/80 border border-slate-600/50 hover:border-cyan-500/50 rounded-full p-3 transition-all duration-300 hover:scale-110 shadow-lg">
+                        <svg class="w-6 h-6 text-slate-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
 
-                        <div class="relative">
-                            <div class="flex items-start gap-5 mb-5">
-                                <div class="flex-shrink-0">
-                                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500/30 to-purple-600/20 border-2 border-purple-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-purple-400/60 transition-all duration-500 shadow-lg shadow-purple-500/20">
-                                        <span class="text-2xl font-bold bg-gradient-to-br from-purple-400 to-purple-300 text-transparent bg-clip-text">02</span>
-                                    </div>
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-purple-300 transition-colors duration-300">
-                                        Automatización de Procesos
-                                    </h4>
-                                    <p class="text-slate-400 leading-relaxed text-sm">
-                                        Eliminación de procesos manuales mediante CI/CD, integración con sistemas contables y optimización de cadenas de suministro.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full transition-all duration-700"></div>
-                        </div>
-                    </div>
-
-                    <!-- Feature 3 -->
-                    <div class="feature-card group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-cyan-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-cyan-500/10" style="animation-delay: 0.2s;">
-                        <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute -top-1 -right-1 w-20 h-20 bg-cyan-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                        <div class="relative">
-                            <div class="flex items-start gap-5 mb-5">
-                                <div class="flex-shrink-0">
-                                    <div class="w-14 h-14 bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 border-2 border-cyan-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-cyan-400/60 transition-all duration-500 shadow-lg shadow-cyan-500/20">
-                                        <span class="text-2xl font-bold bg-gradient-to-br from-cyan-400 to-cyan-300 text-transparent bg-clip-text">03</span>
-                                    </div>
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-cyan-300 transition-colors duration-300">
-                                        Seguridad y Trazabilidad
-                                    </h4>
-                                    <p class="text-slate-400 leading-relaxed text-sm">
-                                        Integridad de la información con control de activos, monitoreo en tiempo real de seguridad y cumplimiento normativo.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full transition-all duration-700"></div>
-                        </div>
-                    </div>
-
-                    <!-- Feature 4 -->
-                    <div class="feature-card group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-purple-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/10" style="animation-delay: 0.3s;">
-                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute -top-1 -right-1 w-20 h-20 bg-purple-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                        <div class="relative">
-                            <div class="flex items-start gap-5 mb-5">
-                                <div class="flex-shrink-0">
-                                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500/30 to-purple-600/20 border-2 border-purple-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-purple-400/60 transition-all duration-500 shadow-lg shadow-purple-500/20">
-                                        <span class="text-2xl font-bold bg-gradient-to-br from-purple-400 to-purple-300 text-transparent bg-clip-text">04</span>
-                                    </div>
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-purple-300 transition-colors duration-300">
-                                        Integración de Sistemas
-                                    </h4>
-                                    <p class="text-slate-400 leading-relaxed text-sm">
-                                        Conectamos sistemas heredados con plataformas modernas, migraciones complejas y sincronización en tiempo real.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full transition-all duration-700"></div>
-                        </div>
-                    </div>
-
-                    <!-- Feature 5 -->
-                    <div class="feature-card group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-cyan-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-cyan-500/10" style="animation-delay: 0.4s;">
-                        <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/0 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute -top-1 -right-1 w-20 h-20 bg-cyan-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                        <div class="relative">
-                            <div class="flex items-start gap-5 mb-5">
-                                <div class="flex-shrink-0">
-                                    <div class="w-14 h-14 bg-gradient-to-br from-cyan-500/30 to-cyan-600/20 border-2 border-cyan-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-cyan-400/60 transition-all duration-500 shadow-lg shadow-cyan-500/20">
-                                        <span class="text-2xl font-bold bg-gradient-to-br from-cyan-400 to-cyan-300 text-transparent bg-clip-text">05</span>
-                                    </div>
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-cyan-300 transition-colors duration-300">
-                                        DevOps y CI/CD
-                                    </h4>
-                                    <p class="text-slate-400 leading-relaxed text-sm">
-                                        Pipelines automatizados, despliegues continuos, monitoreo de performance y gestión de infraestructura como código.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-cyan-500 to-cyan-400 rounded-full transition-all duration-700"></div>
-                        </div>
-                    </div>
-
-                    <!-- Feature 6 -->
-                    <div class="feature-card group relative bg-gradient-to-br from-slate-800/40 to-slate-800/20 border border-slate-700/50 rounded-2xl p-8 hover:border-purple-500/50 hover:bg-slate-800/60 transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl hover:shadow-purple-500/10" style="animation-delay: 0.5s;">
-                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500/0 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                        <div class="absolute -top-1 -right-1 w-20 h-20 bg-purple-500/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                        <div class="relative">
-                            <div class="flex items-start gap-5 mb-5">
-                                <div class="flex-shrink-0">
-                                    <div class="w-14 h-14 bg-gradient-to-br from-purple-500/30 to-purple-600/20 border-2 border-purple-500/40 rounded-xl flex items-center justify-center group-hover:scale-110 group-hover:border-purple-400/60 transition-all duration-500 shadow-lg shadow-purple-500/20">
-                                        <span class="text-2xl font-bold bg-gradient-to-br from-purple-400 to-purple-300 text-transparent bg-clip-text">06</span>
-                                    </div>
-                                </div>
-                                <div class="flex-1">
-                                    <h4 class="text-lg font-bold text-slate-200 mb-2 group-hover:text-purple-300 transition-colors duration-300">
-                                        Escalabilidad y Performance
-                                    </h4>
-                                    <p class="text-slate-400 leading-relaxed text-sm">
-                                        Arquitecturas optimizadas para crecimiento exponencial, balanceo de carga y bases de datos distribuidas de alto rendimiento.
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="h-1 w-0 group-hover:w-full bg-gradient-to-r from-purple-500 to-purple-400 rounded-full transition-all duration-700"></div>
-                        </div>
+                    <!-- Indicators -->
+                    <div class="flex justify-center gap-2 mt-8">
+                        <button class="carousel-indicator w-2 h-2 rounded-full bg-cyan-500 transition-all duration-300" data-index="0"></button>
+                        <button class="carousel-indicator w-2 h-2 rounded-full bg-slate-600 hover:bg-slate-500 transition-all duration-300" data-index="1"></button>
+                        <button class="carousel-indicator w-2 h-2 rounded-full bg-slate-600 hover:bg-slate-500 transition-all duration-300" data-index="2"></button>
+                        <button class="carousel-indicator w-2 h-2 rounded-full bg-slate-600 hover:bg-slate-500 transition-all duration-300" data-index="3"></button>
+                        <button class="carousel-indicator w-2 h-2 rounded-full bg-slate-600 hover:bg-slate-500 transition-all duration-300" data-index="4"></button>
+                        <button class="carousel-indicator w-2 h-2 rounded-full bg-slate-600 hover:bg-slate-500 transition-all duration-300" data-index="5"></button>
                     </div>
                 </div>
             </div>
@@ -310,14 +349,14 @@ import Card from '../ui/Card.astro';
 }
 
 @keyframes fadeInUp {
-from {
-    opacity: 0;
-    transform: translateY(30px);
-}
-to {
-    opacity: 1;
-    transform: translateY(0);
-}
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 </style>
 
@@ -342,11 +381,146 @@ function initFeaturesAnimation() {
     });
 }
 
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initFeaturesAnimation);
-} else {
-    initFeaturesAnimation();
+function initCarousel() {
+    const track = document.getElementById('carousel-track');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const indicators = document.querySelectorAll('.carousel-indicator');
+    const carouselContainer = document.querySelector('.overflow-hidden');
+    
+    if (!track || !prevBtn || !nextBtn) return;
+    
+    let currentIndex = 0;
+    const totalSlides = 6;
+    let autoplayInterval;
+    let startX = 0;
+    let isDragging = false;
+
+    function updateCarousel() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        indicators.forEach((indicator, index) => {
+            if (index === currentIndex) {
+                indicator.classList.remove('bg-slate-600', 'hover:bg-slate-500');
+                indicator.classList.add('bg-cyan-500', 'w-8');
+            } else {
+                indicator.classList.remove('bg-cyan-500', 'w-8');
+                indicator.classList.add('bg-slate-600', 'hover:bg-slate-500', 'w-2');
+            }
+        });
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    }
+
+    function startAutoplay() {
+        autoplayInterval = setInterval(nextSlide, 5000);
+    }
+
+    function stopAutoplay() {
+        clearInterval(autoplayInterval);
+    }
+
+    // Event listeners
+    prevBtn.addEventListener('click', () => {
+        prevSlide();
+        stopAutoplay();
+        startAutoplay();
+    });
+
+    nextBtn.addEventListener('click', () => {
+        nextSlide();
+        stopAutoplay();
+        startAutoplay();
+    });
+
+    indicators.forEach((indicator) => {
+        indicator.addEventListener('click', () => {
+            const index = parseInt(indicator.getAttribute('data-index'));
+            goToSlide(index);
+            stopAutoplay();
+            startAutoplay();
+        });
+    });
+
+    // Pause autoplay on hover
+    if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', stopAutoplay);
+        carouselContainer.addEventListener('mouseleave', startAutoplay);
+    }
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') {
+            prevSlide();
+            stopAutoplay();
+            startAutoplay();
+        } else if (e.key === 'ArrowRight') {
+            nextSlide();
+            stopAutoplay();
+            startAutoplay();
+        }
+    });
+
+    // Touch/swipe support
+    if (carouselContainer) {
+        carouselContainer.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+        });
+
+        carouselContainer.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+        });
+
+        carouselContainer.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+            
+            if (Math.abs(diff) > 50) {
+                if (diff > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+                stopAutoplay();
+                startAutoplay();
+            }
+        });
+    }
+
+    // Start autoplay
+    startAutoplay();
 }
 
-document.addEventListener('astro:page-load', initFeaturesAnimation);
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        initFeaturesAnimation();
+        initCarousel();
+    });
+} else {
+    initFeaturesAnimation();
+    initCarousel();
+}
+
+document.addEventListener('astro:page-load', () => {
+    initFeaturesAnimation();
+    initCarousel();
+});
 </script>
