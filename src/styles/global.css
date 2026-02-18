@@ -1,1 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Monda:wght@300;400;500;600;700&family=Nunito+Sans:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
+
+@theme {
+  /* ============================================ */
+  /* BRAND COLORS - Frontier Code Official       */
+  /* ============================================ */
+  --color-frontier-blue: #0862C8;
+  --color-frontier-cyan: #2AD1C9;
+  --color-frontier-dark: #0C171A;
+  --color-frontier-light: #DEE6EC;
+
+  /* ============================================ */
+  /* FONTS - Brand Typography                    */
+  /* ============================================ */
+  --font-monda: 'Monda', sans-serif;
+  --font-nunito: 'Nunito Sans', sans-serif;
+}

@@ -51,14 +51,13 @@ metadata:
 - Neutral Dark: `#0C171A` - for backgrounds
 - Neutral Light: `#DEE6EC` - for text on dark backgrounds
 
-**Tailwind Color Mapping** (configure in tailwind.config):
+**Tailwind Color Mapping** (predefined in theme.css):
 ```js
-colors: {
-  'frontier-blue': '#0862C8',
-  'frontier-cyan': '#2AD1C9',
-  'frontier-dark': '#0C171A',
-  'frontier-light': '#DEE6EC',
-}
+// Available as: text-frontier-blue, bg-frontier-cyan, etc.
+--color-frontier-blue: #0862C8,
+--color-frontier-cyan: #2AD1C9,
+--color-frontier-dark: #0C171A,
+--color-frontier-light: #DEE6EC,
 ```
 
 **Text Colors**
@@ -70,7 +69,7 @@ colors: {
 
 **Text Gradients** (use brand colors)
 ```astro
-<span class="bg-gradient-to-r from-[#0862C8] to-[#2AD1C9] bg-clip-text text-transparent">
+<span class="bg-gradient-to-r from-frontier-blue to-frontier-cyan bg-clip-text text-transparent">
   Frontier Code
 </span>
 ```
@@ -78,13 +77,13 @@ colors: {
 **Background Gradients**
 ```astro
 <!-- Hero background -->
-<div class="bg-gradient-to-br from-[#0C171A] via-slate-900 to-[#0C171A]"></div>
+<div class="bg-gradient-to-br from-frontier-dark via-slate-900 to-frontier-dark"></div>
 
 <!-- Button gradient -->
-<div class="bg-gradient-to-r from-[#0862C8] to-[#2AD1C9]"></div>
+<div class="bg-gradient-to-r from-frontier-blue to-frontier-cyan"></div>
 
 <!-- Text gradient with brand colors -->
-<span class="bg-gradient-to-r from-[#2AD1C9] to-[#0862C8] bg-clip-text text-transparent"></span>
+<span class="bg-gradient-to-r from-frontier-cyan to-frontier-blue bg-clip-text text-transparent"></span>
 ```
 
 ### Typography
@@ -111,7 +110,7 @@ fontFamily: {
 
 **Subheadings** (Monda, light weight)
 ```astro
-<h2 class="font-monda text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-[#DEE6EC]">
+<h2 class="font-monda text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-frontier-light">
   Subtitle
 </h2>
 ```
@@ -125,7 +124,7 @@ fontFamily: {
 
 **Small Labels** (Nunito Sans, mono style)
 ```astro
-<span class="font-nunito px-4 py-2 bg-slate-800/50 border border-[#2AD1C9]/30 rounded-full text-[#2AD1C9] text-sm">
+<span class="font-nunito px-4 py-2 bg-slate-800/50 border border-frontier-cyan/30 rounded-full text-frontier-cyan text-sm">
   &lt;Frontier /&gt;
 </span>
 ```
@@ -133,7 +132,7 @@ fontFamily: {
 **Status Badges**
 ```astro
 <div class="flex items-center gap-2">
-  <div class="w-2 h-2 bg-[#2AD1C9] rounded-full animate-pulse"></div>
+  <div class="w-2 h-2 bg-frontier-cyan rounded-full animate-pulse"></div>
   <span class="font-nunito text-slate-500 text-sm">Status</span>
 </div>
 ```
@@ -150,13 +149,13 @@ fontFamily: {
 **Subtle Borders** (use brand colors)
 ```astro
 <!-- Outline button/badge -->
-class="border-2 border-[#2AD1C9]/50"
+class="border-2 border-frontier-cyan/50"
 
 <!-- Badge border -->
-class="border border-[#2AD1C9]/30"
+class="border border-frontier-cyan/30"
 
 <!-- Hover state border -->
-class="hover:border-[#2AD1C9]"
+class="hover:border-frontier-cyan"
 ```
 
 ### Rounded Corners
@@ -189,7 +188,7 @@ class="animate-bounce"
     animation: blink 1s infinite;
   }
 </style>
-<span class="w-2 h-8 bg-[#2AD1C9] animate-blink"></span>
+<span class="w-2 h-8 bg-frontier-cyan animate-blink"></span>
 ```
 
 ### Transitions
@@ -200,8 +199,8 @@ class="transition-all duration-300"
 
 <!-- Hover effects -->
 class="hover:scale-105"
-class="hover:bg-[#2AD1C9]/10"
-class="hover:border-[#2AD1C9] hover:text-[#2AD1C9]"
+class="hover:bg-frontier-cyan/10"
+class="hover:border-frontier-cyan hover:text-frontier-cyan"
 
 <!-- Opacity transitions -->
 class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -211,7 +210,7 @@ class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
 
 **Primary Gradient Button** (brand colors, NO shadows per brand guidelines)
 ```astro
-<a href="#" class="group relative px-8 py-4 bg-gradient-to-r from-[#0862C8] to-[#2AD1C9] text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105">
+<a href="#" class="group relative px-8 py-4 bg-gradient-to-r from-frontier-blue to-frontier-cyan text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105">
   <span class="relative flex items-center gap-2">
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="..." />
@@ -223,7 +222,7 @@ class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
 
 **Outline Button** (brand colors)
 ```astro
-<a href="#" class="px-8 py-4 border-2 border-[#2AD1C9]/50 text-[#2AD1C9] font-semibold rounded-lg hover:bg-[#2AD1C9]/10 hover:border-[#2AD1C9] hover:text-[#2AD1C9] transition-all duration-300 hover:scale-105">
+<a href="#" class="px-8 py-4 border-2 border-frontier-cyan/50 text-frontier-cyan font-semibold rounded-lg hover:bg-frontier-cyan/10 hover:border-frontier-cyan hover:text-frontier-cyan transition-all duration-300 hover:scale-105">
   Button Text
 </a>
 ```
@@ -232,13 +231,13 @@ class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
 
 **Hero Section Structure** (NO glow orbs per brand guidelines)
 ```astro
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0C171A]">
+<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-frontier-dark">
   <!-- Background layers -->
   <div id="particles" class="absolute inset-0 opacity-20"></div>
-  <div class="absolute inset-0 bg-gradient-to-br from-[#0C171A] via-slate-900 to-[#0C171A]"></div>
+  <div class="absolute inset-0 bg-gradient-to-br from-frontier-dark via-slate-900 to-frontier-dark"></div>
 
   <!-- Grid pattern -->
-  <div class="absolute inset-0 bg-[linear-gradient(rgba(42,209,201,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(42,209,201,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+  <div class="absolute inset-0 bg-[linear-gradient(rgba(42,209,201,0.03)_1px,transparentlinear-gradient(90_1px),deg,rgba(42,209,201,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
 
   <!-- Content -->
   <Container>
@@ -251,7 +250,7 @@ class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
 
 **Standard Section**
 ```astro
-<section id="{id}" class="relative py-16 sm:py-20 lg:py-24 bg-[#0C171A]">
+<section id="{id}" class="relative py-16 sm:py-20 lg:py-24 bg-frontier-dark">
   <Container>
     <div class="max-w-6xl mx-auto">
       <!-- Section content -->
@@ -305,8 +304,8 @@ class="flex flex-col sm:flex-row gap-4 justify-center"
 ---
 const { label = '', color = 'cyan' } = Astro.props;
 const colors = {
-  cyan: 'text-[#2AD1C9] border-[#2AD1C9]/30 bg-slate-800/50',
-  blue: 'text-[#0862C8] border-[#0862C8]/30 bg-slate-800/50',
+  cyan: 'text-frontier-cyan border-frontier-cyan/30 bg-slate-800/50',
+  blue: 'text-frontier-blue border-frontier-blue/30 bg-slate-800/50',
   green: 'text-green-400 border-green-500/30 bg-slate-800/50'
 };
 ---
@@ -320,8 +319,8 @@ const colors = {
 ---
 const { status = '', color = 'cyan', delay = 0 } = Astro.props;
 const colors = {
-  cyan: 'bg-[#2AD1C9]',
-  blue: 'bg-[#0862C8]',
+  cyan: 'bg-frontier-cyan',
+  blue: 'bg-frontier-blue',
   green: 'bg-green-500'
 };
 ---
@@ -335,13 +334,13 @@ const colors = {
 
 | Situation | Use |
 |-----------|-----|
-| Primary action | Gradient button `from-[#0862C8] to-[#2AD1C9]` |
-| Secondary action | Outline button `border-[#2AD1C9]/50` |
-| Headings | Large with text gradient `from-[#2AD1C9] to-[#0862C8]` using MONDA font |
-| Subheadings | Light weight `font-light text-[#DEE6EC]` using MONDA font |
+| Primary action | Gradient button `from-frontier-blue to-frontier-cyan` |
+| Secondary action | Outline button `border-frontier-cyan/50` |
+| Headings | Large with text gradient `from-frontier-cyan to-frontier-blue` using MONDA font |
+| Subheadings | Light weight `font-light text-frontier-light` using MONDA font |
 | Body text | NUNITO SANS with `leading-relaxed` |
 | Labels/badges | Rounded pill `rounded-full` with subtle border |
-| Background | Dark `bg-[#0C171A]` with gradient overlay |
+| Background | Dark `bg-frontier-dark` with gradient overlay |
 | Hover effects | `hover:scale-105` with color transitions (NO shadows per brand guidelines) |
 | Grid patterns | `bg-[linear-gradient(...)] bg-[size:50px_50px]` |
 
@@ -355,8 +354,8 @@ const colors = {
 - Adding graphical effects of any type
 
 ❌ **Don't use:**
-- White backgrounds for main sections (use `#0C171A`)
-- Colors outside brand palette (`#0862C8`, `#2AD1C9`, `#0C171A`, `#DEE6EC`)
+- White backgrounds for main sections (use `frontier-dark`)
+- Colors outside brand palette (`frontier-blue`, `frontier-cyan`, `frontier-dark`, `frontier-light`)
 - Sharp corners on buttons/badges (use rounded-lg/rounded-full)
 - Text without spacing (add `leading-relaxed`)
 - Missing responsive utilities (always add `sm:` `md:` `lg:`)

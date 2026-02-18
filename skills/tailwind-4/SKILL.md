@@ -22,6 +22,75 @@ Static only?            → class="..." (no utility needed)
 Library can't use class?→ style attribute with var() constants
 ```
 
+## Tailwind v4 @theme Block Rules
+
+### CRITICAL: Only One @theme Block Per Project
+
+Tailwind v4 only processes **ONE** `@theme` block. If you have multiple `@theme` blocks in different CSS files, **only the last loaded one takes effect**, and variables from earlier blocks are **completely ignored**.
+
+**Problem:**
+```css
+/* ❌ WRONG: Multiple @theme blocks */
+/* src/styles/theme.css */
+@theme {
+  --color-my-blue: #0862C8;
+  --color-my-cyan: #2AD1C9;
+}
+
+/* src/styles/global.css */
+@import "tailwindcss";
+
+@theme {
+  --font-monda: 'Monda', sans-serif;
+}
+```
+
+**Result:**
+- `--color-my-blue` and `--color-my-cyan` from theme.css are **ignored**
+- Only `--font-monda` from global.css is active
+- Classes like `bg-my-blue`, `text-my-cyan` **don't exist**
+- Tailwind falls back to default values (white background, black text)
+
+**Solution:**
+```css
+/* ✅ CORRECT: Single consolidated @theme block */
+/* src/styles/global.css */
+@import "tailwindcss";
+
+@theme {
+  /* All colors and fonts in ONE place */
+  --color-my-blue: #0862C8;
+  --color-my-cyan: #2AD1C9;
+  --font-monda: 'Monda', sans-serif;
+}
+```
+
+### How to Fix Multiple @theme Blocks
+
+1. **Remove all extra `@theme` blocks** from CSS files except the main one
+2. **Consolidate ALL `@theme` variables** into the main `@theme` block (usually in `global.css` or main entry CSS file)
+3. **Delete unused CSS files** that contained `@theme` blocks
+4. **Rebuild project** with `npm run build`
+5. **Verify colors** work by checking compiled CSS for your custom color variables
+
+### Detection Pattern
+
+If you see these symptoms:
+- Custom colors rendering as white/black instead of defined values
+- Classes with your custom color names not working
+- CSS variables exist in source but not in compiled output
+
+**Diagnose:**
+```bash
+# Check for multiple @theme blocks
+grep -r "@theme" src/styles/ --include="*.css"
+
+# Check if your colors are in compiled CSS
+grep -o "your-color-name" dist/_astro/*.css
+```
+
+**Fix:** Consolidate all @theme variables into single block in main CSS file.
+
 ## Critical Rules
 
 ### Never Use var() in class Names
