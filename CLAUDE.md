@@ -8,12 +8,12 @@ Frontier Code landing page - An Astro-based static site for a software developme
 
 ## Development Commands
 
-| Command | Action |
-| --------- | -------- |
-| `npm run dev` | Start development server at `localhost:4321` |
-| `npm run build` | Build production site to `./dist/` |
-| `npm run preview` | Preview production build locally |
-| `npm run astro ...` | Run Astro CLI commands |
+| Command             | Action                                       |
+| ------------------- | -------------------------------------------- |
+| `npm run dev`       | Start development server at `localhost:4321` |
+| `npm run build`     | Build production site to `./dist/`           |
+| `npm run preview`   | Preview production build locally             |
+| `npm run astro ...` | Run Astro CLI commands                       |
 
 ## Architecture
 
@@ -51,7 +51,7 @@ src/
 Available color palettes:
 
 - `primary` - Blue (brand color, primary-600 is main)
-- `secondary` - Purple (accents)
+- `secondary` - blue (accents)
 - `accent` - Green
 - `yellow` - For stars, reviews
 - `neutral` - Gray scale

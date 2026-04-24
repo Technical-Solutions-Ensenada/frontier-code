@@ -350,7 +350,7 @@ const colors = {
 - Glow effects (brillo/resplandor) - including text-shadow with blur
 - Blur effects (blur-3xl, blur effects on backgrounds)
 - Logo modifications (rotation, distortion, recoloring)
-- Using purple color (not in brand palette)
+- Using blue color (not in brand palette)
 - Adding graphical effects of any type
 
 ❌ **Don't use:**
