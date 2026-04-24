@@ -24,3 +24,14 @@
   --font-monda: 'Monda', sans-serif;
   --font-nunito: 'Nunito Sans', sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Compensa la altura del header sticky (h-20 = 5rem) */
+section[id],
+article[id],
+div[id] {
+  scroll-margin-top: 5rem;
+}
