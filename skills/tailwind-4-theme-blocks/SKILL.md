@@ -263,7 +263,7 @@ import imagotipoColor from '../../assets/IMAGOTIPO/SVG/IMAGOTIPO - DOS TONOS CLA
       </div>
       
       <p class="font-display text-5xl font-light text-brand-light">
-        Text with <span class="text-transparent bg-gradient-to-r from-brand-cyan to-brand-blue bg-clip-text">gradient</span>
+        Text with <span class="text-transparent bg-linear-to-r from-brand-cyan to-brand-blue bg-clip-text">gradient</span>
       </p>
       
       <div class="flex items-center gap-2">

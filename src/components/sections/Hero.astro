@@ -1,128 +1,204 @@
 ---
-import Container from '../ui/Container.astro';
-import imagotipoColor from '../../assets/IMAGOTIPO/SVG/IMAGOTIPO - DOS TONOS CLARO DEGRADADO.svg';
+import Container from "../ui/Container.astro";
+import imagotipoColor from "../../assets/IMAGOTIPO/SVG/IMAGOTIPO - DOS TONOS CLARO DEGRADADO.svg";
 ---
 
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-frontier-dark">
+<section
+  id="hero"
+  class="relative min-h-screen flex items-center justify-center overflow-hidden bg-frontier-dark"
+>
   <Container>
     <div class="relative z-10 max-w-5xl mx-auto text-center">
       <div class="mb-8">
-        <img 
-          src={imagotipoColor.src} 
-          alt="Frontier Code" 
+        <img
+          src={imagotipoColor.src}
+          alt="Frontier Code"
           class="w-64 sm:w-80 md:w-96 lg:w-[500px] mx-auto"
         />
       </div>
-      
+
       <div class="h-20 sm:h-24 md:h-28 mb-12">
-        <p class="font-monda text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-frontier-light">
+        <p
+          class="font-monda text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-frontier-light"
+        >
           <span id="prefix-text" class="text-slate-400">Creamos</span>
-          <span id="dynamic-word" class="text-transparent bg-gradient-to-r from-frontier-cyan to-frontier-blue bg-clip-text font-semibold ml-3 transition-all duration-300"></span>
+          <span
+            id="dynamic-word"
+            class="text-transparent bg-linear-to-r from-frontier-cyan to-frontier-blue bg-clip-text font-semibold ml-3 transition-all duration-300"
+          ></span>
           <span id="suffix-text" class="text-slate-400"></span>
-          <span id="word-cursor" class="inline-block w-2 h-8 sm:h-10 md:h-12 bg-frontier-cyan ml-2 animate-blink" style="animation-delay: 0.2s;"></span>
+          <span
+            id="word-cursor"
+            class="inline-block w-2 h-8 sm:h-10 md:h-12 bg-frontier-cyan ml-2 animate-blink"
+            style="animation-delay: 0.2s;"></span>
         </p>
       </div>
-      
-      <p class="font-nunito text-lg sm:text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed">
-        Transformamos visiones ambiciosas en soluciones digitales de vanguardia. 
+
+      <p
+        class="font-nunito text-lg sm:text-xl text-slate-300 mb-12 max-w-3xl mx-auto leading-relaxed"
+      >
+        Transformamos visiones ambiciosas en soluciones digitales de vanguardia.
         Código limpio, arquitectura sólida y experiencias que impresionan.
       </p>
-      
+
       <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a 
+        <a
           href="#contact"
-          class="group relative px-8 py-4 bg-gradient-to-r from-frontier-blue to-frontier-cyan text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105"
+          class="group relative px-8 py-4 bg-linear-to-r from-frontier-blue to-frontier-cyan text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105"
         >
-          <div class="absolute inset-0 bg-gradient-to-r from-frontier-cyan to-frontier-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div
+            class="absolute inset-0 bg-linear-to-r from-frontier-cyan to-frontier-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          >
+          </div>
           <span class="relative flex items-center gap-2">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            <svg
+              class="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
             </svg>
             <span id="dynamic-cta">Impulsa Tu Eficiencia</span>
           </span>
         </a>
-        
-        <a 
+
+        <a
           href="#services"
           class="px-8 py-4 border-2 border-frontier-cyan/50 text-frontier-cyan font-semibold rounded-lg hover:bg-frontier-cyan/10 hover:border-frontier-cyan hover:text-frontier-cyan transition-all duration-300 hover:scale-105"
         >
           Ver Servicios
         </a>
       </div>
-      
-      <div class="mt-16 flex flex-wrap justify-center gap-8 text-slate-400 text-sm font-nunito">
+
+      <div
+        class="mt-16 flex flex-wrap justify-center gap-8 text-slate-400 text-sm font-nunito"
+      >
         <div class="flex items-center gap-2">
-          <div class="w-2 h-2 bg-frontier-cyan rounded-full animate-pulse"></div>
+          <div class="w-2 h-2 bg-frontier-cyan rounded-full animate-pulse">
+          </div>
           <span>Eficiencia Operativa</span>
         </div>
         <div class="flex items-center gap-2">
-          <div class="w-2 h-2 bg-frontier-blue rounded-full animate-pulse" style="animation-delay: 0.2s;"></div>
+          <div
+            class="w-2 h-2 bg-frontier-blue rounded-full animate-pulse"
+            style="animation-delay: 0.2s;"
+          >
+          </div>
           <span>Automatización Inteligente</span>
         </div>
         <div class="flex items-center gap-2">
-          <div class="w-2 h-2 bg-frontier-cyan rounded-full animate-pulse" style="animation-delay: 0.4s;"></div>
+          <div
+            class="w-2 h-2 bg-frontier-cyan rounded-full animate-pulse"
+            style="animation-delay: 0.4s;"
+          >
+          </div>
           <span>Reducción de Costos</span>
         </div>
         <div class="flex items-center gap-2">
-          <div class="w-2 h-2 bg-frontier-blue rounded-full animate-pulse" style="animation-delay: 0.6s;"></div>
+          <div
+            class="w-2 h-2 bg-frontier-blue rounded-full animate-pulse"
+            style="animation-delay: 0.6s;"
+          >
+          </div>
           <span>Escalabilidad de Operaciones</span>
         </div>
         <div class="flex items-center gap-2">
-          <div class="w-2 h-2 bg-frontier-cyan rounded-full animate-pulse" style="animation-delay: 0.8s;"></div>
+          <div
+            class="w-2 h-2 bg-frontier-cyan rounded-full animate-pulse"
+            style="animation-delay: 0.8s;"
+          >
+          </div>
           <span>Resultados Medibles</span>
         </div>
         <div class="flex items-center gap-2">
-          <div class="w-2 h-2 bg-frontier-blue rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+          <div
+            class="w-2 h-2 bg-frontier-blue rounded-full animate-pulse"
+            style="animation-delay: 1s;"
+          >
+          </div>
           <span>Procesos Integrados</span>
         </div>
       </div>
     </div>
   </Container>
-  
+
   <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-    <svg class="w-6 h-6 text-frontier-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    <svg
+      class="w-6 h-6 text-frontier-cyan"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
     </svg>
   </div>
 </section>
 
 <style>
   @keyframes blink {
-    0%, 50% { opacity: 1; }
-    51%, 100% { opacity: 0; }
+    0%,
+    50% {
+      opacity: 1;
+    }
+    51%,
+    100% {
+      opacity: 0;
+    }
   }
-  
+
   .animate-blink {
     animation: blink 1s infinite;
   }
 </style>
 
-<script define:vars={{ words: ['eficiencia', 'automatización', 'rentabilidad', 'escalamiento', 'inteligencia', 'crecimiento', 'innovación', 'transformación'] }}>
-  const dynamicWord = document.getElementById('dynamic-word');
-  const wordCursor = document.getElementById('word-cursor');
-  const dynamicCTA = document.getElementById('dynamic-cta');
-  
+<script
+  define:vars={{
+    words: [
+      "eficiencia",
+      "automatización",
+      "rentabilidad",
+      "escalamiento",
+      "inteligencia",
+      "crecimiento",
+      "innovación",
+      "transformación",
+    ],
+  }}
+>
+  const dynamicWord = document.getElementById("dynamic-word");
+  const wordCursor = document.getElementById("word-cursor");
+  const dynamicCTA = document.getElementById("dynamic-cta");
+
   let wordIndex = 0;
   let charIndexWord = 0;
   let isDeletingWord = false;
-  
+
   const ctaPhrases = [
-    'Impulsa Tu Eficiencia',
-    'Maximiza Resultados Hoy',
-    'Escala Tu Operación',
-    'Automatiza Procesos Ya'
+    "Impulsa Tu Eficiencia",
+    "Maximiza Resultados Hoy",
+    "Escala Tu Operación",
+    "Automatiza Procesos Ya",
   ];
-  
+
   const randomCTAIndex = Math.floor(Math.random() * ctaPhrases.length);
   dynamicCTA.textContent = ctaPhrases[randomCTAIndex];
-  
+
   function typeDynamicWord() {
     const currentWord = words[wordIndex];
-    
+
     if (!isDeletingWord) {
       dynamicWord.textContent = currentWord.substring(0, charIndexWord + 1);
       charIndexWord++;
-      
+
       if (charIndexWord === currentWord.length) {
         setTimeout(() => {
           isDeletingWord = true;
@@ -133,7 +209,7 @@ import imagotipoColor from '../../assets/IMAGOTIPO/SVG/IMAGOTIPO - DOS TONOS CLA
     } else {
       dynamicWord.textContent = currentWord.substring(0, charIndexWord - 1);
       charIndexWord--;
-      
+
       if (charIndexWord === 0) {
         isDeletingWord = false;
         wordIndex = (wordIndex + 1) % words.length;
@@ -141,10 +217,10 @@ import imagotipoColor from '../../assets/IMAGOTIPO/SVG/IMAGOTIPO - DOS TONOS CLA
         return;
       }
     }
-    
+
     setTimeout(typeDynamicWord, isDeletingWord ? 50 : 100);
   }
-  
+
   setTimeout(() => {
     typeDynamicWord();
   }, 2500);

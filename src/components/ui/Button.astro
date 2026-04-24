@@ -1,35 +1,38 @@
 ---
 interface Props {
-  variant?: 'primary' | 'secondary' | 'outline';
-  size?: 'sm' | 'md' | 'lg';
+  variant?: "primary" | "secondary" | "outline";
+  size?: "sm" | "md" | "lg";
   href?: string;
-  type?: 'button' | 'submit' | 'reset';
+  type?: "button" | "submit" | "reset";
   target?: string;
   class?: string;
 }
 
 const {
-  variant = 'primary',
-  size = 'md',
+  variant = "primary",
+  size = "md",
   href,
-  type = 'button',
+  type = "button",
   target,
-  class: className = ''
+  class: className = "",
 } = Astro.props;
 
 const variants = {
-  primary: 'bg-gradient-to-r from-cyan-500 to-cyan-600 text-white hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50',
-  secondary: 'bg-slate-800 text-white hover:bg-slate-700 focus:ring-slate-500',
-  outline: 'border-2 border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400 hover:text-cyan-300 hover:scale-105'
+  primary:
+    "bg-linear-to-r from-cyan-500 to-cyan-600 text-white hover:scale-105 hover:shadow-lg hover:shadow-cyan-500/50",
+  secondary: "bg-slate-800 text-white hover:bg-slate-700 focus:ring-slate-500",
+  outline:
+    "border-2 border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10 hover:border-cyan-400 hover:text-cyan-300 hover:scale-105",
 };
 
 const sizes = {
-  sm: 'px-3 py-1.5 text-sm',
-  md: 'px-4 py-2 text-base',
-  lg: 'px-6 py-3 text-lg'
+  sm: "px-3 py-1.5 text-sm",
+  md: "px-4 py-2 text-base",
+  lg: "px-6 py-3 text-lg",
 };
 
-const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed';
+const baseClasses =
+  "inline-flex items-center justify-center font-semibold rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed";
 
 const buttonClasses = `${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`;
 ---

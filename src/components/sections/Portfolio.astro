@@ -1,43 +1,56 @@
 ---
-import Container from '../ui/Container.astro';
-import Section from '../ui/Section.astro';
-import Card from '../ui/Card.astro';
-import Button from '../ui/Button.astro';
-import bisteDemo from '../../assets/biste-demo.png';
+import Container from "../ui/Container.astro";
+import Section from "../ui/Section.astro";
+import Card from "../ui/Card.astro";
+import Button from "../ui/Button.astro";
+import bisteDemo from "../../assets/biste-demo.png";
 ---
 
 <Section id="portfolio">
   <Container>
     <div class="text-center mb-12">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-slate-300 mb-4">
-        <span class="bg-gradient-to-r from-cyan-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent">
+      <h2
+        class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-slate-300 mb-4"
+      >
+        <span
+          class="bg-linear-to-r from-cyan-400 via-cyan-300 to-purple-400 bg-clip-text text-transparent"
+        >
           Nuestro Portafolio
         </span>
       </h2>
-      <p class="text-lg sm:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto">
+      <p
+        class="text-lg sm:text-xl text-slate-400 leading-relaxed max-w-2xl mx-auto"
+      >
         Proyectos que demuestran nuestra experiencia y capacidad.
       </p>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-      <Card class="overflow-hidden group hover:scale-105 transition-all duration-300">
+      <Card
+        class="overflow-hidden group hover:scale-105 transition-all duration-300"
+      >
         <div class="aspect-video overflow-hidden">
-          <img src={bisteDemo.src} alt="Bisté Demo" class="w-full h-full object-cover" />
+          <img
+            src={bisteDemo.src}
+            alt="Bisté Demo"
+            class="w-full h-full object-cover"
+          />
         </div>
         <div class="p-6">
-          <h3 class="text-xl font-semibold text-slate-300 mb-2">
-            Bisté
-          </h3>
+          <h3 class="text-xl font-semibold text-slate-300 mb-2">Bisté</h3>
           <p class="text-slate-400 leading-relaxed mb-4">
             Punto de venta con ORM para carnicerías.
           </p>
-          <Button href="https://biste-frontend.vercel.app/demo" variant="outline" size="sm" target="_blank">
+          <Button
+            href="https://biste-frontend.vercel.app/demo"
+            variant="outline"
+            size="sm"
+            target="_blank"
+          >
             Ver Proyecto
           </Button>
         </div>
       </Card>
     </div>
-
-
   </Container>
 </Section>

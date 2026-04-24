@@ -69,7 +69,7 @@ metadata:
 
 **Text Gradients** (use brand colors)
 ```astro
-<span class="bg-gradient-to-r from-frontier-blue to-frontier-cyan bg-clip-text text-transparent">
+<span class="bg-linear-to-r from-frontier-blue to-frontier-cyan bg-clip-text text-transparent">
   Frontier Code
 </span>
 ```
@@ -77,13 +77,13 @@ metadata:
 **Background Gradients**
 ```astro
 <!-- Hero background -->
-<div class="bg-gradient-to-br from-frontier-dark via-slate-900 to-frontier-dark"></div>
+<div class="bg-linear-to-br from-frontier-dark via-slate-900 to-frontier-dark"></div>
 
 <!-- Button gradient -->
-<div class="bg-gradient-to-r from-frontier-blue to-frontier-cyan"></div>
+<div class="bg-linear-to-r from-frontier-blue to-frontier-cyan"></div>
 
 <!-- Text gradient with brand colors -->
-<span class="bg-gradient-to-r from-frontier-cyan to-frontier-blue bg-clip-text text-transparent"></span>
+<span class="bg-linear-to-r from-frontier-cyan to-frontier-blue bg-clip-text text-transparent"></span>
 ```
 
 ### Typography
@@ -210,7 +210,7 @@ class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
 
 **Primary Gradient Button** (brand colors, NO shadows per brand guidelines)
 ```astro
-<a href="#" class="group relative px-8 py-4 bg-gradient-to-r from-frontier-blue to-frontier-cyan text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105">
+<a href="#" class="group relative px-8 py-4 bg-linear-to-r from-frontier-blue to-frontier-cyan text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105">
   <span class="relative flex items-center gap-2">
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="..." />
@@ -234,7 +234,7 @@ class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
 <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-frontier-dark">
   <!-- Background layers -->
   <div id="particles" class="absolute inset-0 opacity-20"></div>
-  <div class="absolute inset-0 bg-gradient-to-br from-frontier-dark via-slate-900 to-frontier-dark"></div>
+  <div class="absolute inset-0 bg-linear-to-br from-frontier-dark via-slate-900 to-frontier-dark"></div>
 
   <!-- Grid pattern -->
   <div class="absolute inset-0 bg-[linear-gradient(rgba(42,209,201,0.03)_1px,transparentlinear-gradient(90_1px),deg,rgba(42,209,201,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
