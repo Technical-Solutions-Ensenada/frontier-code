@@ -1,58 +1,115 @@
 ---
 import Container from "../ui/Container.astro";
-import imagotipoColor from "../../assets/IMAGOTIPO/SVG/IMAGOTIPO - DOS TONOS CLARO DEGRADADO.svg";
+import HeroVisual from "../ui/HeroVisual.astro";
 ---
 
 <section
   id="hero"
   class="relative min-h-screen flex items-center justify-center overflow-hidden bg-frontier-dark"
 >
+  <!-- Background Effects -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+    <div
+      class="absolute -top-40 -right-40 w-96 h-96 bg-frontier-blue/20 rounded-full blur-3xl animate-pulse"
+    >
+    </div>
+    <div
+      class="absolute -bottom-40 -left-40 w-96 h-96 bg-frontier-cyan/10 rounded-full blur-3xl animate-pulse"
+      style="animation-delay: 1s;"
+    >
+    </div>
+    <div
+      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-frontier-blue/5 to-transparent rounded-full"
+    >
+    </div>
+  </div>
+
   <Container>
-    <div class="relative z-10 max-w-5xl mx-auto text-center">
-      <div class="mb-8">
-        <img
-          src={imagotipoColor.src}
-          alt="Frontier Code"
-          class="w-64 sm:w-80 md:w-96 lg:w-[500px] mx-auto"
-        />
-      </div>
-
-      <div class="h-20 sm:h-24 md:h-28 mb-12">
-        <p
-          class="font-monda text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-frontier-light"
+    <div
+      class="relative z-10 grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto"
+    >
+      <!-- Left Content -->
+      <div class="text-center lg:text-left order-2 lg:order-1">
+        <!-- Badge -->
+        <div
+          class="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-frontier-blue/10 border border-frontier-blue/20"
         >
-          <span id="prefix-text" class="text-dark-400">Creamos</span>
-          <span
-            id="dynamic-word"
-            class="text-transparent bg-linear-to-r from-frontier-cyan to-frontier-blue bg-clip-text font-semibold ml-3 transition-all duration-300"
+          <span class="w-2 h-2 bg-frontier-cyan rounded-full animate-pulse"
           ></span>
-          <span id="suffix-text" class="text-dark-400"></span>
-          <span
-            id="word-cursor"
-            class="inline-block w-2 h-8 sm:h-10 md:h-12 bg-frontier-cyan ml-2 animate-blink"
-            style="animation-delay: 0.2s;"></span>
-        </p>
-      </div>
-
-      <p
-        class="font-nunito text-lg sm:text-xl text-dark-300 mb-12 max-w-3xl mx-auto leading-relaxed"
-      >
-        Transformamos visiones ambiciosas en soluciones digitales de vanguardia.
-        Código limpio, arquitectura sólida y experiencias que impresionan.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a
-          href="#contact"
-          class="group relative px-8 py-4 bg-linear-to-r from-frontier-blue to-frontier-cyan text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105"
-        >
-          <div
-            class="absolute inset-0 bg-linear-to-r from-frontier-cyan to-frontier-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+          <span class="text-sm font-nunito text-frontier-light"
+            >Soluciones Digitales de Vanguardia</span
           >
-          </div>
-          <span class="relative flex items-center gap-2">
+        </div>
+
+        <!-- Headline with Dynamic Text -->
+        <h1
+          class="font-monda text-4xl sm:text-5xl lg:text-6xl font-light text-frontier-light mb-6 leading-tight"
+        >
+          Creamos
+          <span class="block mt-2">
+            <span
+              id="dynamic-word"
+              class="text-transparent bg-linear-to-r from-frontier-cyan to-frontier-blue bg-clip-text font-semibold"
+            ></span>
+            <span
+              id="word-cursor"
+              class="inline-block w-1 h-12 sm:h-14 bg-frontier-cyan ml-1 animate-blink align-middle"
+            ></span>
+          </span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p
+          class="font-nunito text-lg sm:text-xl text-dark-300 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed"
+        >
+          Transformamos visiones ambiciosas en soluciones digitales. Código
+          limpio, arquitectura sólida y experiencias que impresionan.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div
+          class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
+        >
+          <a
+            href="#contact"
+            class="group relative px-8 py-4 bg-linear-to-r from-frontier-blue to-frontier-cyan text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-frontier-blue/25"
+          >
+            <div
+              class="absolute inset-0 bg-linear-to-r from-frontier-cyan to-frontier-blue opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            >
+            </div>
+            <span class="relative flex items-center justify-center gap-2">
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+              <span id="dynamic-cta">Impulsa Tu Eficiencia</span>
+            </span>
+          </a>
+
+          <a
+            href="#services"
+            class="px-8 py-4 border-2 border-frontier-cyan/50 font-semibold rounded-lg hover:bg-frontier-cyan/10 hover:border-frontier-cyan hover:text-frontier-cyan transition-all duration-300 hover:scale-105"
+          >
+            Ver Servicios
+          </a>
+        </div>
+
+        <!-- Simplified Features (3 en lugar de 6) -->
+        <div
+          class="flex flex-wrap justify-center lg:justify-start gap-6 text-dark-400 text-sm font-nunito"
+        >
+          <div class="flex items-center gap-2">
             <svg
-              class="w-5 h-5"
+              class="w-5 h-5 text-frontier-cyan"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -61,75 +118,54 @@ import imagotipoColor from "../../assets/IMAGOTIPO/SVG/IMAGOTIPO - DOS TONOS CLA
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                d="M5 13l4 4L19 7"></path>
             </svg>
-            <span id="dynamic-cta">Impulsa Tu Eficiencia</span>
-          </span>
-        </a>
-
-        <a
-          href="#services"
-          class="px-8 py-4 border-2 border-frontier-cyan/50 font-semibold rounded-lg hover:bg-frontier-cyan/10 hover:border-frontier-cyan hover:text-frontier-cyan transition-all duration-300 hover:scale-105"
-        >
-          Ver Servicios
-        </a>
+            <span>Automatización Inteligente</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg
+              class="w-5 h-5 text-frontier-blue"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Escalabilidad Total</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg
+              class="w-5 h-5 text-frontier-cyan"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"></path>
+            </svg>
+            <span>Resultados Medibles</span>
+          </div>
+        </div>
       </div>
 
-      <div
-        class="mt-16 flex flex-wrap justify-center gap-8 text-dark-400 text-sm font-nunito"
-      >
-        <div class="flex items-center gap-2">
-          <div class="w-2 h-2 bg-frontier-cyan rounded-full animate-pulse">
-          </div>
-          <span>Eficiencia Operativa</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <div
-            class="w-2 h-2 bg-frontier-blue rounded-full animate-pulse"
-            style="animation-delay: 0.2s;"
-          >
-          </div>
-          <span>Automatización Inteligente</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <div
-            class="w-2 h-2 bg-frontier-cyan rounded-full animate-pulse"
-            style="animation-delay: 0.4s;"
-          >
-          </div>
-          <span>Reducción de Costos</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <div
-            class="w-2 h-2 bg-frontier-blue rounded-full animate-pulse"
-            style="animation-delay: 0.6s;"
-          >
-          </div>
-          <span>Escalabilidad de Operaciones</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <div
-            class="w-2 h-2 bg-frontier-cyan rounded-full animate-pulse"
-            style="animation-delay: 0.8s;"
-          >
-          </div>
-          <span>Resultados Medibles</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <div
-            class="w-2 h-2 bg-frontier-blue rounded-full animate-pulse"
-            style="animation-delay: 1s;"
-          >
-          </div>
-          <span>Procesos Integrados</span>
-        </div>
+      <!-- Right Visual (REEMPLAZA AL LOGO) -->
+      <div class="order-1 lg:order-2 flex justify-center items-center">
+        <HeroVisual />
       </div>
     </div>
   </Container>
 
-  <div class="absolute bottom-8 left-1/2 -trandark-x-1/2 animate-bounce">
+  <!-- Scroll Indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
     <svg
-      class="w-6 h-6 text-frontier-cyan"
+      class="w-6 h-6 text-frontier-cyan/50"
       fill="none"
       stroke="currentColor"
       viewBox="0 0 24 24"
@@ -154,7 +190,6 @@ import imagotipoColor from "../../assets/IMAGOTIPO/SVG/IMAGOTIPO - DOS TONOS CLA
       opacity: 0;
     }
   }
-
   .animate-blink {
     animation: blink 1s infinite;
   }

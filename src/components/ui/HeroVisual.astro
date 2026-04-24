@@ -1,0 +1,62 @@
+<!-- src/components/HeroVisual.astro -->
+<div class="relative w-full max-w-lg aspect-square">
+    <!-- Círculo principal -->
+    <div class="absolute inset-0 flex items-center justify-center">
+        <div
+            class="w-80 h-80 rounded-full bg-linear-to-r from-frontier-blue/20 to-frontier-cyan/20 blur-2xl animate-pulse"
+        >
+        </div>
+    </div>
+
+    <!-- Elementos flotantes -->
+    <div
+        class="absolute top-10 left-10 w-20 h-20 bg-frontier-blue/30 rounded-2xl rotate-12 animate-float backdrop-blur-sm border border-frontier-blue/30"
+    >
+    </div>
+    <div
+        class="absolute bottom-20 right-10 w-16 h-16 bg-frontier-cyan/30 rounded-full animate-float backdrop-blur-sm border border-frontier-cyan/30"
+        style="animation-delay: 0.5s;"
+    >
+    </div>
+    <div
+        class="absolute top-1/2 right-0 w-24 h-24 bg-linear-to-r from-frontier-blue/20 to-frontier-cyan/20 rounded-xl -rotate-12 animate-float backdrop-blur-sm border border-white/10"
+        style="animation-delay: 1s;"
+    >
+    </div>
+    <div
+        class="absolute bottom-10 left-1/4 w-12 h-12 bg-frontier-cyan/20 rounded-lg rotate-45 animate-float backdrop-blur-sm border border-frontier-cyan/30"
+        style="animation-delay: 1.5s;"
+    >
+    </div>
+
+    <!-- Círculo central decorativo -->
+    <div class="absolute inset-0 flex items-center justify-center">
+        <div
+            class="w-32 h-32 rounded-full border-2 border-frontier-cyan/30 flex items-center justify-center"
+        >
+            <div
+                class="w-24 h-24 rounded-full border-2 border-frontier-blue/30 flex items-center justify-center"
+            >
+                <div
+                    class="w-16 h-16 rounded-full bg-linear-to-r from-frontier-blue to-frontier-cyan opacity-80"
+                >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes float {
+        0%,
+        100% {
+            transform: translateY(0px) rotate(var(--rotate, 0deg));
+        }
+        50% {
+            transform: translateY(-20px) rotate(var(--rotate, 0deg));
+        }
+    }
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+</style>
