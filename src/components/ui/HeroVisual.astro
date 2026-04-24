@@ -1,62 +1,308 @@
-<!-- src/components/HeroVisual.astro -->
-<div class="relative w-full max-w-lg aspect-square">
-    <!-- Círculo principal -->
-    <div class="absolute inset-0 flex items-center justify-center">
-        <div
-            class="w-80 h-80 rounded-full bg-linear-to-r from-frontier-blue/20 to-frontier-cyan/20 blur-2xl animate-pulse"
-        >
-        </div>
-    </div>
+---
+// src/components/HeroVisual.astro
+---
 
-    <!-- Elementos flotantes -->
-    <div
-        class="absolute top-10 left-10 w-20 h-20 bg-frontier-blue/30 rounded-2xl rotate-12 animate-float backdrop-blur-sm border border-frontier-blue/30"
+<div
+    class="frontier-visual relative w-full max-w-lg aspect-square flex items-center justify-center"
+>
+    <svg
+        viewBox="0 0 400 400"
+        class="w-full h-full overflow-visible"
+        xmlns="http://www.w3.org/2000/svg"
     >
-    </div>
-    <div
-        class="absolute bottom-20 right-10 w-16 h-16 bg-frontier-cyan/30 rounded-full animate-float backdrop-blur-sm border border-frontier-cyan/30"
-        style="animation-delay: 0.5s;"
-    >
-    </div>
-    <div
-        class="absolute top-1/2 right-0 w-24 h-24 bg-linear-to-r from-frontier-blue/20 to-frontier-cyan/20 rounded-xl -rotate-12 animate-float backdrop-blur-sm border border-white/10"
-        style="animation-delay: 1s;"
-    >
-    </div>
-    <div
-        class="absolute bottom-10 left-1/4 w-12 h-12 bg-frontier-cyan/20 rounded-lg rotate-45 animate-float backdrop-blur-sm border border-frontier-cyan/30"
-        style="animation-delay: 1.5s;"
-    >
-    </div>
+        <defs>
+            <!-- Gradiente de los flujos de datos -->
+            <linearGradient id="flowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#06b6d4" stop-opacity="0"></stop>
+                <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.6"
+                ></stop>
+                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"
+                ></stop>
+            </linearGradient>
 
-    <!-- Círculo central decorativo -->
-    <div class="absolute inset-0 flex items-center justify-center">
-        <div
-            class="w-32 h-32 rounded-full border-2 border-frontier-cyan/30 flex items-center justify-center"
-        >
-            <div
-                class="w-24 h-24 rounded-full border-2 border-frontier-blue/30 flex items-center justify-center"
+            <!-- Gradiente del Núcleo -->
+            <radialGradient id="coreGradient" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"
+                ></stop>
+                <stop offset="40%" stop-color="#06b6d4" stop-opacity="0.6"
+                ></stop>
+                <stop offset="100%" stop-color="#020617" stop-opacity="0"
+                ></stop>
+            </radialGradient>
+
+            <!-- Filtro de Glow (Inteligencia) -->
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="4" result="coloredBlur"
+                ></feGaussianBlur>
+                <feMerge>
+                    <feMergeNode in="coloredBlur"></feMergeNode>
+                    <feMergeNode in="SourceGraphic"></feMergeNode>
+                </feMerge>
+            </filter>
+
+            <!-- Filtro de Glow suave para el núcleo -->
+            <filter id="coreGlow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="12"></feGaussianBlur>
+            </filter>
+
+            <!-- Patrón de fondo (Estructura) -->
+            <pattern
+                id="grid"
+                width="40"
+                height="40"
+                patternUnits="userSpaceOnUse"
             >
-                <div
-                    class="w-16 h-16 rounded-full bg-linear-to-r from-frontier-blue to-frontier-cyan opacity-80"
-                >
-                </div>
-            </div>
-        </div>
-    </div>
+                <path
+                    d="M 40 0 L 0 0 0 40"
+                    fill="none"
+                    stroke="rgba(255,255,255,0.03)"
+                    stroke-width="1"></path>
+            </pattern>
+
+            <mask id="gridMask">
+                <rect width="100%" height="100%" fill="white"></rect>
+                <radialGradient id="fadeMask" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stop-color="black"></stop>
+                    <stop offset="70%" stop-color="black"></stop>
+                    <stop offset="100%" stop-color="white"></stop>
+                </radialGradient>
+                <rect width="100%" height="100%" fill="url(#fadeMask)"></rect>
+            </mask>
+        </defs>
+
+        <!-- Capa 1: Grid de fondo (El entorno estructurado) -->
+        <rect width="100%" height="100%" fill="url(#grid)" mask="url(#gridMask)"
+        ></rect>
+
+        <!-- Capa 2: Flujos de Automatización (Curvas Bézier) -->
+        <g class="flows" opacity="0.8">
+            <!-- Flujo 1: Arriba Izquierda -->
+            <path
+                id="path1"
+                d="M200,200 C150,200 80,150 60,80"
+                fill="none"
+                stroke="url(#flowGradient)"
+                stroke-width="1.5"></path>
+            <!-- Flujo 2: Arriba Derecha -->
+            <path
+                id="path2"
+                d="M200,200 C250,180 320,120 360,80"
+                fill="none"
+                stroke="url(#flowGradient)"
+                stroke-width="1.5"></path>
+            <!-- Flujo 3: Abajo Izquierda -->
+            <path
+                id="path3"
+                d="M200,200 C140,220 80,280 50,340"
+                fill="none"
+                stroke="url(#flowGradient)"
+                stroke-width="1.5"></path>
+            <!-- Flujo 4: Abajo Derecha -->
+            <path
+                id="path4"
+                d="M200,200 C270,230 330,300 350,350"
+                fill="none"
+                stroke="url(#flowGradient)"
+                stroke-width="1.5"></path>
+            <!-- Flujo 5: Lateral Izquierdo (Llega al núcleo - Entrada) -->
+            <path
+                id="path5"
+                d="M-20,200 C60,200 120,200 200,200"
+                fill="none"
+                stroke="url(#flowGradient)"
+                stroke-width="1"></path>
+        </g>
+
+        <!-- Capa 3: Nodos de Ejecución (Las tareas automatizadas) -->
+        <g class="nodes">
+            <rect
+                x="45"
+                y="65"
+                width="30"
+                height="30"
+                rx="6"
+                fill="none"
+                stroke="#06b6d4"
+                stroke-width="1"
+                opacity="0.6"
+                class="node-pulse"></rect>
+            <rect
+                x="345"
+                y="65"
+                width="30"
+                height="30"
+                rx="6"
+                fill="none"
+                stroke="#3b82f6"
+                stroke-width="1"
+                opacity="0.6"
+                class="node-pulse"
+                style="animation-delay: 1.5s;"></rect>
+            <rect
+                x="35"
+                y="325"
+                width="30"
+                height="30"
+                rx="6"
+                fill="none"
+                stroke="#8b5cf6"
+                stroke-width="1"
+                opacity="0.6"
+                class="node-pulse"
+                style="animation-delay: 0.8s;"></rect>
+            <rect
+                x="335"
+                y="335"
+                width="30"
+                height="30"
+                rx="6"
+                fill="none"
+                stroke="#06b6d4"
+                stroke-width="1"
+                opacity="0.6"
+                class="node-pulse"
+                style="animation-delay: 2.2s;"></rect>
+        </g>
+
+        <!-- Capa 4: Paquetes de Datos (Automatización en acción) -->
+        <g filter="url(#glow)">
+            <circle r="3" fill="#06b6d4">
+                <animateMotion
+                    dur="3s"
+                    repeatCount="indefinite"
+                    path="M200,200 C150,200 80,150 60,80"></animateMotion>
+            </circle>
+            <circle r="3" fill="#3b82f6">
+                <animateMotion
+                    dur="4s"
+                    repeatCount="indefinite"
+                    path="M200,200 C250,180 320,120 360,80"
+                    begin="1s"></animateMotion>
+            </circle>
+            <circle r="2.5" fill="#8b5cf6">
+                <animateMotion
+                    dur="3.5s"
+                    repeatCount="indefinite"
+                    path="M200,200 C140,220 80,280 50,340"
+                    begin="0.5s"></animateMotion>
+            </circle>
+            <circle r="2.5" fill="#06b6d4">
+                <animateMotion
+                    dur="4.5s"
+                    repeatCount="indefinite"
+                    path="M200,200 C270,230 330,300 350,350"
+                    begin="2s"></animateMotion>
+            </circle>
+            <!-- Paquete entrante (Demanda que el sistema absorbe) -->
+            <circle r="4" fill="#ffffff" opacity="0.8">
+                <animateMotion
+                    dur="2s"
+                    repeatCount="indefinite"
+                    path="M-20,200 C60,200 120,200 200,200"></animateMotion>
+            </circle>
+        </g>
+
+        <!-- Capa 5: El Núcleo de Intelencia -->
+        <g class="core-group">
+            <!-- Aura externa -->
+            <circle
+                cx="200"
+                cy="200"
+                r="60"
+                fill="#06b6d4"
+                opacity="0.05"
+                filter="url(#coreGlow)"
+                class="core-breathe"></circle>
+
+            <!-- Anillo Protector/Escáner -->
+            <path
+                d="M200,150 L230,165 L230,195 L200,210 L170,195 L170,165 Z"
+                fill="none"
+                stroke="#06b6d4"
+                stroke-width="1"
+                stroke-dasharray="4 4"
+                opacity="0.4"
+                class="scanner-ring"></path>
+
+            <!-- Hexágono Principal (La IA/El Cerebro) -->
+            <path
+                d="M200,160 L228,180 L228,220 L200,240 L172,220 L172,180 Z"
+                fill="#020617"
+                stroke="#06b6d4"
+                stroke-width="1.5"></path>
+
+            <!-- Núcleo interior brillante -->
+            <circle
+                cx="200"
+                cy="200"
+                r="12"
+                fill="url(#coreGradient)"
+                class="core-dot"></circle>
+        </g>
+    </svg>
 </div>
 
 <style>
-    @keyframes float {
+    /* El núcleo "respira" para demostrar que está vivo/procesando */
+    @keyframes breathe {
         0%,
         100% {
-            transform: translateY(0px) rotate(var(--rotate, 0deg));
+            transform: scale(1);
+            opacity: 0.05;
         }
         50% {
-            transform: translateY(-20px) rotate(var(--rotate, 0deg));
+            transform: scale(1.2);
+            opacity: 0.1;
         }
     }
-    .animate-float {
-        animation: float 6s ease-in-out infinite;
+    .core-breathe {
+        transform-origin: 200px 200px;
+        animation: breathe 4s ease-in-out infinite;
+    }
+
+    /* El punto central emite pulsos de inteligencia */
+    @keyframes corePulse {
+        0%,
+        100% {
+            r: 12;
+            opacity: 0.8;
+        }
+        50% {
+            r: 15;
+            opacity: 1;
+        }
+    }
+    .core-dot {
+        animation: corePulse 3s ease-in-out infinite;
+    }
+
+    /* El anillo exterior rota (Automatización constante) */
+    @keyframes scan {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    .scanner-ring {
+        transform-origin: 200px 200px;
+        animation: scan 15s linear infinite;
+    }
+
+    /* Los nodos periféricos pulsan cuando reciben/envían datos */
+    @keyframes nodePulse {
+        0%,
+        100% {
+            stroke-opacity: 0.6;
+            stroke-width: 1;
+        }
+        50% {
+            stroke-opacity: 1;
+            stroke-width: 1.5;
+        }
+    }
+    .node-pulse {
+        animation: nodePulse 4s ease-in-out infinite;
     }
 </style>
