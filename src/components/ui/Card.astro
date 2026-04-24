@@ -4,9 +4,11 @@ interface Props {
   hover?: boolean;
 }
 
-const { class: className = '', hover = true } = Astro.props;
+const { class: className = "", hover = true } = Astro.props;
 ---
 
-<div class={`bg-slate-900 rounded-lg shadow-lg border border-slate-800 ${hover ? 'hover:shadow-lg hover:shadow-cyan-500/50 hover:border-cyan-500/30 hover:scale-105 transition-all duration-300' : ''} ${className}`}>
+<div
+  class={`bg-dark-900 rounded-lg shadow-lg border border-dark-800 ${hover ? "hover:shadow-lg hover:shadow-cyan-500/50 hover:border-cyan-500/30 hover:scale-105 transition-all duration-300" : ""} ${className}`}
+>
   <slot />
 </div>

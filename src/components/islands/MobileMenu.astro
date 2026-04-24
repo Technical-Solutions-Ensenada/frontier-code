@@ -1,23 +1,41 @@
 ---
+
 ---
 
 <!-- Mobile Menu Overlay -->
-<div id="mobile-menu-overlay" class="fixed inset-0 bg-black/50 z-40 hidden" onclick="toggleMobileMenu()"></div>
+<div
+  id="mobile-menu-overlay"
+  class="fixed inset-0 bg-black/50 z-40 hidden"
+  onclick="toggleMobileMenu()"
+>
+</div>
 
 <!-- Mobile Menu -->
-<div id="mobile-menu" class="md:hidden fixed top-0 right-0 h-full w-72 bg-white z-50 transform translate-x-full transition-transform duration-300 shadow-xl">
+<div
+  id="mobile-menu"
+  class="md:hidden fixed top-0 right-0 h-full w-72 bg-white z-50 transform trandark-x-full transition-transform duration-300 shadow-xl"
+>
   <div class="flex flex-col h-full">
     <!-- Header -->
-    <div class="flex items-center justify-between p-4 border-b border-slate-200">
+    <div class="flex items-center justify-between p-4 border-b border-dark-200">
       <span class="text-xl font-bold text-blue-600">Frontier Code</span>
       <button
         onclick="toggleMobileMenu()"
         type="button"
-        class="p-2 rounded-lg text-slate-700 hover:bg-slate-100"
+        class="p-2 rounded-lg text-dark-700 hover:bg-dark-100"
         aria-label="Cerrar menú"
       >
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        <svg
+          class="w-6 h-6"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"></path>
         </svg>
       </button>
     </div>
@@ -27,42 +45,42 @@
       <a
         href="#hero"
         onclick="toggleMobileMenu()"
-        class="px-4 py-3 text-lg text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"
+        class="px-4 py-3 text-lg text-dark-700 hover:bg-dark-100 rounded-lg transition-colors"
       >
         Inicio
       </a>
       <a
         href="#about"
         onclick="toggleMobileMenu()"
-        class="px-4 py-3 text-lg text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"
+        class="px-4 py-3 text-lg text-dark-700 hover:bg-dark-100 rounded-lg transition-colors"
       >
         Nosotros
       </a>
       <a
         href="#services"
         onclick="toggleMobileMenu()"
-        class="px-4 py-3 text-lg text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"
+        class="px-4 py-3 text-lg text-dark-700 hover:bg-dark-100 rounded-lg transition-colors"
       >
         Servicios
       </a>
       <a
         href="#portfolio"
         onclick="toggleMobileMenu()"
-        class="px-4 py-3 text-lg text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"
+        class="px-4 py-3 text-lg text-dark-700 hover:bg-dark-100 rounded-lg transition-colors"
       >
         Portafolio
       </a>
       <a
         href="#team"
         onclick="toggleMobileMenu()"
-        class="px-4 py-3 text-lg text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"
+        class="px-4 py-3 text-lg text-dark-700 hover:bg-dark-100 rounded-lg transition-colors"
       >
         Equipo
       </a>
       <a
         href="#contact"
         onclick="toggleMobileMenu()"
-        class="px-4 py-3 text-lg text-slate-700 hover:bg-slate-100 rounded-lg transition-colors"
+        class="px-4 py-3 text-lg text-dark-700 hover:bg-dark-100 rounded-lg transition-colors"
       >
         Contacto
       </a>
@@ -72,28 +90,28 @@
 
 <script>
   function toggleMobileMenu() {
-    const menu = document.getElementById('mobile-menu');
-    const overlay = document.getElementById('mobile-menu-overlay');
+    const menu = document.getElementById("mobile-menu");
+    const overlay = document.getElementById("mobile-menu-overlay");
 
     if (menu && overlay) {
-      const isOpen = !menu.classList.contains('translate-x-full');
+      const isOpen = !menu.classList.contains("trandark-x-full");
 
       if (isOpen) {
-        menu.classList.add('translate-x-full');
-        overlay.classList.add('hidden');
-        document.body.style.overflow = '';
+        menu.classList.add("trandark-x-full");
+        overlay.classList.add("hidden");
+        document.body.style.overflow = "";
       } else {
-        menu.classList.remove('translate-x-full');
-        overlay.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
+        menu.classList.remove("trandark-x-full");
+        overlay.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
       }
     }
   }
 
   // Conectar botón del header
-  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenuButton = document.getElementById("mobile-menu-button");
   if (mobileMenuButton) {
-    mobileMenuButton.addEventListener('click', toggleMobileMenu);
+    mobileMenuButton.addEventListener("click", toggleMobileMenu);
   }
 
   // Exponer función globalmente

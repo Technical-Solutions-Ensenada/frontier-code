@@ -42,8 +42,8 @@ metadata:
 
 **Backgrounds** (Dark Theme)
 - Primary: `#0C171A` (brand dark neutral)
-- Secondary: Use `slate-900`, `slate-800` as fallbacks
-- Accents: `slate-800/50` (semi-transparent)
+- Secondary: Use `dark-900`, `dark-800` as fallbacks
+- Accents: `dark-800/50` (semi-transparent)
 
 **Accent Colors** (Use Hex Codes or Custom Tailwind Colors)
 - Primary: `#0862C8` (brand blue) - for buttons, links, CTAs
@@ -62,8 +62,8 @@ metadata:
 
 **Text Colors**
 - Primary: `#DEE6EC` (light neutral) on dark backgrounds
-- Secondary: `slate-400`
-- Muted: `slate-500`
+- Secondary: `dark-400`
+- Muted: `dark-500`
 
 ### Gradients
 
@@ -77,7 +77,7 @@ metadata:
 **Background Gradients**
 ```astro
 <!-- Hero background -->
-<div class="bg-linear-to-br from-frontier-dark via-slate-900 to-frontier-dark"></div>
+<div class="bg-linear-to-br from-frontier-dark via-dark-900 to-frontier-dark"></div>
 
 <!-- Button gradient -->
 <div class="bg-linear-to-r from-frontier-blue to-frontier-cyan"></div>
@@ -117,14 +117,14 @@ fontFamily: {
 
 **Body Text** (Nunito Sans)
 ```astro
-<p class="font-nunito text-lg sm:text-xl text-slate-400 leading-relaxed">
+<p class="font-nunito text-lg sm:text-xl text-dark-400 leading-relaxed">
   Description text
 </p>
 ```
 
 **Small Labels** (Nunito Sans, mono style)
 ```astro
-<span class="font-nunito px-4 py-2 bg-slate-800/50 border border-frontier-cyan/30 rounded-full text-frontier-cyan text-sm">
+<span class="font-nunito px-4 py-2 bg-dark-800/50 border border-frontier-cyan/30 rounded-full text-frontier-cyan text-sm">
   &lt;Frontier /&gt;
 </span>
 ```
@@ -133,7 +133,7 @@ fontFamily: {
 ```astro
 <div class="flex items-center gap-2">
   <div class="w-2 h-2 bg-frontier-cyan rounded-full animate-pulse"></div>
-  <span class="font-nunito text-slate-500 text-sm">Status</span>
+  <span class="font-nunito text-dark-500 text-sm">Status</span>
 </div>
 ```
 
@@ -234,7 +234,7 @@ class="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
 <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-frontier-dark">
   <!-- Background layers -->
   <div id="particles" class="absolute inset-0 opacity-20"></div>
-  <div class="absolute inset-0 bg-linear-to-br from-frontier-dark via-slate-900 to-frontier-dark"></div>
+  <div class="absolute inset-0 bg-linear-to-br from-frontier-dark via-dark-900 to-frontier-dark"></div>
 
   <!-- Grid pattern -->
   <div class="absolute inset-0 bg-[linear-gradient(rgba(42,209,201,0.03)_1px,transparentlinear-gradient(90_1px),deg,rgba(42,209,201,0.03)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
@@ -304,9 +304,9 @@ class="flex flex-col sm:flex-row gap-4 justify-center"
 ---
 const { label = '', color = 'cyan' } = Astro.props;
 const colors = {
-  cyan: 'text-frontier-cyan border-frontier-cyan/30 bg-slate-800/50',
-  blue: 'text-frontier-blue border-frontier-blue/30 bg-slate-800/50',
-  green: 'text-green-400 border-green-500/30 bg-slate-800/50'
+  cyan: 'text-frontier-cyan border-frontier-cyan/30 bg-dark-800/50',
+  blue: 'text-frontier-blue border-frontier-blue/30 bg-dark-800/50',
+  green: 'text-green-400 border-green-500/30 bg-dark-800/50'
 };
 ---
 <span class={`px-4 py-2 rounded-full text-sm border ${colors[color]}`}>
@@ -326,7 +326,7 @@ const colors = {
 ---
 <div class="flex items-center gap-2">
   <div class={`w-2 h-2 ${colors[color]} rounded-full animate-pulse`} style={`animation-delay: ${delay}s;`}></div>
-  <span class="text-slate-500 text-sm">{status}</span>
+  <span class="text-dark-500 text-sm">{status}</span>
 </div>
 ```
 

@@ -1,20 +1,21 @@
 ---
 import Container from "../../components/ui/Container.astro";
+import imagotipoColor from "../../assets/IMAGOTIPO/SVG/IMAGOTIPO - DOS TONOS CLARO DEGRADADO.svg";
 ---
 
 <header
-  class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-xl border-b border-cyan-500/20"
+  class="sticky top-0 z-50 bg-dark-950/80 backdrop-blur-xl border-b border-cyan-500/20"
 >
   <Container>
     <nav class="flex items-center justify-between h-20">
       <!-- Logo -->
       <div class="flex-shrink-0">
         <a href="/" class="text-2xl font-bold group">
-          <span
-            class="px-4 py-2 bg-slate-800/50 border border-cyan-500/30 rounded-full text-cyan-400 text-sm font-mono"
-          >
-            &lt;FrontierCode/&gt;
-          </span>
+          <img
+            src={imagotipoColor.src}
+            alt="Frontier Code"
+            class="w-20 sm:w-30 md:w-38 lg:w-[200px] mx-auto"
+          />
         </a>
       </div>
 
@@ -22,7 +23,7 @@ import Container from "../../components/ui/Container.astro";
       <div class="hidden md:flex md:items-center md:space-x-1">
         <a
           href="#hero"
-          class="relative px-4 py-2 text-slate-400 hover:text-cyan-300 transition-all duration-300 hover:scale-105 group"
+          class="relative px-4 py-2 text-dark-400 hover:text-cyan-300 transition-all duration-300 hover:scale-105 group"
         >
           <span class="relative z-10">Inicio</span>
           <span
@@ -31,7 +32,7 @@ import Container from "../../components/ui/Container.astro";
         </a>
         <a
           href="#about"
-          class="relative px-4 py-2 text-slate-400 hover:text-cyan-300 transition-all duration-300 hover:scale-105 group"
+          class="relative px-4 py-2 text-dark-400 hover:text-cyan-300 transition-all duration-300 hover:scale-105 group"
         >
           <span class="relative z-10">Nosotros</span>
           <span
@@ -40,7 +41,7 @@ import Container from "../../components/ui/Container.astro";
         </a>
         <a
           href="#process"
-          class="relative px-4 py-2 text-slate-400 hover:text-cyan-300 transition-all duration-300 hover:scale-105 group"
+          class="relative px-4 py-2 text-dark-400 hover:text-cyan-300 transition-all duration-300 hover:scale-105 group"
         >
           <span class="relative z-10">Proceso</span>
           <span
@@ -49,7 +50,7 @@ import Container from "../../components/ui/Container.astro";
         </a>
         <a
           href="#services"
-          class="relative px-4 py-2 text-slate-400 hover:text-cyan-300 transition-all duration-300 hover:scale-105 group"
+          class="relative px-4 py-2 text-dark-400 hover:text-cyan-300 transition-all duration-300 hover:scale-105 group"
         >
           <span class="relative z-10">Servicios</span>
           <span
@@ -58,7 +59,7 @@ import Container from "../../components/ui/Container.astro";
         </a>
         <a
           href="#portfolio"
-          class="relative px-4 py-2 text-slate-400 hover:text-cyan-300 transition-all duration-300 hover:scale-105 group"
+          class="relative px-4 py-2 text-dark-400 hover:text-cyan-300 transition-all duration-300 hover:scale-105 group"
         >
           <span class="relative z-10">Portafolio</span>
           <span
@@ -67,7 +68,7 @@ import Container from "../../components/ui/Container.astro";
         </a>
         <a
           href="#team"
-          class="relative px-4 py-2 text-slate-400 hover:text-cyan-300 transition-all duration-300 hover:scale-105 group"
+          class="relative px-4 py-2 text-dark-400 hover:text-cyan-300 transition-all duration-300 hover:scale-105 group"
         >
           <span class="relative z-10">Equipo</span>
           <span
@@ -76,7 +77,7 @@ import Container from "../../components/ui/Container.astro";
         </a>
         <a
           href="#contact"
-          class="relative px-4 py-2 text-slate-400 hover:text-cyan-300 transition-all duration-300 hover:scale-105 group"
+          class="relative px-4 py-2 text-dark-400 hover:text-cyan-300 transition-all duration-300 hover:scale-105 group"
         >
           <span class="relative z-10">Contacto</span>
           <span

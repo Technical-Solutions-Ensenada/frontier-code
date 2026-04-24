@@ -1,20 +1,23 @@
 ---
 interface Props {
   class?: string;
-  background?: 'light' | 'slate' | 'blue' | 'dark';
+  background?: "light" | "dark" | "blue" | "dark";
   id?: string;
 }
 
-const { class: className = '', background = 'dark', id } = Astro.props;
+const { class: className = "", background = "dark", id } = Astro.props;
 
 const backgrounds = {
-  light: 'bg-slate-900',
-  slate: 'bg-slate-950',
-  blue: 'bg-blue-950/50',
-  dark: 'bg-slate-950'
+  light: "bg-dark-900",
+  dark: "bg-dark-950",
+  blue: "bg-blue-950/50",
+  dark: "bg-dark-950",
 };
 ---
 
-<section id={id} class={`py-16 sm:py-20 lg:py-24 ${backgrounds[background]} ${className}`}>
+<section
+  id={id}
+  class={`py-16 sm:py-20 lg:py-24 ${backgrounds[background]} ${className}`}
+>
   <slot />
 </section>
