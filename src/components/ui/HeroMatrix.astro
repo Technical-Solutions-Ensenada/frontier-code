@@ -1,0 +1,323 @@
+---
+// HeroTerminal.astro
+// Hero Section - Terminal Matrix 2.0 para Frontier Code
+// Requiere GSAP + TextPlugin (se cargan por CDN dentro del script)
+---
+
+<section
+    id="hero"
+    class="relative min-h-screen overflow-hidden bg-[#0a0f14]"
+    style="--frontier-dark: #0a0f14; --frontier-blue: #0077cc; --frontier-cyan: #00bcd4;"
+>
+    <!-- Canvas para la lluvia de caracteres Matrix -->
+    <canvas
+        id="matrix-bg"
+        class="absolute inset-0 w-full h-full"
+        style="opacity: 0.25; pointer-events: none;"></canvas>
+
+    <div
+        class="relative z-10 flex items-center justify-center min-h-screen p-4"
+    >
+        <!-- Ventana de terminal -->
+        <div
+            class="terminal-window w-full max-w-3xl mx-auto rounded-xl shadow-2xl overflow-hidden border border-[var(--frontier-cyan)]/20"
+        >
+            <!-- Barra de título de la terminal -->
+            <div
+                class="terminal-header flex items-center gap-2 px-4 py-3 bg-gray-900/80 backdrop-blur-sm border-b border-[var(--frontier-cyan)]/10"
+            >
+                <div class="flex gap-1.5">
+                    <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                    <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                    <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+                </div>
+                <span
+                    class="text-xs text-gray-400 font-mono ml-2 tracking-wider"
+                >
+                    Frontier Code — Deploy.sh
+                </span>
+            </div>
+
+            <!-- Cuerpo de la terminal -->
+            <div
+                id="terminal-body"
+                class="terminal-body p-5 sm:p-8 font-mono text-sm sm:text-base bg-[var(--frontier-dark)]/95 backdrop-blur-sm"
+            >
+                <!-- Las líneas se generarán aquí con la animación -->
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap");
+
+    .terminal-window {
+        font-family: "Fira Code", monospace;
+        background: rgba(10, 15, 20, 0.9);
+        box-shadow: 0 25px 50px -12px rgba(0, 188, 212, 0.25);
+    }
+    .terminal-body {
+        min-height: 300px;
+        line-height: 1.8;
+        color: #e0e0e0;
+    }
+    /* Estilo para el cursor parpadeante (respeto de movimiento) */
+    .cursor-blink {
+        animation: blink 1s step-end infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .cursor-blink {
+            animation: none;
+        }
+    }
+    @keyframes blink {
+        50% {
+            opacity: 0;
+        }
+    }
+    /* Botones del menú interactivo */
+    .menu-link {
+        color: var(--frontier-cyan);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    .menu-link:hover,
+    .menu-link:focus-visible {
+        color: #fff;
+        text-shadow: 0 0 10px var(--frontier-cyan);
+        outline: none;
+    }
+    .menu-link::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: var(--frontier-cyan);
+        transform: scaleX(0);
+        transform-origin: right;
+        transition: transform 0.3s ease;
+    }
+    .menu-link:hover::after {
+        transform: scaleX(1);
+        transform-origin: left;
+    }
+</style>
+
+<script>
+    // Carga dinámica de GSAP + TextPlugin desde CDN
+    function loadScript(src) {
+        return new Promise((resolve, reject) => {
+            const script = document.createElement("script");
+            script.src = src;
+            script.onload = resolve;
+            script.onerror = reject;
+            document.head.appendChild(script);
+        });
+    }
+
+    async function initHero() {
+        // Cargar GSAP y TextPlugin si no están disponibles
+        if (!window.gsap) {
+            await loadScript(
+                "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js",
+            );
+        }
+        if (!window.TextPlugin) {
+            await loadScript(
+                "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js",
+            );
+        }
+        const gsap = window.gsap;
+        gsap.registerPlugin(window.TextPlugin);
+
+        const terminalBody = document.getElementById("terminal-body");
+        if (!terminalBody) return;
+
+        // Construir la estructura HTML inicial dentro de la terminal
+        terminalBody.innerHTML = `
+      <div class="line prompt-line"><span class="prompt">user@frontier:~$</span> <span class="command" id="cmd1"></span><span class="cursor-blink" id="cursor1">█</span></div>
+      <div class="line output-title hidden"><span class="text-[var(--frontier-blue)]" id="title-out"></span></div>
+      <div class="line output-subtitle hidden"><span class="text-gray-300" id="subtitle-out"></span></div>
+      <div class="line prompt-line hidden" id="menu-prompt"><span class="prompt">user@frontier:~$</span> <span class="command" id="cmd2"></span><span class="cursor-blink" id="cursor2" style="display:none;">█</span></div>
+      <div class="line menu-line hidden" id="menu1"><span class="text-[var(--frontier-cyan)]">[1]</span> <a href="#contact" class="menu-link" id="link1">Impulsa tu Eficiencia</a></div>
+      <div class="line menu-line hidden" id="menu2"><span class="text-[var(--frontier-cyan)]">[2]</span> <a href="#services" class="menu-link" id="link2">Ver Servicios</a></div>
+      <div class="line prompt-line hidden" id="final-prompt"><span class="prompt">user@frontier:~$</span> <span class="cursor-blink">█</span></div>
+    `;
+
+        // Referencias a los elementos
+        const cmd1 = document.getElementById("cmd1");
+        const cursor1 = document.getElementById("cursor1");
+        const titleOut = document.getElementById("title-out");
+        const subtitleOut = document.getElementById("subtitle-out");
+        const menuPrompt = document.getElementById("menu-prompt");
+        const cmd2 = document.getElementById("cmd2");
+        const cursor2 = document.getElementById("cursor2");
+        const menu1 = document.getElementById("menu1");
+        const menu2 = document.getElementById("menu2");
+        const finalPrompt = document.getElementById("final-prompt");
+        const link1 = document.getElementById("link1");
+        const link2 = document.getElementById("link2");
+
+        // Líneas de salida completas
+        const outputTitleText =
+            "Creamos eficiencia, automatización y crecimiento.";
+        const outputSubtitleText =
+            "Transformamos visiones ambiciosas en soluciones digitales. Código limpio, arquitectura sólida y experiencias que impresionan.";
+
+        // Timeline principal
+        const tl = gsap.timeline({ defaults: { ease: "none" } });
+
+        // Paso 1: Escribir "cat hero.txt"
+        tl.to(cmd1, {
+            duration: 0.8,
+            text: "cat hero.txt",
+            onStart: () => {
+                // Asegurar que el cursor sigue visible mientras se escribe
+                gsap.set(cursor1, { display: "inline" });
+            },
+            onComplete: () => {
+                // Al terminar, ocultar cursor del primer prompt
+                gsap.set(cursor1, { display: "none" });
+            },
+        });
+
+        // Pequeña pausa
+        tl.to({}, { duration: 0.3 });
+
+        // Paso 2: Mostrar el título (palabra por palabra/carácter)
+        tl.set(titleOut.parentElement, { display: "block" }); // Mostrar línea contenedora
+        tl.to(titleOut, {
+            duration: 2.0,
+            text: outputTitleText,
+            ease: "steps(30)",
+        });
+
+        // Paso 3: Mostrar el subtítulo
+        tl.set(subtitleOut.parentElement, { display: "block" });
+        tl.to(subtitleOut, {
+            duration: 3.0,
+            text: outputSubtitleText,
+            ease: "steps(30)",
+        });
+
+        // Paso 4: Mostrar el siguiente prompt y escribir "./menu"
+        tl.set(menuPrompt, { display: "block" });
+        tl.set(cursor2, { display: "inline" });
+        tl.to(cmd2, {
+            duration: 0.6,
+            text: "./menu.sh",
+            onComplete: () => {
+                gsap.set(cursor2, { display: "none" });
+            },
+        });
+
+        // Pequeña pausa antes del menú
+        tl.to({}, { duration: 0.2 });
+
+        // Paso 5: Mostrar las opciones del menú con un stagger
+        tl.set(menu1, { display: "block", opacity: 0, y: 5 });
+        tl.set(menu2, { display: "block", opacity: 0, y: 5 });
+        tl.to([menu1, menu2], {
+            duration: 0.4,
+            opacity: 1,
+            y: 0,
+            stagger: 0.15,
+            ease: "power2.out",
+        });
+
+        // Paso 6: Mostrar el prompt final con cursor parpadeante
+        tl.set(finalPrompt, { display: "block" });
+        tl.to({}, { duration: 0.1 });
+
+        // Resaltar los enlaces del menú después de la animación
+        tl.to(
+            link1,
+            {
+                duration: 0.3,
+                color: "#ffffff",
+                textShadow: "0 0 8px var(--frontier-cyan)",
+            },
+            "-=0.1",
+        );
+        tl.to(
+            link2,
+            {
+                duration: 0.3,
+                color: "#ffffff",
+                textShadow: "0 0 8px var(--frontier-cyan)",
+            },
+            "-=0.2",
+        );
+    }
+
+    // ---------- Fondo Matrix (lluvia de caracteres) ----------
+    function initMatrixBackground() {
+        const canvas = document.getElementById("matrix-bg");
+        if (!canvas) return;
+        const ctx = canvas.getContext("2d");
+        let width, height;
+        let columns, drops;
+
+        const fontSize = 16;
+        const chars =
+            "アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const charArray = chars.split("");
+
+        function resize() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+            columns = Math.floor(width / fontSize);
+            drops = Array(columns).fill(1);
+        }
+        window.addEventListener("resize", resize);
+        resize();
+
+        function draw() {
+            // Fondo semitransparente para crear estela
+            ctx.fillStyle = "rgba(10, 15, 20, 0.05)";
+            ctx.fillRect(0, 0, width, height);
+
+            ctx.fillStyle = "#00bcd4"; // frontier-cyan
+            ctx.font = `${fontSize}px 'Fira Code', monospace`;
+            ctx.textAlign = "center";
+
+            for (let i = 0; i < drops.length; i++) {
+                const char =
+                    charArray[Math.floor(Math.random() * charArray.length)];
+                ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+
+        function animate() {
+            draw();
+            requestAnimationFrame(animate);
+        }
+        animate();
+    }
+
+    // Respetar preferencia de movimiento reducido
+    const prefersReducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)",
+    ).matches;
+    if (!prefersReducedMotion) {
+        initMatrixBackground();
+    } else {
+        // Si prefiere sin movimiento, ocultar el canvas o dejarlo estático
+        const canvas = document.getElementById("matrix-bg");
+        if (canvas) canvas.style.display = "none";
+    }
+
+    // Iniciar la animación de la terminal cuando el DOM esté listo
+    window.addEventListener("DOMContentLoaded", initHero);
+</script>
