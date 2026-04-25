@@ -1,117 +1,264 @@
 ---
+// src/sections/Process.astro
 import Container from "../ui/Container.astro";
 import Section from "../ui/Section.astro";
 ---
 
 <Section id="process" background="dark">
   <Container>
-    <div class="text-center mb-16">
+    <!-- Encabezado -->
+    <div class="text-center mb-20">
       <span
-        class="text-sm sm:text-base font-mono text-cyan-400 tracking-widest uppercase mb-4 block"
+        class="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-sm font-mono text-cyan-400 tracking-widest uppercase"
       >
-        Cómo Trabajamos
+        <span class="w-2 h-2 bg-cyan-400 rounded-full motion-safe:animate-pulse"
+        ></span>
+        Metodología
       </span>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-dark-300 mb-6">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-dark-300 mb-4">
+        Cómo convertimos
         <span
-          class="bg-linear-to-r from-cyan-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent"
+          class="bg-linear-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent"
         >
-          Nuestro Proceso
+          ideas en software
         </span>
       </h2>
+      <p class="text-dark-400 max-w-2xl mx-auto">
+        Un proceso iterativo y transparente que garantiza soluciones alineadas
+        con tus objetivos de negocio.
+      </p>
     </div>
 
-    <div class="relative">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="relative">
-          <div class="flex flex-col items-center text-center">
-            <div class="relative mb-6 group">
-              <div
-                class="w-20 h-20 bg-linear-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center shadow-lg shadow-cyan-500/50 transition-all duration-300 hover:scale-110 hover:shadow-cyan-500/70"
-              >
-                <span class="text-2xl font-bold text-white">01</span>
-              </div>
-              <div
-                class="absolute top-1/2 -right-8 w-8 h-0.5 bg-linear-to-r from-cyan-500/50 to-transparent hidden lg:block"
-              >
-              </div>
-            </div>
-            <h3 class="text-xl font-semibold text-dark-300 mb-3">
-              Levantamiento de Requerimientos
-            </h3>
-            <p class="text-dark-400 leading-relaxed">
-              Análisis detallado de sistemas actuales y definición precisa de
-              las necesidades del cliente.
-            </p>
-          </div>
+    <!-- Línea de tiempo / Proceso -->
+    <div
+      id="process-timeline"
+      class="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4"
+    >
+      <!-- Línea conectora horizontal: z-0 para que quede por debajo -->
+      <div
+        class="absolute top-12 left-[10%] right-[10%] h-0.5 bg-gray-800 hidden lg:block overflow-hidden z-0"
+      >
+        <div
+          id="process-line-fill"
+          class="h-full bg-linear-to-r from-cyan-400 via-blue-500 to-purple-500 origin-left scale-x-0"
+        >
         </div>
+      </div>
 
-        <div class="relative">
-          <div class="flex flex-col items-center text-center">
-            <div class="relative mb-6 group">
-              <div
-                class="w-20 h-20 bg-linear-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/50 transition-all duration-300 hover:scale-110 hover:shadow-blue-500/70"
-              >
-                <span class="text-2xl font-bold text-white">02</span>
-              </div>
-              <div
-                class="absolute top-1/2 -right-8 w-8 h-0.5 bg-linear-to-r from-blue-500/50 to-transparent hidden lg:block"
-              >
-              </div>
-            </div>
-            <h3 class="text-xl font-semibold text-dark-300 mb-3">Prototipo</h3>
-            <p class="text-dark-400 leading-relaxed">
-              Diseño basado en información recopilada, creando modelos
-              interactivos para validación.
-            </p>
-          </div>
+      <!-- Paso 1 -->
+      <div
+        class="process-step relative flex flex-col items-center text-center z-10"
+        data-step="1"
+      >
+        <div
+          class="process-icon-wrapper relative w-24 h-24 rounded-2xl bg-linear-to-br from-cyan-500/30 to-cyan-600/20 border border-cyan-500/30 flex items-center justify-center mb-6 transition-all duration-500 group hover:scale-110 hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] backdrop-blur-md"
+        >
+          <svg
+            class="w-10 h-10 text-cyan-400 transition-transform duration-500 group-hover:rotate-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            ></path>
+          </svg>
+          <span
+            class="absolute -top-2 -right-2 w-7 h-7 bg-cyan-500 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg shadow-cyan-500/50"
+            >1</span
+          >
         </div>
+        <h3 class="text-xl font-semibold text-dark-300 mb-3">Descubrimiento</h3>
+        <p class="text-dark-400 leading-relaxed text-sm">
+          Analizamos tus procesos actuales y definimos requerimientos con
+          precisión quirúrgica.
+        </p>
+      </div>
 
-        <div class="relative">
-          <div class="flex flex-col items-center text-center">
-            <div class="relative mb-6 group">
-              <div
-                class="w-20 h-20 bg-linear-to-br from-cyan-500 to-cyan-600 rounded-full flex items-center justify-center shadow-lg shadow-cyan-500/50 transition-all duration-300 hover:scale-110 hover:shadow-cyan-500/70"
-              >
-                <span class="text-2xl font-bold text-white">03</span>
-              </div>
-              <div
-                class="absolute top-1/2 -right-8 w-8 h-0.5 bg-linear-to-r from-cyan-500/50 to-transparent hidden lg:block"
-              >
-              </div>
-            </div>
-            <h3 class="text-xl font-semibold text-dark-300 mb-3">Desarrollo</h3>
-            <p class="text-dark-400 leading-relaxed">
-              Implementación de la solución con las mejores prácticas y
-              tecnologías del mercado.
-            </p>
-          </div>
+      <!-- Paso 2 -->
+      <div
+        class="process-step relative flex flex-col items-center text-center z-10"
+        data-step="2"
+      >
+        <div
+          class="process-icon-wrapper relative w-24 h-24 rounded-2xl bg-linear-to-br from-blue-500/30 to-blue-600/20 border border-blue-500/30 flex items-center justify-center mb-6 transition-all duration-500 group hover:scale-110 hover:border-blue-400 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] backdrop-blur-md"
+        >
+          <svg
+            class="w-10 h-10 text-blue-400 transition-transform duration-500 group-hover:rotate-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42"
+            ></path>
+          </svg>
+          <span
+            class="absolute -top-2 -right-2 w-7 h-7 bg-blue-500 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg shadow-blue-500/50"
+            >2</span
+          >
         </div>
+        <h3 class="text-xl font-semibold text-dark-300 mb-3">Prototipo</h3>
+        <p class="text-dark-400 leading-relaxed text-sm">
+          Diseñamos maquetas interactivas para validar la solución antes de
+          escribir una sola línea de código.
+        </p>
+      </div>
 
-        <div class="relative">
-          <div class="flex flex-col items-center text-center">
-            <div class="relative mb-6 group">
-              <div
-                class="w-20 h-20 bg-linear-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/50 transition-all duration-300 hover:scale-110 hover:shadow-blue-500/70"
-              >
-                <span class="text-2xl font-bold text-white">04</span>
-              </div>
-            </div>
-            <h3 class="text-xl font-semibold text-dark-300 mb-3">Evaluación</h3>
-            <p class="text-dark-400 leading-relaxed">
-              Pruebas exhaustivas, validación de resultados y entrega final con
-              documentación completa.
-            </p>
-          </div>
+      <!-- Paso 3 -->
+      <div
+        class="process-step relative flex flex-col items-center text-center z-10"
+        data-step="3"
+      >
+        <div
+          class="process-icon-wrapper relative w-24 h-24 rounded-2xl bg-linear-to-br from-purple-500/30 to-purple-600/20 border border-purple-500/30 flex items-center justify-center mb-6 transition-all duration-500 group hover:scale-110 hover:border-purple-400 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] backdrop-blur-md"
+        >
+          <svg
+            class="w-10 h-10 text-purple-400 transition-transform duration-500 group-hover:rotate-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+            ></path>
+          </svg>
+          <span
+            class="absolute -top-2 -right-2 w-7 h-7 bg-purple-500 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg shadow-purple-500/50"
+            >3</span
+          >
         </div>
+        <h3 class="text-xl font-semibold text-dark-300 mb-3">Desarrollo</h3>
+        <p class="text-dark-400 leading-relaxed text-sm">
+          Construimos tu software con las mejores prácticas, arquitecturas
+          limpias y tecnologías modernas.
+        </p>
+      </div>
+
+      <!-- Paso 4 -->
+      <div
+        class="process-step relative flex flex-col items-center text-center z-10"
+        data-step="4"
+      >
+        <div
+          class="process-icon-wrapper relative w-24 h-24 rounded-2xl bg-linear-to-br from-emerald-500/30 to-emerald-600/20 border border-emerald-500/30 flex items-center justify-center mb-6 transition-all duration-500 group hover:scale-110 hover:border-emerald-400 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] backdrop-blur-md"
+        >
+          <svg
+            class="w-10 h-10 text-emerald-400 transition-transform duration-500 group-hover:rotate-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+            ></path>
+          </svg>
+          <span
+            class="absolute -top-2 -right-2 w-7 h-7 bg-emerald-500 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg shadow-emerald-500/50"
+            >4</span
+          >
+        </div>
+        <h3 class="text-xl font-semibold text-dark-300 mb-3">Validación</h3>
+        <p class="text-dark-400 leading-relaxed text-sm">
+          Pruebas exhaustivas, despliegue controlado y documentación para
+          garantizar el éxito de tu producto.
+        </p>
       </div>
     </div>
 
-    <div class="mt-16 text-center max-w-3xl mx-auto">
-      <p class="text-dark-400 leading-relaxed">
-        Nuestras soluciones de software son adaptables a diversos sectores,
-        optimizando procesos e impulsando la transformación digital en
-        industrias textil, industrial, comercial y de servicios.
+    <!-- Texto final -->
+    <div class="mt-20 text-center max-w-3xl mx-auto">
+      <div
+        class="h-px w-20 bg-linear-to-r from-transparent via-cyan-400 to-transparent mx-auto mb-8"
+      >
+      </div>
+      <p class="text-dark-400 leading-relaxed text-lg">
+        Nuestras soluciones se adaptan a cualquier sector —textil, industrial,
+        comercial o servicios— optimizando procesos e impulsando la
+        transformación digital de tu empresa.
       </p>
     </div>
   </Container>
 </Section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const ctx = gsap.context(() => {
+      // Animación de la línea conectora horizontal
+      gsap.fromTo(
+        "#process-line-fill",
+        { scaleX: 0 },
+        {
+          scaleX: 1,
+          duration: 1.5,
+          ease: "power2.inOut",
+          scrollTrigger: {
+            trigger: "#process-timeline",
+            start: "top 70%",
+          },
+        },
+      );
+
+      // Animación de cada paso: aparecen desde abajo con stagger
+      gsap.from(".process-step", {
+        y: 60,
+        opacity: 0,
+        duration: 0.8,
+        stagger: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#process-timeline",
+          start: "top 75%",
+        },
+      });
+
+      // Efecto hover 3D para los iconos
+      document.querySelectorAll(".process-icon-wrapper").forEach((wrapper) => {
+        wrapper.addEventListener("mousemove", (e) => {
+          const rect = wrapper.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          gsap.to(wrapper, {
+            rotationY: x * 0.1,
+            rotationX: -y * 0.1,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        });
+        wrapper.addEventListener("mouseleave", () => {
+          gsap.to(wrapper, {
+            rotationY: 0,
+            rotationX: 0,
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        });
+      });
+    }, "#process");
+  });
+</script>
+
+<style is:global>
+  @media (max-width: 1023px) {
+    #process-line-fill {
+      display: none;
+    }
+  }
+</style>

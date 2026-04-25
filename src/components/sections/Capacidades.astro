@@ -1,0 +1,323 @@
+---
+// src/sections/Capabilities.astro
+import Container from "../ui/Container.astro";
+import Section from "../ui/Section.astro";
+---
+
+<Section id="capabilities" background="dark" class="!pt-0">
+    <Container>
+        <div class="relative py-20 sm:py-28 lg:py-36">
+            <!-- Header -->
+            <div class="relative text-center mb-20">
+                <span
+                    class="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-sm font-mono text-cyan-400 tracking-widest uppercase"
+                >
+                    <span
+                        class="w-2 h-2 bg-cyan-400 rounded-full motion-safe:animate-pulse"
+                    ></span>
+                    Tecnología
+                </span>
+                <h2
+                    class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-dark-200 mb-6"
+                >
+                    <span
+                        class="bg-linear-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent"
+                    >
+                        Capacidades Técnicas Avanzadas
+                    </span>
+                </h2>
+                <p
+                    class="text-lg sm:text-xl text-dark-400 leading-relaxed max-w-3xl mx-auto"
+                >
+                    Tecnología de punta que potencia cada solución que
+                    desarrollamos
+                </p>
+            </div>
+
+            <!-- Bento Grid -->
+            <div
+                id="bento-grid"
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 auto-rows-[240px]"
+            >
+                <!-- Tarjeta 1: Cloud (grande, ocupa 2 columnas y 2 filas) -->
+                <div
+                    class="bento-card group relative col-span-1 lg:col-span-2 row-span-2 bg-linear-to-br from-dark-800/40 to-dark-800/20 border border-dark-700/50 rounded-2xl p-8 hover:border-cyan-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-cyan-500/10 overflow-hidden"
+                >
+                    <div
+                        class="absolute inset-0 bg-linear-to-br from-cyan-500/0 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    >
+                    </div>
+                    <div class="relative flex flex-col h-full">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div
+                                class="w-14 h-14 bg-linear-to-br from-cyan-500/30 to-cyan-600/20 border-2 border-cyan-500/40 rounded-xl flex items-center justify-center shadow-lg shadow-cyan-500/20"
+                            >
+                                <span
+                                    class="text-2xl font-bold bg-linear-to-br from-cyan-400 to-cyan-300 text-transparent bg-clip-text"
+                                    >01</span
+                                >
+                            </div>
+                            <h4
+                                class="text-xl font-bold text-dark-200 group-hover:text-cyan-300 transition-colors"
+                            >
+                                Infraestructura Cloud
+                            </h4>
+                        </div>
+                        <p class="text-dark-400 flex-1">
+                            Dominio en arquitecturas AWS y microservicios
+                            enfocado en eficiencia de costos, rentabilidad
+                            operativa y capacidad de manejar alta carga con
+                            escalabilidad automática.
+                        </p>
+                        <div
+                            class="h-1 w-0 group-hover:w-full bg-linear-to-r from-cyan-500 to-cyan-400 rounded-full transition-all duration-700 mt-4"
+                        >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Automatización (estándar) -->
+                <div
+                    class="bento-card group relative bg-linear-to-br from-dark-800/40 to-dark-800/20 border border-dark-700/50 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/10 overflow-hidden"
+                >
+                    <div
+                        class="absolute inset-0 bg-linear-to-br from-blue-500/0 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    >
+                    </div>
+                    <div class="relative flex flex-col h-full">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div
+                                class="w-14 h-14 bg-linear-to-br from-blue-500/30 to-blue-600/20 border-2 border-blue-500/40 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20"
+                            >
+                                <span
+                                    class="text-2xl font-bold bg-linear-to-br from-blue-400 to-blue-300 text-transparent bg-clip-text"
+                                    >02</span
+                                >
+                            </div>
+                            <h4
+                                class="text-xl font-bold text-dark-200 group-hover:text-blue-300 transition-colors"
+                            >
+                                Automatización
+                            </h4>
+                        </div>
+                        <p class="text-dark-400 flex-1">
+                            Eliminación de procesos manuales mediante CI/CD,
+                            integración con sistemas contables y optimización de
+                            cadenas de suministro.
+                        </p>
+                        <div
+                            class="h-1 w-0 group-hover:w-full bg-linear-to-r from-blue-500 to-blue-400 rounded-full transition-all duration-700 mt-4"
+                        >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Seguridad (estándar) -->
+                <div
+                    class="bento-card group relative bg-linear-to-br from-dark-800/40 to-dark-800/20 border border-dark-700/50 rounded-2xl p-8 hover:border-purple-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/10 overflow-hidden"
+                >
+                    <div
+                        class="absolute inset-0 bg-linear-to-br from-purple-500/0 to-purple-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    >
+                    </div>
+                    <div class="relative flex flex-col h-full">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div
+                                class="w-14 h-14 bg-linear-to-br from-purple-500/30 to-purple-600/20 border-2 border-purple-500/40 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/20"
+                            >
+                                <span
+                                    class="text-2xl font-bold bg-linear-to-br from-purple-400 to-purple-300 text-transparent bg-clip-text"
+                                    >03</span
+                                >
+                            </div>
+                            <h4
+                                class="text-xl font-bold text-dark-200 group-hover:text-purple-300 transition-colors"
+                            >
+                                Seguridad y Trazabilidad
+                            </h4>
+                        </div>
+                        <p class="text-dark-400 flex-1">
+                            Integridad de la información con control de activos,
+                            monitoreo en tiempo real de seguridad y cumplimiento
+                            normativo.
+                        </p>
+                        <div
+                            class="h-1 w-0 group-hover:w-full bg-linear-to-r from-purple-500 to-purple-400 rounded-full transition-all duration-700 mt-4"
+                        >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4: Integración (horizontal, ocupa 2 columnas) -->
+                <div
+                    class="bento-card group relative col-span-1 lg:col-span-2 bg-linear-to-br from-dark-800/40 to-dark-800/20 border border-dark-700/50 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/10 overflow-hidden"
+                >
+                    <div
+                        class="absolute inset-0 bg-linear-to-br from-blue-500/0 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    >
+                    </div>
+                    <div class="relative flex items-start gap-6 h-full">
+                        <div
+                            class="w-14 h-14 bg-linear-to-br from-blue-500/30 to-blue-600/20 border-2 border-blue-500/40 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20 shrink-0"
+                        >
+                            <span
+                                class="text-2xl font-bold bg-linear-to-br from-blue-400 to-blue-300 text-transparent bg-clip-text"
+                                >04</span
+                            >
+                        </div>
+                        <div class="flex flex-col">
+                            <h4
+                                class="text-xl font-bold text-dark-200 group-hover:text-blue-300 transition-colors mb-2"
+                            >
+                                Integración de Sistemas
+                            </h4>
+                            <p class="text-dark-400">
+                                Conectamos sistemas heredados con plataformas
+                                modernas, migraciones complejas y sincronización
+                                en tiempo real.
+                            </p>
+                            <div
+                                class="h-1 w-0 group-hover:w-full bg-linear-to-r from-blue-500 to-blue-400 rounded-full transition-all duration-700 mt-auto"
+                            >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 5: DevOps (estándar) -->
+                <div
+                    class="bento-card group relative bg-linear-to-br from-dark-800/40 to-dark-800/20 border border-dark-700/50 rounded-2xl p-8 hover:border-cyan-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-cyan-500/10 overflow-hidden"
+                >
+                    <div
+                        class="absolute inset-0 bg-linear-to-br from-cyan-500/0 to-cyan-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    >
+                    </div>
+                    <div class="relative flex flex-col h-full">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div
+                                class="w-14 h-14 bg-linear-to-br from-cyan-500/30 to-cyan-600/20 border-2 border-cyan-500/40 rounded-xl flex items-center justify-center shadow-lg shadow-cyan-500/20"
+                            >
+                                <span
+                                    class="text-2xl font-bold bg-linear-to-br from-cyan-400 to-cyan-300 text-transparent bg-clip-text"
+                                    >05</span
+                                >
+                            </div>
+                            <h4
+                                class="text-xl font-bold text-dark-200 group-hover:text-cyan-300 transition-colors"
+                            >
+                                DevOps y CI/CD
+                            </h4>
+                        </div>
+                        <p class="text-dark-400 flex-1">
+                            Pipelines automatizados, despliegues continuos,
+                            monitoreo de performance y gestión de
+                            infraestructura como código.
+                        </p>
+                        <div
+                            class="h-1 w-0 group-hover:w-full bg-linear-to-r from-cyan-500 to-cyan-400 rounded-full transition-all duration-700 mt-4"
+                        >
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 6: Escalabilidad (estándar) -->
+                <div
+                    class="bento-card group relative bg-linear-to-br from-dark-800/40 to-dark-800/20 border border-dark-700/50 rounded-2xl p-8 hover:border-blue-500/50 transition-all duration-500 hover:shadow-xl hover:shadow-blue-500/10 overflow-hidden"
+                >
+                    <div
+                        class="absolute inset-0 bg-linear-to-br from-blue-500/0 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    >
+                    </div>
+                    <div class="relative flex flex-col h-full">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div
+                                class="w-14 h-14 bg-linear-to-br from-blue-500/30 to-blue-600/20 border-2 border-blue-500/40 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20"
+                            >
+                                <span
+                                    class="text-2xl font-bold bg-linear-to-br from-blue-400 to-blue-300 text-transparent bg-clip-text"
+                                    >06</span
+                                >
+                            </div>
+                            <h4
+                                class="text-xl font-bold text-dark-200 group-hover:text-blue-300 transition-colors"
+                            >
+                                Escalabilidad y Performance
+                            </h4>
+                        </div>
+                        <p class="text-dark-400 flex-1">
+                            Arquitecturas optimizadas para crecimiento
+                            exponencial, balanceo de carga y bases de datos
+                            distribuidas de alto rendimiento.
+                        </p>
+                        <div
+                            class="h-1 w-0 group-hover:w-full bg-linear-to-r from-blue-500 to-blue-400 rounded-full transition-all duration-700 mt-4"
+                        >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+</Section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const ctx = gsap.context(() => {
+            // Animación de entrada del bento grid: cada tarjeta aparece desde abajo con stagger
+            const cards = gsap.utils.toArray(".bento-card");
+            cards.forEach((card, i) => {
+                gsap.from(card, {
+                    scrollTrigger: {
+                        trigger: card,
+                        start: "top 85%",
+                    },
+                    y: 60,
+                    opacity: 0,
+                    duration: 0.8,
+                    delay: i * 0.1,
+                    ease: "power2.out",
+                });
+            });
+
+            // Efecto hover sutil con brillo (movimiento del gradiente radial)
+            document.querySelectorAll(".bento-card").forEach((card) => {
+                card.addEventListener("mousemove", (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty("--mouse-x", `${x}px`);
+                    card.style.setProperty("--mouse-y", `${y}px`);
+                });
+            });
+        }, "#capabilities");
+    });
+</script>
+
+<style>
+    /* Pequeño efecto de spotlight en hover (opcional) */
+    .bento-card::before {
+        content: "";
+        position: absolute;
+        top: var(--mouse-y, 50%);
+        left: var(--mouse-x, 50%);
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(
+            circle,
+            rgba(6, 182, 212, 0.08),
+            transparent 70%
+        );
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    .bento-card:hover::before {
+        opacity: 1;
+    }
+</style>
