@@ -1,0 +1,705 @@
+---
+// src/components/HeroVisual.astro
+---
+
+<div
+    class="code-sculpture-visual relative w-full max-w-lg aspect-square flex items-center justify-center"
+    id="codeSculptureContainer"
+>
+    <svg
+        id="codeSculptureSvg"
+        viewBox="0 0 600 600"
+        class="w-full h-full overflow-visible"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <defs>
+            <!-- Gradientes para las líneas/caracteres -->
+            <linearGradient id="lineGradCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.2"
+                ></stop>
+                <stop offset="50%" stop-color="#3b82f6" stop-opacity="1"></stop>
+                <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.2"
+                ></stop>
+            </linearGradient>
+            <linearGradient
+                id="lineGradPurple"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="0%"
+            >
+                <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.2"
+                ></stop>
+                <stop offset="50%" stop-color="#a855f7" stop-opacity="1"></stop>
+                <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.2"
+                ></stop>
+            </linearGradient>
+            <linearGradient id="verticalLine" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.1"
+                ></stop>
+                <stop offset="50%" stop-color="#3b82f6" stop-opacity="0.9"
+                ></stop>
+                <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.1"
+                ></stop>
+            </linearGradient>
+
+            <!-- Filtros de resplandor -->
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3" result="blur"></feGaussianBlur>
+                <feMerge>
+                    <feMergeNode in="blur"></feMergeNode>
+                    <feMergeNode in="SourceGraphic"></feMergeNode>
+                </feMerge>
+            </filter>
+            <filter
+                id="glowStrong"
+                x="-50%"
+                y="-50%"
+                width="200%"
+                height="200%"
+            >
+                <feGaussianBlur stdDeviation="6"></feGaussianBlur>
+            </filter>
+        </defs>
+
+        <!-- ========================================== -->
+        <!-- ANILLOS DE LA ESPIRAL (BARRAS DE CÓDIGO)     -->
+        <!-- ========================================== -->
+        <!-- Cada grupo representa un nivel de la espiral con un conjunto de barras radiales -->
+        <g id="spiralSculpture" transform="translate(300, 300)">
+            <!-- Nivel 1 (base, más grande, más abajo) -->
+            <g id="level1" class="spiral-level">
+                <g transform="rotate(0)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-180"
+                        stroke="url(#lineGradCyan)"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="1"></line></g
+                >
+                <g transform="rotate(45)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-170"
+                        stroke="url(#lineGradPurple)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.95"></line></g
+                >
+                <g transform="rotate(90)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-160"
+                        stroke="url(#verticalLine)"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.9"></line></g
+                >
+                <g transform="rotate(135)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-175"
+                        stroke="url(#lineGradCyan)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.95"></line></g
+                >
+                <g transform="rotate(180)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-185"
+                        stroke="url(#lineGradPurple)"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="1.05"></line></g
+                >
+                <g transform="rotate(225)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-165"
+                        stroke="url(#verticalLine)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.9"></line></g
+                >
+                <g transform="rotate(270)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-180"
+                        stroke="url(#lineGradCyan)"
+                        stroke-width="3"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="1"></line></g
+                >
+                <g transform="rotate(315)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-170"
+                        stroke="url(#lineGradPurple)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.95"></line></g
+                >
+            </g>
+
+            <!-- Nivel 2 (intermedio) -->
+            <g id="level2" class="spiral-level">
+                <g transform="rotate(22.5)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-140"
+                        stroke="url(#lineGradPurple)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.85"></line></g
+                >
+                <g transform="rotate(67.5)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-135"
+                        stroke="url(#verticalLine)"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.8"></line></g
+                >
+                <g transform="rotate(112.5)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-145"
+                        stroke="url(#lineGradCyan)"
+                        stroke-width="2.8"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.9"></line></g
+                >
+                <g transform="rotate(157.5)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-130"
+                        stroke="url(#lineGradPurple)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.8"></line></g
+                >
+                <g transform="rotate(202.5)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-150"
+                        stroke="url(#verticalLine)"
+                        stroke-width="2.8"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.9"></line></g
+                >
+                <g transform="rotate(247.5)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-140"
+                        stroke="url(#lineGradCyan)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.85"></line></g
+                >
+                <g transform="rotate(292.5)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-135"
+                        stroke="url(#lineGradPurple)"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.8"></line></g
+                >
+                <g transform="rotate(337.5)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-145"
+                        stroke="url(#verticalLine)"
+                        stroke-width="2.8"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.9"></line></g
+                >
+            </g>
+
+            <!-- Nivel 3 (superior) -->
+            <g id="level3" class="spiral-level">
+                <g transform="rotate(10)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-110"
+                        stroke="url(#lineGradCyan)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.7"></line></g
+                >
+                <g transform="rotate(55)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-100"
+                        stroke="url(#lineGradPurple)"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.65"></line></g
+                >
+                <g transform="rotate(100)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-105"
+                        stroke="url(#verticalLine)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.7"></line></g
+                >
+                <g transform="rotate(145)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-115"
+                        stroke="url(#lineGradCyan)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.75"></line></g
+                >
+                <g transform="rotate(190)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-100"
+                        stroke="url(#lineGradPurple)"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.65"></line></g
+                >
+                <g transform="rotate(235)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-110"
+                        stroke="url(#verticalLine)"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.7"></line></g
+                >
+                <g transform="rotate(280)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-105"
+                        stroke="url(#lineGradCyan)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.7"></line></g
+                >
+                <g transform="rotate(325)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-115"
+                        stroke="url(#lineGradPurple)"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.75"></line></g
+                >
+            </g>
+
+            <!-- Nivel 4 (cima, más pequeña y densa) -->
+            <g id="level4" class="spiral-level">
+                <g transform="rotate(5)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-80"
+                        stroke="url(#lineGradCyan)"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.5"></line></g
+                >
+                <g transform="rotate(50)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-75"
+                        stroke="url(#verticalLine)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.5"></line></g
+                >
+                <g transform="rotate(95)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-85"
+                        stroke="url(#lineGradPurple)"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.55"></line></g
+                >
+                <g transform="rotate(140)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-80"
+                        stroke="url(#lineGradCyan)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.5"></line></g
+                >
+                <g transform="rotate(185)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-75"
+                        stroke="url(#verticalLine)"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.5"></line></g
+                >
+                <g transform="rotate(230)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-85"
+                        stroke="url(#lineGradPurple)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.55"></line></g
+                >
+                <g transform="rotate(275)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-80"
+                        stroke="url(#lineGradCyan)"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.5"></line></g
+                >
+                <g transform="rotate(320)"
+                    ><line
+                        x1="0"
+                        y1="0"
+                        x2="0"
+                        y2="-75"
+                        stroke="url(#verticalLine)"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        class="code-bar"
+                        data-scale="0.5"></line></g
+                >
+            </g>
+
+            <!-- Caracteres de código flotantes -->
+            <g id="codeChars" filter="url(#glow)">
+                <text
+                    x="-160"
+                    y="-10"
+                    fill="#06b6d4"
+                    font-family="'Fira Code', monospace"
+                    font-size="16"
+                    class="char"
+                    data-text="const">const</text
+                >
+                <text
+                    x="110"
+                    y="-30"
+                    fill="#8b5cf6"
+                    font-family="'Fira Code', monospace"
+                    font-size="16"
+                    class="char"
+                    data-text="await">await</text
+                >
+                <text
+                    x="-200"
+                    y="60"
+                    fill="#3b82f6"
+                    font-family="'Fira Code', monospace"
+                    font-size="18"
+                    class="char"
+                    data-text="build()">build()</text
+                >
+                <text
+                    x="180"
+                    y="40"
+                    fill="#a855f7"
+                    font-family="'Fira Code', monospace"
+                    font-size="14"
+                    class="char"
+                    data-text="API">API</text
+                >
+                <text
+                    x="-50"
+                    y="-140"
+                    fill="#06b6d4"
+                    font-family="'Fira Code', monospace"
+                    font-size="14"
+                    class="char"
+                    data-text="class">class</text
+                >
+                <text
+                    x="-120"
+                    y="110"
+                    fill="#3b82f6"
+                    font-family="'Fira Code', monospace"
+                    font-size="14"
+                    class="char"
+                    data-text="=>{}">=&gt;{}</text
+                >
+                <text
+                    x="140"
+                    y="-110"
+                    fill="#8b5cf6"
+                    font-family="'Fira Code', monospace"
+                    font-size="14"
+                    class="char"
+                    data-text=".then()">.then()</text
+                >
+            </g>
+        </g>
+
+        <!-- Partículas de chispa (generadas dinámicamente) -->
+        <g id="sparkParticles" filter="url(#glowStrong)"></g>
+
+        <!-- Destello central que ilumina la escultura -->
+        <circle
+            id="coreLight"
+            cx="300"
+            cy="300"
+            r="12"
+            fill="url(#lineGradCyan)"
+            opacity="0"
+            filter="url(#glowStrong)"></circle>
+    </svg>
+</div>
+
+<script>
+    import gsap from "gsap";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const ctx = gsap.context(() => {
+            const mainTl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+
+            // 1. Rotación base de toda la escultura (gira lentamente)
+            gsap.to("#spiralSculpture", {
+                rotation: 360,
+                duration: 60,
+                repeat: -1,
+                ease: "none",
+                transformOrigin: "300 300",
+            });
+
+            // 2. Cada nivel gira a distinta velocidad para efecto de torsión
+            gsap.to("#level1", {
+                rotation: 360,
+                duration: 40,
+                repeat: -1,
+                ease: "none",
+                transformOrigin: "300 300",
+            });
+            gsap.to("#level2", {
+                rotation: -360,
+                duration: 30,
+                repeat: -1,
+                ease: "none",
+                transformOrigin: "300 300",
+            });
+            gsap.to("#level3", {
+                rotation: 360,
+                duration: 22,
+                repeat: -1,
+                ease: "none",
+                transformOrigin: "300 300",
+            });
+            gsap.to("#level4", {
+                rotation: -360,
+                duration: 16,
+                repeat: -1,
+                ease: "none",
+                transformOrigin: "300 300",
+            });
+
+            // 3. Escalado de las barras (efecto de respiración)
+            document.querySelectorAll(".code-bar").forEach((bar) => {
+                const scale = parseFloat(bar.dataset.scale) || 1;
+                gsap.to(bar, {
+                    scaleX: scale * gsap.utils.random(0.9, 1.1),
+                    scaleY: scale * gsap.utils.random(0.9, 1.1),
+                    duration: gsap.utils.random(2, 4),
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut",
+                    delay: gsap.utils.random(0, 2),
+                });
+            });
+
+            // 4. Caracteres de código: parpadeo y movimiento suave
+            document.querySelectorAll(".char").forEach((char, i) => {
+                gsap.to(char, {
+                    opacity: gsap.utils.random(0.3, 0.9),
+                    duration: gsap.utils.random(1.5, 3),
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut",
+                    delay: gsap.utils.random(0, 2),
+                });
+                // Pequeño desplazamiento aleatorio
+                gsap.to(char, {
+                    x: gsap.utils.random(-10, 10),
+                    y: gsap.utils.random(-10, 10),
+                    duration: gsap.utils.random(3, 7),
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut",
+                    delay: gsap.utils.random(0, 3),
+                });
+            });
+
+            // 5. Chispas que se desprenden desde las puntas de las barras al azar
+            const sparkCont = document.getElementById("sparkParticles");
+            function emitSpark() {
+                if (!sparkCont) return;
+                const spark = document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "circle",
+                );
+                spark.setAttribute("r", gsap.utils.random(1.5, 3.5));
+                spark.setAttribute(
+                    "fill",
+                    `hsl(${gsap.utils.random(190, 280)}, 80%, 70%)`,
+                );
+                spark.setAttribute("opacity", "0");
+                sparkCont.appendChild(spark);
+
+                // Posición inicial: algún punto de la espiral (simularemos desde una barra aleatoria)
+                const angle = gsap.utils.random(0, Math.PI * 2);
+                const dist = gsap.utils.random(80, 180);
+                const startX = 300 + Math.cos(angle) * dist;
+                const startY = 300 + Math.sin(angle) * dist;
+                gsap.set(spark, { cx: startX, cy: startY });
+
+                const endX = startX + gsap.utils.random(-40, 40);
+                const endY = startY - gsap.utils.random(20, 70);
+
+                gsap.to(spark, {
+                    cx: endX,
+                    cy: endY,
+                    opacity: 1,
+                    scale: 1.5,
+                    duration: 0.4,
+                    ease: "power2.out",
+                    onComplete: () => {
+                        gsap.to(spark, {
+                            cx: endX + gsap.utils.random(-20, 20),
+                            cy: endY - gsap.utils.random(30, 60),
+                            opacity: 0,
+                            scale: 0.2,
+                            duration: 1,
+                            ease: "power2.in",
+                            onComplete: () => spark.remove(),
+                        });
+                    },
+                });
+            }
+            setInterval(emitSpark, 400);
+            // Unas cuantas chispas iniciales
+            for (let i = 0; i < 8; i++) setTimeout(emitSpark, i * 200);
+
+            // 6. Núcleo de luz central pulsante
+            gsap.to("#coreLight", {
+                opacity: 0.6,
+                r: 15,
+                duration: 3,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut",
+            });
+        }, "#codeSculptureContainer");
+    });
+</script>
+
+<style>
+    .code-sculpture-visual {
+        background: transparent;
+    }
+    .code-sculpture-visual svg {
+        display: block;
+    }
+</style>

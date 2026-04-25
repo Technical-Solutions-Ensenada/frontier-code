@@ -1,7 +1,7 @@
 ---
 import Container from "../ui/Container.astro";
-import HeroVisual from "../ui/HeroVisual.astro";
-import TerminalDeploy from "../ui/TerminalDeploy.astro";
+import HeroSoftware from "../ui/HeroSoftware.astro";
+import HeroVisualTower from "../ui/HeroVisualTower.astro";
 ---
 
 <section
@@ -31,17 +31,6 @@ import TerminalDeploy from "../ui/TerminalDeploy.astro";
     >
       <!-- Left Content -->
       <div class="text-center lg:text-left order-2 lg:order-1">
-        <!-- Badge -->
-        <div
-          class="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-frontier-blue/10 border border-frontier-blue/20"
-        >
-          <span class="w-2 h-2 bg-frontier-cyan rounded-full animate-pulse"
-          ></span>
-          <span class="text-sm font-nunito text-frontier-light"
-            >Soluciones Digitales</span
-          >
-        </div>
-
         <!-- Headline with Dynamic Text -->
         <h1
           class="font-monda text-4xl sm:text-5xl lg:text-6xl font-light text-frontier-light mb-6 leading-tight"
@@ -158,7 +147,7 @@ import TerminalDeploy from "../ui/TerminalDeploy.astro";
 
       <!-- Right Visual (REEMPLAZA AL LOGO) -->
       <div class="order-1 lg:order-2 flex justify-center items-center">
-        <TerminalDeploy />
+        <HeroSoftware />
       </div>
     </div>
   </Container>
