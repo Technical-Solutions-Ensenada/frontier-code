@@ -1,27 +1,24 @@
 <!-- src/components/HeroVisual.astro -->
 <div class="relative w-full max-w-lg">
     <div
-        class="relative bg-brand-dark/80 backdrop-blur-xl rounded-2xl border border-brand-cyan/20 shadow-2xl shadow-brand-blue/20 overflow-hidden"
+        class="relative bg-dark/80 backdrop-blur-xl rounded-2xl border border-cyan/20 shadow-2xl shadow-blue/20 overflow-hidden"
     >
         <!-- Header de terminal -->
         <div
-            class="flex items-center gap-2 px-4 py-3 bg-brand-dark border-b border-brand-cyan/10"
+            class="flex items-center gap-2 px-4 py-3 bg-dark border-b border-cyan/10"
         >
             <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
             <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
             <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-            <span class="ml-2 text-xs text-dark-400 font-mono"
-                >frontier-code — deploy</span
-            >
+            <span class="ml-2 text-xs text-dark-400 font-mono">frontier</span>
         </div>
 
         <!-- Contenido -->
         <div class="p-6 font-mono text-sm space-y-2 min-h-[280px]">
-            <div class="flex items-center gap-2 text-brand-cyan">
+            <div class="flex items-center gap-2 text-cyan">
                 <span class="text-dark-400">$</span>
                 <span id="terminal-line-1"></span>
-                <span class="inline-block w-2 h-4 bg-brand-cyan animate-blink"
-                ></span>
+                <span class="inline-block w-2 h-4 bg-cyan animate-blink"></span>
             </div>
 
             <div
@@ -36,11 +33,11 @@
                     <span id="progress-percent">0%</span>
                 </div>
                 <div
-                    class="h-2 bg-brand-dark rounded-full overflow-hidden border border-brand-cyan/20"
+                    class="h-2 bg-dark rounded-full overflow-hidden border border-cyan/20"
                 >
                     <div
                         id="progress-bar"
-                        class="h-full bg-linear-to-r from-brand-cyan to-brand-blue transition-all duration-300"
+                        class="h-full bg-linear-to-r from-cyan to-blue transition-all duration-300"
                         style="width: 0%"
                     >
                     </div>
@@ -49,9 +46,9 @@
 
             <div
                 id="success-message"
-                class="hidden mt-4 p-3 bg-brand-cyan/10 border border-brand-cyan/30 rounded-lg"
+                class="hidden mt-4 p-3 bg-cyan/10 border border-cyan/30 rounded-lg"
             >
-                <div class="flex items-center gap-2 text-brand-cyan">
+                <div class="flex items-center gap-2 text-cyan">
                     <svg
                         class="w-5 h-5"
                         fill="none"
@@ -67,7 +64,7 @@
                     <span class="font-semibold">✓ Deploy exitoso</span>
                 </div>
                 <p class="text-xs text-dark-400 mt-1">
-                    Tiempo: 2.4s | Rendimiento: 98/100
+                    Tiempo: 2.4s | Rendimiento: 100/100
                 </p>
             </div>
         </div>
@@ -75,11 +72,11 @@
 
     <!-- Decoración -->
     <div
-        class="absolute -top-4 -right-4 w-24 h-24 bg-brand-blue/10 rounded-lg -rotate-12 blur-xl"
+        class="absolute -top-4 -right-4 w-24 h-24 bg-blue/10 rounded-lg -rotate-12 blur-xl"
     >
     </div>
     <div
-        class="absolute -bottom-4 -left-4 w-32 h-32 bg-brand-cyan/10 rounded-full blur-xl"
+        class="absolute -bottom-4 -left-4 w-32 h-32 bg-cyan/10 rounded-full blur-xl"
     >
     </div>
 </div>
@@ -113,7 +110,7 @@
     const progressPercent = $("progress-percent");
     const successMsg = $("success-message");
 
-    const command = "npm run build -- --prod";
+    const command = "frontiercode";
     const outputs = [
         "> Building for production...",
         "> ✓ Compiled successfully in 1.2s",
