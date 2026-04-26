@@ -13,24 +13,26 @@
         xmlns="http://www.w3.org/2000/svg"
     >
         <defs>
-            <!-- Gradientes -->
+            <!-- Gradientes actualizados con la paleta del cliente -->
             <linearGradient id="barGrad" x1="0" y1="1" x2="0" y2="0">
-                <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.3"
+                <stop offset="0%" stop-color="#2AD1C9" stop-opacity="0.3"
                 ></stop>
-                <stop offset="100%" stop-color="#06b6d4" stop-opacity="0.9"
+                <!-- cyan -->
+                <stop offset="100%" stop-color="#2AD1C9" stop-opacity="0.9"
                 ></stop>
             </linearGradient>
             <linearGradient id="barGradAlt" x1="0" y1="1" x2="0" y2="0">
-                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"
+                <stop offset="0%" stop-color="#0862C8" stop-opacity="0.3"
                 ></stop>
-                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.9"
+                <!-- blue -->
+                <stop offset="100%" stop-color="#0862C8" stop-opacity="0.9"
                 ></stop>
             </linearGradient>
             <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
-                <stop offset="0%" stop-color="#06b6d4" stop-opacity="0"></stop>
-                <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.8"
+                <stop offset="0%" stop-color="#2AD1C9" stop-opacity="0"></stop>
+                <stop offset="50%" stop-color="#2AD1C9" stop-opacity="0.8"
                 ></stop>
-                <stop offset="100%" stop-color="#06b6d4" stop-opacity="0"
+                <stop offset="100%" stop-color="#2AD1C9" stop-opacity="0"
                 ></stop>
             </linearGradient>
 
@@ -44,7 +46,9 @@
             </filter>
         </defs>
 
-        <!-- Fondo transparente, sin rectángulo de fondo -->
+        <!-- ========== FONDO DEL DASHBOARD (BLANCO) ========== -->
+        <rect x="20" y="20" width="760" height="460" rx="12" fill="#ffffff"
+        ></rect>
 
         <!-- ========== BORDE DEL MONITOR ========== -->
         <rect
@@ -54,147 +58,181 @@
             height="460"
             rx="12"
             fill="none"
-            stroke="rgba(6, 182, 212, 0.15)"
+            stroke="#DEE6EC"
             stroke-width="2"
             class="monitor-frame"></rect>
 
         <!-- ========== BARRA SUPERIOR (header) ========== -->
         <g id="topBar">
+            <rect x="20" y="20" width="760" height="56" rx="12" fill="#f8fafc"
+            ></rect>
+            <rect x="20" y="48" width="760" height="28" fill="#f8fafc"></rect>
+            <line
+                x1="20"
+                y1="76"
+                x2="780"
+                y2="76"
+                stroke="#DEE6EC"
+                stroke-width="1"></line>
+
+            <!-- Botones de ventana macOS -->
+            <circle cx="40" cy="48" r="7" fill="#FF5F57"></circle>
+            <!-- Rojo -->
+            <circle cx="60" cy="48" r="7" fill="#FFBD2E"></circle>
+            <!-- Amarillo -->
+            <circle cx="80" cy="48" r="7" fill="#27C93F"></circle>
+            <!-- Verde -->
+
             <!-- Logo esqueleto -->
-            <rect
-                x="40"
-                y="38"
-                width="20"
-                height="20"
-                rx="4"
-                fill="rgba(6, 182, 212, 0.2)"></rect>
-            <rect
-                x="68"
-                y="42"
-                width="60"
-                height="12"
-                rx="3"
-                fill="rgba(6, 182, 212, 0.15)"></rect>
+            <rect x="110" y="38" width="20" height="20" rx="4" fill="#DEE6EC"
+            ></rect>
+            <rect x="138" y="42" width="60" height="12" rx="3" fill="#DEE6EC"
+            ></rect>
+
             <!-- Menú horizontal -->
-            <rect
-                x="200"
-                y="42"
-                width="40"
-                height="10"
-                rx="2"
-                fill="rgba(6, 182, 212, 0.12)"></rect>
-            <rect
-                x="260"
-                y="42"
-                width="50"
-                height="10"
-                rx="2"
-                fill="rgba(6, 182, 212, 0.12)"></rect>
-            <rect
-                x="330"
-                y="42"
-                width="45"
-                height="10"
-                rx="2"
-                fill="rgba(6, 182, 212, 0.12)"></rect>
+            <rect x="240" y="42" width="40" height="10" rx="2" fill="#DEE6EC"
+            ></rect>
+            <rect x="300" y="42" width="50" height="10" rx="2" fill="#DEE6EC"
+            ></rect>
+            <rect x="370" y="42" width="45" height="10" rx="2" fill="#DEE6EC"
+            ></rect>
+
             <!-- Iconos derecha -->
-            <circle cx="730" cy="48" r="8" fill="rgba(6, 182, 212, 0.12)"
-            ></circle>
-            <circle cx="700" cy="48" r="8" fill="rgba(6, 182, 212, 0.12)"
-            ></circle>
+            <circle cx="730" cy="48" r="8" fill="#DEE6EC"></circle>
+            <circle cx="700" cy="48" r="8" fill="#DEE6EC"></circle>
         </g>
 
         <!-- ========== SIDEBAR IZQUIERDO ========== -->
         <g id="sidebar">
+            <rect x="20" y="76" width="160" height="354" rx="0" fill="#f8fafc"
+            ></rect>
+            <line
+                x1="180"
+                y1="76"
+                x2="180"
+                y2="430"
+                stroke="#DEE6EC"
+                stroke-width="1"></line>
+
+            <!-- Ítems del menú -->
+            <rect x="40" y="100" width="120" height="8" rx="2" fill="#DEE6EC"
+            ></rect>
             <rect
                 x="40"
-                y="100"
-                width="140"
-                height="340"
-                rx="8"
-                fill="rgba(6, 182, 212, 0.04)"></rect>
-            <!-- Ítems del menú -->
-            <rect
-                x="55"
-                y="120"
-                width="110"
-                height="8"
-                rx="2"
-                fill="rgba(6, 182, 212, 0.15)"></rect>
-            <rect
-                x="55"
-                y="145"
-                width="90"
-                height="8"
-                rx="2"
-                fill="rgba(6, 182, 212, 0.1)"></rect>
-            <rect
-                x="55"
-                y="170"
-                width="105"
-                height="8"
-                rx="2"
-                fill="rgba(6, 182, 212, 0.1)"></rect>
-            <rect
-                x="55"
-                y="195"
-                width="80"
-                height="8"
-                rx="2"
-                fill="rgba(6, 182, 212, 0.1)"></rect>
-            <rect
-                x="55"
-                y="220"
-                width="115"
-                height="8"
-                rx="2"
-                fill="rgba(6, 182, 212, 0.1)"></rect>
-            <!-- Separador -->
-            <line
-                x1="55"
-                y1="250"
-                x2="165"
-                y2="250"
-                stroke="rgba(6, 182, 212, 0.08)"
-                stroke-width="1"></line>
-            <rect
-                x="55"
-                y="270"
+                y="125"
                 width="100"
                 height="8"
                 rx="2"
-                fill="rgba(6, 182, 212, 0.1)"></rect>
+                fill="#DEE6EC"
+                opacity="0.5"></rect>
             <rect
-                x="55"
-                y="295"
-                width="85"
+                x="40"
+                y="150"
+                width="115"
                 height="8"
                 rx="2"
-                fill="rgba(6, 182, 212, 0.1)"></rect>
+                fill="#DEE6EC"
+                opacity="0.5"></rect>
+            <rect
+                x="40"
+                y="175"
+                width="90"
+                height="8"
+                rx="2"
+                fill="#DEE6EC"
+                opacity="0.5"></rect>
+            <rect
+                x="40"
+                y="200"
+                width="125"
+                height="8"
+                rx="2"
+                fill="#DEE6EC"
+                opacity="0.5"></rect>
+            <line
+                x1="40"
+                y1="230"
+                x2="160"
+                y2="230"
+                stroke="#DEE6EC"
+                stroke-width="1"></line>
+            <rect
+                x="40"
+                y="250"
+                width="110"
+                height="8"
+                rx="2"
+                fill="#DEE6EC"
+                opacity="0.5"></rect>
+            <rect
+                x="40"
+                y="275"
+                width="95"
+                height="8"
+                rx="2"
+                fill="#DEE6EC"
+                opacity="0.5"></rect>
         </g>
 
         <!-- ========== ÁREA PRINCIPAL ========== -->
-        <!-- Gráfico de barras (skeleton) -->
-        <g id="barChart">
-            <!-- Ejes -->
+        <!-- Rejilla de fondo -->
+        <g id="chartGrid" opacity="0.5">
             <line
-                x1="220"
+                x1="210"
+                y1="140"
+                x2="500"
+                y2="140"
+                stroke="#DEE6EC"
+                stroke-width="1"></line>
+            <line
+                x1="210"
+                y1="190"
+                x2="500"
+                y2="190"
+                stroke="#DEE6EC"
+                stroke-width="1"></line>
+            <line
+                x1="210"
+                y1="240"
+                x2="500"
+                y2="240"
+                stroke="#DEE6EC"
+                stroke-width="1"></line>
+            <line
+                x1="210"
+                y1="290"
+                x2="500"
+                y2="290"
+                stroke="#DEE6EC"
+                stroke-width="1"></line>
+            <line
+                x1="210"
+                y1="340"
+                x2="500"
+                y2="340"
+                stroke="#DEE6EC"
+                stroke-width="1"></line>
+        </g>
+
+        <!-- Gráfico de barras -->
+        <g id="barChart">
+            <line
+                x1="210"
                 y1="380"
                 x2="500"
                 y2="380"
-                stroke="rgba(6, 182, 212, 0.2)"
+                stroke="#DEE6EC"
                 stroke-width="1"></line>
             <line
-                x1="220"
-                y1="120"
-                x2="220"
+                x1="210"
+                y1="110"
+                x2="210"
                 y2="380"
-                stroke="rgba(6, 182, 212, 0.2)"
+                stroke="#DEE6EC"
                 stroke-width="1"></line>
 
-            <!-- Barras (animadas con GSAP) -->
             <rect
-                x="240"
+                x="230"
                 y="300"
                 width="25"
                 height="80"
@@ -202,7 +240,7 @@
                 fill="url(#barGrad)"
                 class="bar bar-1"></rect>
             <rect
-                x="280"
+                x="270"
                 y="240"
                 width="25"
                 height="140"
@@ -210,7 +248,7 @@
                 fill="url(#barGradAlt)"
                 class="bar bar-2"></rect>
             <rect
-                x="320"
+                x="310"
                 y="200"
                 width="25"
                 height="180"
@@ -218,7 +256,7 @@
                 fill="url(#barGrad)"
                 class="bar bar-3"></rect>
             <rect
-                x="360"
+                x="350"
                 y="260"
                 width="25"
                 height="120"
@@ -226,7 +264,7 @@
                 fill="url(#barGradAlt)"
                 class="bar bar-4"></rect>
             <rect
-                x="400"
+                x="390"
                 y="170"
                 width="25"
                 height="210"
@@ -234,7 +272,7 @@
                 fill="url(#barGrad)"
                 class="bar bar-5"></rect>
             <rect
-                x="440"
+                x="430"
                 y="230"
                 width="25"
                 height="150"
@@ -242,7 +280,7 @@
                 fill="url(#barGradAlt)"
                 class="bar bar-6"></rect>
             <rect
-                x="480"
+                x="470"
                 y="280"
                 width="25"
                 height="100"
@@ -251,145 +289,125 @@
                 class="bar bar-7"></rect>
         </g>
 
-        <!-- Línea de tendencia (gráfico lineal esqueleto) -->
+        <!-- Línea de tendencia -->
         <g id="lineChart">
             <polyline
-                points="240,260 300,220 360,190 420,170 480,140"
+                points="230,260 290,220 350,190 410,170 470,140"
                 fill="none"
-                stroke="rgba(139, 92, 246, 0.4)"
+                stroke="#0862C8"
                 stroke-width="2"
                 stroke-dasharray="4 3"
                 class="trend-line"></polyline>
-            <!-- Puntos en la línea -->
             <circle
-                cx="240"
+                cx="230"
                 cy="260"
                 r="3"
-                fill="#8b5cf6"
+                fill="#0862C8"
                 opacity="0.8"
                 class="trend-dot"></circle>
             <circle
-                cx="300"
+                cx="290"
                 cy="220"
                 r="3"
-                fill="#8b5cf6"
+                fill="#0862C8"
                 opacity="0.8"
                 class="trend-dot"></circle>
             <circle
-                cx="360"
+                cx="350"
                 cy="190"
                 r="3"
-                fill="#8b5cf6"
+                fill="#0862C8"
                 opacity="0.8"
                 class="trend-dot"></circle>
             <circle
-                cx="420"
+                cx="410"
                 cy="170"
                 r="3"
-                fill="#8b5cf6"
+                fill="#0862C8"
                 opacity="0.8"
                 class="trend-dot"></circle>
             <circle
-                cx="480"
+                cx="470"
                 cy="140"
                 r="3"
-                fill="#8b5cf6"
+                fill="#0862C8"
                 opacity="0.8"
                 class="trend-dot"></circle>
         </g>
 
-        <!-- Tabla de datos esqueleto -->
+        <!-- Tabla de datos -->
         <g id="dataTable">
-            <!-- Cabecera -->
+            <rect x="210" y="405" width="320" height="20" rx="4" fill="#f8fafc"
+            ></rect>
+            <rect x="220" y="410" width="70" height="8" rx="2" fill="#DEE6EC"
+            ></rect>
+            <rect x="320" y="410" width="50" height="8" rx="2" fill="#DEE6EC"
+            ></rect>
+            <rect x="400" y="410" width="50" height="8" rx="2" fill="#DEE6EC"
+            ></rect>
+            <rect x="480" y="410" width="40" height="8" rx="2" fill="#DEE6EC"
+            ></rect>
+
             <rect
                 x="220"
-                y="410"
-                width="320"
-                height="20"
-                rx="4"
-                fill="rgba(6, 182, 212, 0.08)"></rect>
-            <rect
-                x="230"
-                y="415"
-                width="70"
-                height="8"
-                rx="2"
-                fill="rgba(6, 182, 212, 0.15)"></rect>
-            <rect
-                x="320"
-                y="415"
-                width="50"
-                height="8"
-                rx="2"
-                fill="rgba(6, 182, 212, 0.15)"></rect>
-            <rect
-                x="400"
-                y="415"
-                width="50"
-                height="8"
-                rx="2"
-                fill="rgba(6, 182, 212, 0.15)"></rect>
-            <rect
-                x="480"
-                y="415"
-                width="50"
-                height="8"
-                rx="2"
-                fill="rgba(6, 182, 212, 0.15)"></rect>
-            <!-- Filas -->
-            <rect
-                x="230"
-                y="440"
+                y="435"
                 width="100"
                 height="6"
                 rx="2"
-                fill="rgba(6, 182, 212, 0.1)"></rect>
+                fill="#DEE6EC"
+                opacity="0.5"></rect>
             <rect
-                x="350"
-                y="440"
+                x="340"
+                y="435"
                 width="60"
                 height="6"
                 rx="2"
-                fill="rgba(6, 182, 212, 0.1)"></rect>
+                fill="#DEE6EC"
+                opacity="0.5"></rect>
             <rect
-                x="430"
-                y="440"
+                x="420"
+                y="435"
                 width="60"
                 height="6"
                 rx="2"
-                fill="rgba(6, 182, 212, 0.1)"></rect>
+                fill="#DEE6EC"
+                opacity="0.5"></rect>
             <rect
-                x="510"
-                y="440"
+                x="500"
+                y="435"
                 width="20"
                 height="6"
                 rx="2"
-                fill="rgba(6, 182, 212, 0.1)"></rect>
+                fill="#DEE6EC"
+                opacity="0.5"></rect>
 
             <rect
-                x="230"
-                y="455"
+                x="220"
+                y="450"
                 width="90"
                 height="6"
                 rx="2"
-                fill="rgba(6, 182, 212, 0.06)"></rect>
+                fill="#DEE6EC"
+                opacity="0.3"></rect>
             <rect
-                x="350"
-                y="455"
+                x="340"
+                y="450"
                 width="70"
                 height="6"
                 rx="2"
-                fill="rgba(6, 182, 212, 0.06)"></rect>
+                fill="#DEE6EC"
+                opacity="0.3"></rect>
             <rect
-                x="430"
-                y="455"
+                x="420"
+                y="450"
                 width="40"
                 height="6"
                 rx="2"
-                fill="rgba(6, 182, 212, 0.06)"></rect>
+                fill="#DEE6EC"
+                opacity="0.3"></rect>
         </g>
 
-        <!-- Elemento flotante: cursor o destello animado -->
+        <!-- Cursor animado -->
         <circle
             cx="0"
             cy="0"
@@ -399,10 +417,10 @@
             class="cursor-glow"
             opacity="0"></circle>
 
-        <!-- Pequeños puntos de estado (online, actividad) -->
-        <circle cx="760" cy="460" r="4" fill="#06b6d4" class="status-dot"
+        <!-- Puntos de estado -->
+        <circle cx="760" cy="478" r="3" fill="#2AD1C9" class="status-dot"
         ></circle>
-        <circle cx="30" cy="460" r="4" fill="#06b6d4" class="status-dot"
+        <circle cx="30" cy="478" r="3" fill="#2AD1C9" class="status-dot"
         ></circle>
     </svg>
 </div>
@@ -414,7 +432,6 @@
         const ctx = gsap.context(() => {
             const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
 
-            // 1. Barras del gráfico: desde altura 0 hasta su altura real
             tl.fromTo(
                 ".bar",
                 { scaleY: 0, transformOrigin: "bottom" },
@@ -427,7 +444,6 @@
                 "+=0.3",
             );
 
-            // 2. Línea de tendencia: dibujo progresivo con stroke-dasharray
             tl.fromTo(
                 ".trend-line",
                 { strokeDashoffset: 400, strokeDasharray: 400 },
@@ -435,7 +451,6 @@
                 "-=0.5",
             );
 
-            // 3. Puntos de la tendencia: aparecen con pop
             tl.fromTo(
                 ".trend-dot",
                 { scale: 0, opacity: 0 },
@@ -449,7 +464,6 @@
                 "-=0.8",
             );
 
-            // 4. Tabla: filas aparecen secuencialmente
             tl.fromTo(
                 "#dataTable rect:not(:first-child)",
                 { opacity: 0, x: -10 },
@@ -457,15 +471,13 @@
                 "-=0.2",
             );
 
-            // 5. Sidebar: items con fade desde izquierda
             tl.fromTo(
-                "#sidebar rect:not(:first-child), #sidebar line",
+                "#sidebar rect:not(:first-child):not(:nth-child(2)), #sidebar line",
                 { opacity: 0, x: -20 },
                 { opacity: 1, x: 0, duration: 0.4, stagger: 0.05 },
                 "-=0.3",
             );
 
-            // 6. Cursor brillante que recorre la interfaz
             gsap.to(".cursor-glow", {
                 duration: 5,
                 repeat: -1,
@@ -493,7 +505,6 @@
                     gsap.to(".cursor-glow", { opacity: 0.8, duration: 0.3 }),
             });
 
-            // 7. Puntos de estado (latido)
             gsap.to(".status-dot", {
                 scale: 1.5,
                 opacity: 0.3,
@@ -503,9 +514,8 @@
                 ease: "sine.inOut",
             });
 
-            // 8. Marco del monitor: pulso sutil
             gsap.to(".monitor-frame", {
-                strokeOpacity: 0.3,
+                strokeOpacity: 0.7,
                 duration: 3,
                 repeat: -1,
                 yoyo: true,
