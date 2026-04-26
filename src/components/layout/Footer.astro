@@ -1,5 +1,6 @@
 ---
 import Container from "../ui/Container.astro";
+import imagotipoColor from "../../assets/IMAGOTIPO/SVG/IMAGOTIPO - BLANCO.svg";
 ---
 
 <footer
@@ -12,11 +13,11 @@ import Container from "../ui/Container.astro";
                 class="flex flex-col md:flex-row justify-between items-start mb-12"
             >
                 <div class="mb-8 md:mb-0">
-                    <h3
-                        class="text-2xl font-bold bg-linear-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4"
-                    >
-                        Frontiercode
-                    </h3>
+                    <img
+                        src={imagotipoColor.src}
+                        alt="Frontier Code"
+                        class="w-35 transition-transform duration-300 hover:scale-105 mb-2"
+                    />
                     <p class="text-dark-400 leading-relaxed max-w-md">
                         Empresa de desarrollo de software enfocada en soluciones
                         modernas e innovadoras.
