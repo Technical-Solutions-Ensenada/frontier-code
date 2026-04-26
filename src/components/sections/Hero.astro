@@ -1,30 +1,12 @@
 ---
 import Container from "../ui/Container.astro";
 import HeroSoftware from "../ui/HeroSoftware.astro";
-import HeroVisualTower from "../ui/HeroVisualTower.astro";
 ---
 
 <section
   id="hero"
   class="relative min-h-screen flex items-center justify-center overflow-hidden bg-frontier-dark"
 >
-  <!-- Background Effects -->
-  <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div
-      class="absolute -top-40 -right-40 w-96 h-96 bg-frontier-blue/20 rounded-full blur-3xl animate-pulse"
-    >
-    </div>
-    <div
-      class="absolute -bottom-40 -left-40 w-96 h-96 bg-frontier-cyan/10 rounded-full blur-3xl animate-pulse"
-      style="animation-delay: 1s;"
-    >
-    </div>
-    <div
-      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-radial from-frontier-blue/5 to-transparent rounded-full"
-    >
-    </div>
-  </div>
-
   <Container>
     <div
       class="relative z-10 grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto"
@@ -93,7 +75,7 @@ import HeroVisualTower from "../ui/HeroVisualTower.astro";
           </a>
         </div>
 
-        <!-- Simplified Features (3 en lugar de 6) -->
+        <!-- Simplified Features -->
         <div
           class="flex flex-wrap justify-center lg:justify-start gap-6 text-dark-400 text-sm font-nunito"
         >
@@ -145,7 +127,7 @@ import HeroVisualTower from "../ui/HeroVisualTower.astro";
         </div>
       </div>
 
-      <!-- Right Visual (REEMPLAZA AL LOGO) -->
+      <!-- Right Visual -->
       <div class="order-1 lg:order-2 flex justify-center items-center">
         <HeroSoftware />
       </div>
