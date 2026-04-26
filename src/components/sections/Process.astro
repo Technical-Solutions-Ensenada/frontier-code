@@ -8,22 +8,17 @@ import Section from "../ui/Section.astro";
   <Container>
     <!-- Encabezado -->
     <div class="text-center mb-20">
-      <span
-        class="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-sm font-mono text-cyan-400 tracking-widest uppercase"
+      <h2
+        class="text-3xl sm:text-4xl md:text-5xl font-bold text-frontier-light mb-4"
       >
-        <span class="w-2 h-2 bg-cyan-400 rounded-full motion-safe:animate-pulse"
-        ></span>
-        Metodología
-      </span>
-      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-dark-300 mb-4">
         Cómo convertimos
         <span
-          class="bg-linear-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent"
+          class="bg-linear-to-r from-frontier-cyan to-frontier-blue bg-clip-text text-transparent"
         >
           ideas en software
         </span>
       </h2>
-      <p class="text-dark-400 max-w-2xl mx-auto">
+      <p class="text-frontier-light/70 max-w-2xl mx-auto">
         Un proceso iterativo y transparente que garantiza soluciones alineadas
         con tus objetivos de negocio.
       </p>
@@ -36,11 +31,11 @@ import Section from "../ui/Section.astro";
     >
       <!-- Línea conectora horizontal: z-0 para que quede por debajo -->
       <div
-        class="absolute top-12 left-[10%] right-[10%] h-0.5 bg-gray-800 hidden lg:block overflow-hidden z-0"
+        class="absolute top-12 left-[10%] right-[10%] h-0.5 bg-frontier-dark/40 hidden lg:block overflow-hidden z-0"
       >
         <div
           id="process-line-fill"
-          class="h-full bg-linear-to-r from-cyan-400 via-blue-500 to-purple-500 origin-left scale-x-0"
+          class="h-full bg-brand-gradient origin-left scale-x-0"
         >
         </div>
       </div>
@@ -51,10 +46,10 @@ import Section from "../ui/Section.astro";
         data-step="1"
       >
         <div
-          class="process-icon-wrapper relative w-24 h-24 rounded-2xl bg-linear-to-br from-cyan-500/30 to-cyan-600/20 border border-cyan-500/30 flex items-center justify-center mb-6 transition-all duration-500 group hover:scale-110 hover:border-cyan-400 hover:shadow-[0_0_30px_rgba(6,182,212,0.3)] backdrop-blur-md"
+          class="process-icon-wrapper relative w-24 h-24 rounded-2xl bg-frontier-cyan/20 border border-frontier-cyan/30 flex items-center justify-center mb-6 transition-all duration-500 group hover:scale-110 hover:border-frontier-cyan backdrop-blur-md"
         >
           <svg
-            class="w-10 h-10 text-cyan-400 transition-transform duration-500 group-hover:rotate-6"
+            class="w-10 h-10 text-frontier-cyan transition-transform duration-500 group-hover:rotate-6"
             fill="none"
             stroke="currentColor"
             stroke-width="1.5"
@@ -67,12 +62,14 @@ import Section from "../ui/Section.astro";
             ></path>
           </svg>
           <span
-            class="absolute -top-2 -right-2 w-7 h-7 bg-cyan-500 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg shadow-cyan-500/50"
+            class="absolute -top-2 -right-2 w-7 h-7 bg-frontier-cyan rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg shadow-frontier-cyan/50"
             >1</span
           >
         </div>
-        <h3 class="text-xl font-semibold text-dark-300 mb-3">Descubrimiento</h3>
-        <p class="text-dark-400 leading-relaxed text-sm">
+        <h3 class="text-xl font-semibold text-frontier-light mb-3">
+          Descubrimiento
+        </h3>
+        <p class="text-frontier-light/60 leading-relaxed text-sm">
           Analizamos tus procesos actuales y definimos requerimientos con
           precisión quirúrgica.
         </p>
@@ -84,10 +81,10 @@ import Section from "../ui/Section.astro";
         data-step="2"
       >
         <div
-          class="process-icon-wrapper relative w-24 h-24 rounded-2xl bg-linear-to-br from-blue-500/30 to-blue-600/20 border border-blue-500/30 flex items-center justify-center mb-6 transition-all duration-500 group hover:scale-110 hover:border-blue-400 hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] backdrop-blur-md"
+          class="process-icon-wrapper relative w-24 h-24 rounded-2xl bg-frontier-blue/20 border border-frontier-blue/30 flex items-center justify-center mb-6 transition-all duration-500 group hover:scale-110 hover:border-frontier-blue backdrop-blur-md"
         >
           <svg
-            class="w-10 h-10 text-blue-400 transition-transform duration-500 group-hover:rotate-6"
+            class="w-10 h-10 text-frontier-blue transition-transform duration-500 group-hover:rotate-6"
             fill="none"
             stroke="currentColor"
             stroke-width="1.5"
@@ -100,12 +97,14 @@ import Section from "../ui/Section.astro";
             ></path>
           </svg>
           <span
-            class="absolute -top-2 -right-2 w-7 h-7 bg-blue-500 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg shadow-blue-500/50"
+            class="absolute -top-2 -right-2 w-7 h-7 bg-frontier-blue rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg shadow-frontier-blue/50"
             >2</span
           >
         </div>
-        <h3 class="text-xl font-semibold text-dark-300 mb-3">Prototipo</h3>
-        <p class="text-dark-400 leading-relaxed text-sm">
+        <h3 class="text-xl font-semibold text-frontier-light mb-3">
+          Prototipo
+        </h3>
+        <p class="text-frontier-light/60 leading-relaxed text-sm">
           Diseñamos maquetas interactivas para validar la solución antes de
           escribir una sola línea de código.
         </p>
@@ -117,10 +116,10 @@ import Section from "../ui/Section.astro";
         data-step="3"
       >
         <div
-          class="process-icon-wrapper relative w-24 h-24 rounded-2xl bg-linear-to-br from-purple-500/30 to-purple-600/20 border border-purple-500/30 flex items-center justify-center mb-6 transition-all duration-500 group hover:scale-110 hover:border-purple-400 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] backdrop-blur-md"
+          class="process-icon-wrapper relative w-24 h-24 rounded-2xl bg-frontier-cyan/20 border border-frontier-cyan/30 flex items-center justify-center mb-6 transition-all duration-500 group hover:scale-110 hover:border-frontier-cyan backdrop-blur-md"
         >
           <svg
-            class="w-10 h-10 text-purple-400 transition-transform duration-500 group-hover:rotate-6"
+            class="w-10 h-10 text-frontier-cyan transition-transform duration-500 group-hover:rotate-6"
             fill="none"
             stroke="currentColor"
             stroke-width="1.5"
@@ -133,12 +132,14 @@ import Section from "../ui/Section.astro";
             ></path>
           </svg>
           <span
-            class="absolute -top-2 -right-2 w-7 h-7 bg-purple-500 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg shadow-purple-500/50"
+            class="absolute -top-2 -right-2 w-7 h-7 bg-frontier-cyan rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg shadow-frontier-cyan/50"
             >3</span
           >
         </div>
-        <h3 class="text-xl font-semibold text-dark-300 mb-3">Desarrollo</h3>
-        <p class="text-dark-400 leading-relaxed text-sm">
+        <h3 class="text-xl font-semibold text-frontier-light mb-3">
+          Desarrollo
+        </h3>
+        <p class="text-frontier-light/60 leading-relaxed text-sm">
           Construimos tu software con las mejores prácticas, arquitecturas
           limpias y tecnologías modernas.
         </p>
@@ -150,10 +151,10 @@ import Section from "../ui/Section.astro";
         data-step="4"
       >
         <div
-          class="process-icon-wrapper relative w-24 h-24 rounded-2xl bg-linear-to-br from-emerald-500/30 to-emerald-600/20 border border-emerald-500/30 flex items-center justify-center mb-6 transition-all duration-500 group hover:scale-110 hover:border-emerald-400 hover:shadow-[0_0_30px_rgba(16,185,129,0.3)] backdrop-blur-md"
+          class="process-icon-wrapper relative w-24 h-24 rounded-2xl bg-frontier-blue/20 border border-frontier-blue/30 flex items-center justify-center mb-6 transition-all duration-500 group hover:scale-110 hover:border-frontier-blue backdrop-blur-md"
         >
           <svg
-            class="w-10 h-10 text-emerald-400 transition-transform duration-500 group-hover:rotate-6"
+            class="w-10 h-10 text-frontier-blue transition-transform duration-500 group-hover:rotate-6"
             fill="none"
             stroke="currentColor"
             stroke-width="1.5"
@@ -166,12 +167,14 @@ import Section from "../ui/Section.astro";
             ></path>
           </svg>
           <span
-            class="absolute -top-2 -right-2 w-7 h-7 bg-emerald-500 rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg shadow-emerald-500/50"
+            class="absolute -top-2 -right-2 w-7 h-7 bg-frontier-blue rounded-full flex items-center justify-center text-xs font-bold text-white shadow-lg shadow-frontier-blue/50"
             >4</span
           >
         </div>
-        <h3 class="text-xl font-semibold text-dark-300 mb-3">Validación</h3>
-        <p class="text-dark-400 leading-relaxed text-sm">
+        <h3 class="text-xl font-semibold text-frontier-light mb-3">
+          Validación
+        </h3>
+        <p class="text-frontier-light/60 leading-relaxed text-sm">
           Pruebas exhaustivas, despliegue controlado y documentación para
           garantizar el éxito de tu producto.
         </p>
@@ -181,10 +184,10 @@ import Section from "../ui/Section.astro";
     <!-- Texto final -->
     <div class="mt-20 text-center max-w-3xl mx-auto">
       <div
-        class="h-px w-20 bg-linear-to-r from-transparent via-cyan-400 to-transparent mx-auto mb-8"
+        class="h-px w-20 bg-linear-to-r from-transparent via-frontier-cyan to-transparent mx-auto mb-8"
       >
       </div>
-      <p class="text-dark-400 leading-relaxed text-lg">
+      <p class="text-frontier-light/60 leading-relaxed text-lg">
         Nuestras soluciones se adaptan a cualquier sector —textil, industrial,
         comercial o servicios— optimizando procesos e impulsando la
         transformación digital de tu empresa.
