@@ -102,7 +102,7 @@ grep -o "your-color-name" dist/_astro/*.css
 
 <!-- ✅ ALWAYS: Use Tailwind semantic classes -->
 <div class="bg-primary"></div>
-<div class="text-slate-400"></div>
+<div class="text-dark-400"></div>
 ```
 
 ### Never Use Hex Colors
@@ -114,7 +114,7 @@ grep -o "your-color-name" dist/_astro/*.css
 
 <!-- ✅ ALWAYS: Use Tailwind color classes -->
 <p class="text-white"></p>
-<div class="bg-slate-800"></div>
+<div class="bg-dark-800"></div>
 ```
 
 ## Conditional Classes
@@ -224,14 +224,14 @@ For truly dynamic values, use inline styles:
 
 ```html
 <h1 class="text-2xl font-bold text-white"></h1>
-<p class="text-sm text-slate-400"></p>
+<p class="text-sm text-dark-400"></p>
 <span class="text-xs font-medium uppercase tracking-wide"></span>
 ```
 
 ### Borders & Shadows
 
 ```html
-<div class="rounded-lg border border-slate-700"></div>
+<div class="rounded-lg border border-dark-700"></div>
 <div class="rounded-full shadow-lg"></div>
 <div class="ring-2 ring-blue-500 ring-offset-2"></div>
 ```
@@ -255,7 +255,7 @@ For truly dynamic values, use inline styles:
 ### Dark Mode
 
 ```html
-<div class="bg-white dark:bg-slate-900"></div>
+<div class="bg-white dark:bg-dark-900"></div>
 <p class="text-gray-900 dark:text-white"></p>
 ```
 

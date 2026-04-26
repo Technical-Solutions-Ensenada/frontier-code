@@ -1,0 +1,475 @@
+---
+// src/sections/Hero.astro
+import Container from "../ui/Container.astro";
+---
+
+<section
+    id="hero"
+    class="relative min-h-screen flex items-center justify-center overflow-hidden bg-frontier-dark"
+>
+    <!-- Canvas para el blueprint (fondo interactivo) -->
+    <canvas
+        id="blueprint-canvas"
+        class="absolute inset-0 w-full h-full"
+        style="pointer-events: none;"></canvas>
+
+    <!-- Capa invisible para eventos del mouse sobre el canvas -->
+    <div id="blueprint-mouse-layer" class="absolute inset-0 z-0"></div>
+
+    <Container>
+        <div class="relative z-10 max-w-4xl mx-auto text-center">
+            <!-- Badge -->
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-frontier-blue/10 border border-frontier-blue/20"
+            >
+                <span
+                    class="w-2 h-2 bg-frontier-cyan rounded-full motion-safe:animate-pulse"
+                ></span>
+                <span class="text-sm font-nunito text-frontier-light"
+                    >Arquitectura Digital</span
+                >
+            </div>
+
+            <!-- Headline -->
+            <h1
+                class="font-monda text-4xl sm:text-5xl lg:text-6xl font-light text-frontier-light mb-6 leading-tight"
+            >
+                Construimos el
+                <span
+                    class="block mt-2 text-transparent bg-gradient-to-r from-frontier-cyan to-frontier-blue bg-clip-text font-semibold"
+                >
+                    software que escala
+                </span>
+            </h1>
+
+            <!-- Subtitle -->
+            <p
+                class="font-nunito text-lg sm:text-xl text-dark-300 mb-8 max-w-2xl mx-auto leading-relaxed"
+            >
+                Diseñamos arquitecturas limpias, conexiones robustas y sistemas
+                que crecen con tu negocio. Cada línea de código es un pilar de
+                tu próxima frontera digital.
+            </p>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <a
+                    href="#contact"
+                    class="group relative px-8 py-4 bg-gradient-to-r from-frontier-blue to-frontier-cyan text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-frontier-blue/25"
+                >
+                    Iniciar Proyecto
+                </a>
+                <a
+                    href="#services"
+                    class="px-8 py-4 border-2 border-frontier-cyan/50 font-semibold rounded-lg hover:bg-frontier-cyan/10 hover:border-frontier-cyan hover:text-frontier-cyan transition-all duration-300 hover:scale-105"
+                >
+                    Ver Servicios
+                </a>
+            </div>
+
+            <!-- Mini características -->
+            <div
+                class="flex flex-wrap justify-center gap-6 text-dark-400 text-sm font-nunito"
+            >
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-frontier-cyan"></span>
+                    Automatización
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-frontier-blue"></span>
+                    Escalabilidad
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-frontier-cyan"></span>
+                    Cloud‑Native
+                </div>
+            </div>
+        </div>
+    </Container>
+
+    <!-- Scroll indicator -->
+    <a
+        href="#services"
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 motion-safe:animate-bounce"
+        aria-label="Ir a servicios"
+    >
+        <svg
+            class="w-6 h-6 text-frontier-cyan/50"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+    </a>
+</section>
+
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const canvas = document.getElementById(
+        "blueprint-canvas",
+    ) as HTMLCanvasElement | null;
+    const mouseLayer = document.getElementById(
+        "blueprint-mouse-layer",
+    ) as HTMLDivElement | null;
+
+    if (!canvas || !mouseLayer) {
+        throw new Error(
+            "No se encontraron los elementos necesarios para el blueprint",
+        );
+    }
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) {
+        throw new Error("No se pudo obtener el contexto 2d del canvas");
+    }
+
+    // ===== PALETA DE COLORES =====
+    const colors = {
+        dark: "#0a0f1e",
+        blue: "#2d7dd2",
+        cyan: "#23c9ff",
+        grid: "rgba(35, 201, 255, 0.06)",
+        line: "rgba(35, 201, 255, 0.4)",
+        lineHover: "rgba(35, 201, 255, 0.9)",
+        glow: "rgba(35, 201, 255, 0.8)",
+        particle: "#23c9ff",
+        nodeFill: "#0a0f1e",
+        nodeStroke: "#23c9ff",
+        nodeHover: "#ffffff",
+        labelBg: "rgba(10, 15, 30, 0.8)",
+        labelText: "#23c9ff",
+        labelHover: "#ffffff",
+    };
+
+    // ===== NODOS (servidores, DB, API) =====
+    const nodes = [
+        { id: "center", x: 0.5, y: 0.5, radius: 6, label: "Frontier Core" },
+        { id: "api", x: 0.3, y: 0.25, radius: 5, label: "API Gateway" },
+        { id: "db", x: 0.7, y: 0.25, radius: 5, label: "Database" },
+        { id: "worker", x: 0.2, y: 0.7, radius: 5, label: "Workers" },
+        { id: "storage", x: 0.8, y: 0.7, radius: 5, label: "Storage" },
+        { id: "cache", x: 0.5, y: 0.15, radius: 5, label: "Cache" },
+        { id: "auth", x: 0.5, y: 0.85, radius: 5, label: "Auth" },
+    ];
+
+    // ===== CONEXIONES =====
+    const edges = [
+        { from: "center", to: "api" },
+        { from: "center", to: "db" },
+        { from: "center", to: "worker" },
+        { from: "center", to: "storage" },
+        { from: "api", to: "cache" },
+        { from: "db", to: "auth" },
+        { from: "worker", to: "auth" },
+    ];
+
+    let width: number, height: number;
+    let mouse = { x: 0.5, y: 0.5 };
+    let hoveredNodeIndex: number | null = null;
+
+    // ===== FUNCIÓN PARA ACTUALIZAR TAMAÑO =====
+    function resize() {
+        width = canvas.clientWidth;
+        height = canvas.clientHeight;
+        canvas.width = width;
+        canvas.height = height;
+    }
+    window.addEventListener("resize", resize);
+
+    // ===== DIBUJAR REJILLA DE FONDO =====
+    function drawGrid() {
+        if (!ctx) return;
+        ctx.strokeStyle = colors.grid;
+        ctx.lineWidth = 1;
+        const step = 40;
+        ctx.beginPath();
+        for (let x = step; x < width; x += step) {
+            ctx.moveTo(x, 0);
+            ctx.lineTo(x, height);
+        }
+        for (let y = step; y < height; y += step) {
+            ctx.moveTo(0, y);
+            ctx.lineTo(width, y);
+        }
+        ctx.stroke();
+    }
+
+    // ===== OBTENER COORDENADAS REALES DE UN NODO (con ligero desplazamiento por parallax) =====
+    function nodePos(node: { x: number; y: number } | undefined) {
+        if (!node) return { x: 0, y: 0 };
+        // Aplicamos parallax sutil basado en mouse
+        const offsetX = (mouse.x - 0.5) * 25;
+        const offsetY = (mouse.y - 0.5) * 25;
+        return {
+            x: node.x * width + offsetX,
+            y: node.y * height + offsetY,
+        };
+    }
+
+    // ===== DIBUJAR LÍNEAS CON GLOW Y EFECTO HOVER =====
+    function drawEdge(
+        fromPos: { x: number; y: number },
+        toPos: { x: number; y: number },
+        progress: number,
+        isHovered: boolean,
+    ) {
+        if (!ctx) return;
+        const targetX = fromPos.x + (toPos.x - fromPos.x) * progress;
+        const targetY = fromPos.y + (toPos.y - fromPos.y) * progress;
+
+        // Línea base
+        ctx.strokeStyle = isHovered ? colors.lineHover : colors.line;
+        ctx.lineWidth = isHovered ? 2.5 : 1.5;
+        ctx.beginPath();
+        ctx.moveTo(fromPos.x, fromPos.y);
+        ctx.lineTo(targetX, targetY);
+        ctx.stroke();
+
+        // Efecto glow sutil
+        if (progress > 0.8) {
+            ctx.strokeStyle = colors.glow;
+            ctx.lineWidth = isHovered ? 6 : 4;
+            ctx.globalAlpha = 0.2;
+            ctx.beginPath();
+            ctx.moveTo(fromPos.x, fromPos.y);
+            ctx.lineTo(toPos.x, toPos.y);
+            ctx.stroke();
+            ctx.globalAlpha = 1;
+        }
+    }
+
+    // ===== DIBUJAR NODO CON ETIQUETA Y FONDO =====
+    function drawNode(
+        node: { x: number; y: number; radius: number; label: string },
+        pos: { x: number; y: number },
+        isHovered: boolean,
+    ) {
+        if (!ctx) return;
+        const radius = isHovered ? node.radius * 1.5 : node.radius;
+
+        // Glow externo
+        ctx.fillStyle = colors.glow;
+        ctx.globalAlpha = isHovered ? 0.6 : 0.2;
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, radius + 6, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Círculo principal
+        ctx.fillStyle = colors.nodeFill;
+        ctx.strokeStyle = isHovered ? colors.nodeHover : colors.nodeStroke;
+        ctx.lineWidth = isHovered ? 2.5 : 1.5;
+        ctx.globalAlpha = 1;
+        ctx.beginPath();
+        ctx.arc(pos.x, pos.y, radius, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // Etiqueta con fondo para evitar mezcla con líneas
+        ctx.font = `${isHovered ? "bold " : ""}12px 'Nunito', sans-serif`;
+        ctx.textAlign = "center";
+        const textWidth = ctx.measureText(node.label).width;
+        const padding = 6;
+        const boxHeight = 20;
+        const boxY = pos.y - radius - 18;
+
+        // Fondo semitransparente detrás del texto
+        ctx.fillStyle = colors.labelBg;
+        ctx.globalAlpha = 0.8;
+        ctx.fillRect(
+            pos.x - textWidth / 2 - padding,
+            boxY - boxHeight / 2,
+            textWidth + padding * 2,
+            boxHeight,
+        );
+
+        // Texto
+        ctx.fillStyle = isHovered ? colors.labelHover : colors.labelText;
+        ctx.globalAlpha = 1;
+        ctx.fillText(node.label, pos.x, boxY + 5);
+    }
+
+    // ===== DIBUJAR PARTÍCULAS DE DATOS =====
+    function drawParticles(particles: any[], progress: number) {
+        if (!ctx) return;
+        particles.forEach((p) => {
+            let pVal = (progress + p.offset) % 1;
+            const fromPos = nodePos(p.from);
+            const toPos = nodePos(p.to);
+            const x = fromPos.x + (toPos.x - fromPos.x) * pVal;
+            const y = fromPos.y + (toPos.y - fromPos.y) * pVal;
+
+            // Partícula con brillo
+            ctx.fillStyle = colors.particle;
+            ctx.globalAlpha = 0.9;
+            ctx.beginPath();
+            ctx.arc(x, y, 2.5, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Estela sutil (más pequeña detrás)
+            ctx.fillStyle = colors.glow;
+            ctx.globalAlpha = 0.4;
+            ctx.beginPath();
+            ctx.arc(
+                x - (toPos.x - fromPos.x) * 0.01,
+                y - (toPos.y - fromPos.y) * 0.01,
+                1.5,
+                0,
+                Math.PI * 2,
+            );
+            ctx.fill();
+        });
+        ctx.globalAlpha = 1;
+    }
+
+    // ===== GESTIÓN DEL HOVER =====
+    function updateHoveredNode(clientX: number, clientY: number) {
+        const rect = mouseLayer!.getBoundingClientRect();
+        const x = (clientX - rect.left) / rect.width;
+        const y = (clientY - rect.top) / rect.height;
+
+        mouse.x = x;
+        mouse.y = y;
+
+        let closestDist = Infinity;
+        let closestIndex: number | null = null;
+
+        nodes.forEach((node, index) => {
+            const pos = nodePos(node);
+            const dx = pos.x - clientX + rect.left;
+            const dy = pos.y - clientY + rect.top;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 60 && dist < closestDist) {
+                closestDist = dist;
+                closestIndex = index;
+            }
+        });
+
+        hoveredNodeIndex = closestIndex;
+    }
+
+    // Eventos de mouse en la capa transparente
+    mouseLayer.addEventListener("mousemove", (e) => {
+        updateHoveredNode(e.clientX, e.clientY);
+    });
+
+    mouseLayer.addEventListener("mouseleave", () => {
+        hoveredNodeIndex = null;
+        mouse.x = 0.5;
+        mouse.y = 0.5;
+    });
+
+    // ===== ANIMACIÓN PRINCIPAL CON GSAP =====
+    const lineProgress = { value: 0 };
+    const particleProgress = { value: 0 };
+    let nodesVisible = false;
+    let particlesActive = false;
+
+    const particles = edges.map((edge) => {
+        const from = nodes.find((n) => n.id === edge.from);
+        const to = nodes.find((n) => n.id === edge.to);
+        return {
+            from,
+            to,
+            progress: 0,
+            speed: 0.2 + Math.random() * 0.4,
+            offset: Math.random(),
+        };
+    });
+
+    const tl = gsap.timeline({ defaults: { ease: "power2.inOut" } });
+    tl.to(lineProgress, {
+        value: 1,
+        duration: 2.5,
+        onComplete: () => {
+            nodesVisible = true;
+        },
+    })
+        .to({}, { duration: 0.3 })
+        .to(particleProgress, {
+            value: 1,
+            duration: 1,
+            onStart: () => {
+                particlesActive = true;
+            },
+        });
+
+    // ScrollTrigger para efecto sutil de cámara
+    gsap.to(canvas, {
+        scrollTrigger: {
+            trigger: "#hero",
+            start: "top top",
+            end: "bottom top",
+            scrub: 0.5,
+        },
+        y: -15,
+        scale: 1.01,
+    });
+
+    // ===== LOOP DE RENDERIZADO =====
+    function draw() {
+        if (!ctx) return;
+        ctx.clearRect(0, 0, width, height);
+
+        drawGrid();
+
+        // Determinar nodos y aristas en hover
+        const hoveredEdges = new Set<string>();
+        if (hoveredNodeIndex !== null) {
+            const hoveredNode = nodes[hoveredNodeIndex];
+            edges.forEach((edge) => {
+                if (
+                    edge.from === hoveredNode.id ||
+                    edge.to === hoveredNode.id
+                ) {
+                    hoveredEdges.add(`${edge.from}-${edge.to}`);
+                }
+            });
+        }
+
+        // Dibujar aristas
+        edges.forEach((edge) => {
+            const from = nodes.find((n) => n.id === edge.from);
+            const to = nodes.find((n) => n.id === edge.to);
+            if (!from || !to) return;
+            const fromPos = nodePos(from);
+            const toPos = nodePos(to);
+            const isHovered = hoveredEdges.has(`${edge.from}-${edge.to}`);
+            drawEdge(fromPos, toPos, lineProgress.value, isHovered);
+        });
+
+        // Dibujar nodos si ya son visibles
+        if (nodesVisible) {
+            nodes.forEach((node, index) => {
+                const pos = nodePos(node);
+                const isHovered = index === hoveredNodeIndex;
+                drawNode(node, pos, isHovered);
+            });
+        }
+
+        // Dibujar partículas de datos
+        if (particlesActive) {
+            drawParticles(particles, particleProgress.value);
+        }
+
+        requestAnimationFrame(draw);
+    }
+
+    // Inicializar y lanzar
+    resize();
+    draw();
+
+    // Limpieza
+    window.addEventListener("beforeunload", () => {
+        tl.kill();
+        ScrollTrigger.getAll().forEach((t) => t.kill());
+    });
+</script>

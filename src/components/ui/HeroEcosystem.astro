@@ -1,0 +1,478 @@
+---
+// Component: HeroEcosystem.astro
+// Opción 6: Interactive Ecosystem Map
+import Container from "../ui/Container.astro";
+---
+
+<section
+    id="hero"
+    class="relative min-h-screen flex items-center justify-center overflow-hidden bg-frontier-dark"
+>
+    <!-- Background subtle grid -->
+    <div class="absolute inset-0 pointer-events-none">
+        <div
+            class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_var(--frontier-blue)_0.5px,_transparent_0.5px)] bg-[size:40px_40px] opacity-20"
+        >
+        </div>
+    </div>
+
+    <Container>
+        <div
+            class="relative z-10 grid lg:grid-cols-2 gap-12 items-center max-w-7xl mx-auto py-20"
+        >
+            <!-- Left: Interactive Ecosystem Map -->
+            <div
+                class="relative flex justify-center items-center order-2 lg:order-1"
+                id="ecosystem-map-container"
+            >
+                <svg
+                    id="ecosystem-svg"
+                    viewBox="0 0 500 500"
+                    class="w-full max-w-md lg:max-w-lg"
+                    aria-label="Ecosistema de servicios Frontier Code"
+                    role="img"
+                >
+                    <!-- Concentric rings -->
+                    <g id="rings-group">
+                        <!-- Automatización (inner) -->
+                        <circle
+                            cx="250"
+                            cy="250"
+                            r="80"
+                            fill="none"
+                            stroke="var(--frontier-cyan)"
+                            stroke-width="2"
+                            class="ecosystem-ring opacity-30 cursor-pointer"
+                            data-service="automatización"
+                            data-cta="Automatiza Procesos Ya"
+                            data-title="eficiencia"
+                            data-desc="Sistemas autónomos que optimizan tus operaciones."
+                        ></circle>
+                        <!-- Escalabilidad -->
+                        <circle
+                            cx="250"
+                            cy="250"
+                            r="140"
+                            fill="none"
+                            stroke="var(--frontier-blue)"
+                            stroke-width="2"
+                            class="ecosystem-ring opacity-30 cursor-pointer"
+                            data-service="escalabilidad"
+                            data-cta="Escala Sin Límites"
+                            data-title="escalamiento"
+                            data-desc="Arquitectura elástica que crece con tu demanda."
+                        ></circle>
+                        <!-- Inteligencia Artificial -->
+                        <circle
+                            cx="250"
+                            cy="250"
+                            r="200"
+                            fill="none"
+                            stroke="var(--frontier-cyan)"
+                            stroke-width="2"
+                            class="ecosystem-ring opacity-30 cursor-pointer"
+                            data-service="ia"
+                            data-cta="Decisiones Inteligentes"
+                            data-title="inteligencia"
+                            data-desc="Modelos predictivos que transforman datos en ventajas."
+                        ></circle>
+                        <!-- Resultados Medibles (outer) -->
+                        <circle
+                            cx="250"
+                            cy="250"
+                            r="260"
+                            fill="none"
+                            stroke="var(--frontier-blue)"
+                            stroke-width="2"
+                            class="ecosystem-ring opacity-30 cursor-pointer"
+                            data-service="resultados"
+                            data-cta="Maximiza Resultados Hoy"
+                            data-title="crecimiento"
+                            data-desc="Métricas y analítica para decisiones basadas en hechos."
+                        ></circle>
+                    </g>
+
+                    <!-- Glowing dot at center -->
+                    <circle
+                        cx="250"
+                        cy="250"
+                        r="6"
+                        fill="var(--frontier-cyan)"
+                        class="opacity-80"></circle>
+
+                    <!-- Expanding wave (hidden initially) -->
+                    <circle
+                        id="hover-wave"
+                        cx="250"
+                        cy="250"
+                        r="0"
+                        fill="none"
+                        stroke="var(--frontier-cyan)"
+                        stroke-width="2"
+                        opacity="0"
+                        class="pointer-events-none"></circle>
+                </svg>
+
+                <!-- Floating tooltip -->
+                <div
+                    id="ecosystem-tooltip"
+                    class="absolute bg-frontier-dark/90 backdrop-blur-md border border-frontier-cyan/30 rounded-lg px-4 py-2 text-frontier-light text-sm pointer-events-none opacity-0 transition-opacity duration-200"
+                    style="top: 50%; left: 50%; transform: translate(-50%, -50%);"
+                >
+                    <span
+                        id="tooltip-title"
+                        class="font-semibold text-frontier-cyan block"></span>
+                    <span id="tooltip-desc" class="text-dark-300"></span>
+                </div>
+            </div>
+
+            <!-- Right: Dynamic Content -->
+            <div class="text-center lg:text-left order-1 lg:order-2">
+                <!-- Badge -->
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-frontier-blue/10 border border-frontier-blue/20"
+                >
+                    <span
+                        class="w-2 h-2 bg-frontier-cyan rounded-full motion-safe:animate-pulse"
+                    ></span>
+                    <span class="text-sm font-nunito text-frontier-light"
+                        >Ecosistema Digital</span
+                    >
+                </div>
+
+                <h1
+                    class="font-monda text-4xl sm:text-5xl lg:text-6xl font-light text-frontier-light mb-6 leading-tight"
+                >
+                    Creamos
+                    <span class="block mt-2">
+                        <span
+                            id="dynamic-word"
+                            class="text-transparent bg-linear-to-r from-frontier-cyan to-frontier-blue bg-clip-text font-semibold"
+                            data-default="eficiencia">eficiencia</span
+                        >
+                    </span>
+                </h1>
+
+                <p
+                    class="font-nunito text-lg sm:text-xl text-dark-300 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed"
+                >
+                    Un ecosistema de herramientas digitales donde la
+                    automatización, la escalabilidad y la inteligencia convergen
+                    para impulsar tus resultados.
+                </p>
+
+                <div
+                    class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
+                >
+                    <a
+                        href="#contact"
+                        id="ecosystem-cta"
+                        class="group relative px-8 py-4 bg-linear-to-r from-frontier-blue to-frontier-cyan text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-frontier-blue/25"
+                    >
+                        <span
+                            class="relative flex items-center justify-center gap-2"
+                        >
+                            <svg
+                                class="w-5 h-5"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            <span id="dynamic-cta-text"
+                                >Impulsa Tu Eficiencia</span
+                            >
+                        </span>
+                    </a>
+                    <a
+                        href="#services"
+                        class="px-8 py-4 border-2 border-frontier-cyan/50 font-semibold rounded-lg hover:bg-frontier-cyan/10 hover:border-frontier-cyan hover:text-frontier-cyan transition-all duration-300 hover:scale-105"
+                    >
+                        Explorar Servicios
+                    </a>
+                </div>
+
+                <!-- Features via services -->
+                <div
+                    class="flex flex-wrap justify-center lg:justify-start gap-6 text-dark-400 text-sm font-nunito"
+                >
+                    <div class="flex items-center gap-2 group cursor-default">
+                        <svg
+                            class="w-5 h-5 text-frontier-cyan"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span
+                            class="group-hover:text-frontier-cyan transition-colors"
+                            >Automatización Inteligente</span
+                        >
+                    </div>
+                    <div class="flex items-center gap-2 group cursor-default">
+                        <svg
+                            class="w-5 h-5 text-frontier-blue"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span
+                            class="group-hover:text-frontier-cyan transition-colors"
+                            >Escalabilidad Total</span
+                        >
+                    </div>
+                    <div class="flex items-center gap-2 group cursor-default">
+                        <svg
+                            class="w-5 h-5 text-frontier-cyan"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        <span
+                            class="group-hover:text-frontier-cyan transition-colors"
+                            >Resultados Medibles</span
+                        >
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Container>
+
+    <!-- Scroll Indicator -->
+    <a
+        href="#services"
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 motion-safe:animate-bounce"
+        aria-label="Ir a servicios"
+    >
+        <svg
+            class="w-6 h-6 text-frontier-cyan/50"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+    </a>
+</section>
+
+<style>
+    @keyframes glitch {
+        0% {
+            transform: translate(0);
+            opacity: 1;
+        }
+        20% {
+            transform: translate(-2px, 1px);
+            opacity: 0.8;
+        }
+        40% {
+            transform: translate(2px, -1px);
+            opacity: 1;
+        }
+        60% {
+            transform: translate(-1px, -1px);
+            opacity: 0.9;
+        }
+        80% {
+            transform: translate(1px, 1px);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(0);
+            opacity: 1;
+        }
+    }
+    .glitch-active {
+        animation: glitch 0.4s ease-in-out;
+    }
+</style>
+
+<script>
+    import { gsap } from "gsap";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        // Elements
+        const rings = document.querySelectorAll(".ecosystem-ring");
+        const dynamicWord = document.getElementById("dynamic-word");
+        const dynamicCTA = document.getElementById("dynamic-cta-text");
+        const tooltip = document.getElementById("ecosystem-tooltip");
+        const tooltipTitle = document.getElementById("tooltip-title");
+        const tooltipDesc = document.getElementById("tooltip-desc");
+        const wave = document.getElementById("hover-wave");
+        const svgContainer = document.getElementById("ecosystem-svg");
+
+        // Default values
+        const defaultWord = dynamicWord?.dataset.default || "eficiencia";
+        const defaultCTA = "Impulsa Tu Eficiencia";
+        let activeRing = null;
+
+        // Map service to word and CTA (using data attributes, but also for fallback)
+        const serviceMap = {};
+        rings.forEach((ring) => {
+            const service = ring.dataset.service;
+            serviceMap[service] = {
+                cta: ring.dataset.cta,
+                title: ring.dataset.title,
+                desc: ring.dataset.desc,
+            };
+        });
+
+        // GSAP entrance animation for rings
+        const ringsGroup = document.getElementById("rings-group");
+        if (ringsGroup) {
+            gsap.fromTo(
+                ringsGroup.children,
+                { scale: 0.8, opacity: 0, transformOrigin: "50% 50%" },
+                {
+                    scale: 1,
+                    opacity: 0.3,
+                    duration: 0.8,
+                    stagger: 0.1,
+                    ease: "power3.out",
+                    delay: 0.5,
+                },
+            );
+        }
+
+        // Helper: update text with glitch effect
+        function updateDynamicText(newWord, newCTA) {
+            if (!dynamicWord || !dynamicCTA) return;
+
+            // Glitch on word
+            dynamicWord.classList.add("glitch-active");
+            setTimeout(() => {
+                dynamicWord.textContent = newWord;
+                dynamicWord.classList.remove("glitch-active");
+            }, 200);
+
+            // CTA update
+            dynamicCTA.textContent = newCTA;
+        }
+
+        // Handle ring hover
+        function handleRingHover(e) {
+            const ring = e.currentTarget;
+            const { service, cta, title, desc } = ring.dataset;
+
+            // Update active ring visual
+            rings.forEach((r) => (r.style.opacity = "0.3"));
+            ring.style.opacity = "1";
+            ring.style.strokeWidth = "3";
+
+            // Update dynamic text
+            updateDynamicText(title, cta);
+
+            // Show tooltip near the ring center
+            const ringRect = ring.getBoundingClientRect();
+            const svgRect = svgContainer.getBoundingClientRect();
+            // Tooltip position relative to the container
+            const x = ringRect.left + ringRect.width / 2 - svgRect.left;
+            const y = ringRect.top + ringRect.height / 2 - svgRect.top;
+            tooltip.style.left = `${x}px`;
+            tooltip.style.top = `${y}px`;
+            tooltip.style.transform = "translate(-50%, -50%)";
+            tooltipTitle.textContent = `Servicio: ${service.charAt(0).toUpperCase() + service.slice(1)}`;
+            tooltipDesc.textContent = desc;
+            tooltip.classList.add("opacity-100");
+
+            // Wave effect from center
+            if (wave) {
+                wave.setAttribute("r", "0");
+                wave.style.opacity = "0.8";
+                gsap.to(wave, {
+                    attr: { r: ring.getAttribute("r") },
+                    opacity: 0,
+                    duration: 0.6,
+                    ease: "power2.out",
+                    onComplete: () => {
+                        wave.style.opacity = "0";
+                    },
+                });
+            }
+        }
+
+        function handleRingLeave() {
+            rings.forEach((r) => {
+                r.style.opacity = "0.3";
+                r.style.strokeWidth = "2";
+            });
+            tooltip.classList.remove("opacity-100");
+            // Revert to default
+            updateDynamicText(defaultWord, defaultCTA);
+        }
+
+        function handleRingClick(e) {
+            const ring = e.currentTarget;
+            const { cta, title } = ring.dataset;
+            // Permanently set active until another click
+            if (activeRing === ring) return;
+            activeRing = ring;
+
+            rings.forEach((r) => {
+                r.style.opacity = "0.3";
+                r.style.strokeWidth = "2";
+            });
+            ring.style.opacity = "1";
+            ring.style.strokeWidth = "3";
+
+            updateDynamicText(title, cta);
+            // Update CTA link's data perhaps
+            const ctaLink = document.getElementById("ecosystem-cta");
+            if (ctaLink) {
+                // You could update href or add tracking
+                ctaLink.setAttribute(
+                    "data-active-service",
+                    ring.dataset.service,
+                );
+            }
+        }
+
+        // Attach events
+        rings.forEach((ring) => {
+            ring.addEventListener("mouseenter", handleRingHover);
+            ring.addEventListener("mouseleave", handleRingLeave);
+            ring.addEventListener("click", handleRingClick);
+        });
+
+        // Additional: centralized pulse on load
+        const centerDot = document.querySelector(
+            "#ecosystem-svg circle:nth-child(6)",
+        ); // after rings group
+        if (centerDot) {
+            gsap.to(centerDot, {
+                r: 10,
+                opacity: 0.2,
+                duration: 1.5,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut",
+            });
+        }
+    });
+</script>

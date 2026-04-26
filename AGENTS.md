@@ -12,29 +12,29 @@ Use these skills for detailed patterns on-demand:
 
 ### Generic Skills (Any Project)
 
-| Skill | Description | URL |
-|-------|-------------|-----|
-| `astro` | Astro v5 patterns, component structure, islands architecture | [SKILL.md](skills/astro/SKILL.md) |
-| `typescript` | Const types, flat interfaces, utility types | [SKILL.md](skills/typescript/SKILL.md) |
-| `tailwind-4` | cn() utility, no var() in className | [SKILL.md](skills/tailwind-4/SKILL.md) |
+| Skill        | Description                                                  | URL                                    |
+| ------------ | ------------------------------------------------------------ | -------------------------------------- |
+| `astro`      | Astro v5 patterns, component structure, islands architecture | [SKILL.md](skills/astro/SKILL.md)      |
+| `typescript` | Const types, flat interfaces, utility types                  | [SKILL.md](skills/typescript/SKILL.md) |
+| `tailwind-4` | cn() utility, no var() in className                          | [SKILL.md](skills/tailwind-4/SKILL.md) |
 
 ### Project-Specific Skills
 
-| Skill | Description | URL |
-|-------|-------------|-----|
-| `skill-creator` | Create new AI agent skills | [SKILL.md](skills/skill-creator/SKILL.md) |
-| `frontier-ui` | Frontier Code UI standards (dark theme, cyan/purple accents, gradients) | [SKILL.md](skills/frontier-ui/SKILL.md) |
+| Skill           | Description                                                           | URL                                       |
+| --------------- | --------------------------------------------------------------------- | ----------------------------------------- |
+| `skill-creator` | Create new AI agent skills                                            | [SKILL.md](skills/skill-creator/SKILL.md) |
+| `frontier-ui`   | Frontier Code UI standards (dark theme, cyan/blue accents, gradients) | [SKILL.md](skills/frontier-ui/SKILL.md)   |
 
 ### Auto-invoke Skills
 
 When performing these actions, ALWAYS invoke the corresponding skill FIRST:
 
-| Action | Skill |
-|--------|-------|
-| After creating/modifying a skill | `skill-sync` |
-| Creating/modifying Astro files (.astro) | `astro` |
-| Writing TypeScript types/interfaces | `typescript` |
-| Working with Tailwind classes | `tailwind-4` |
+| Action                                                         | Skill         |
+| -------------------------------------------------------------- | ------------- |
+| After creating/modifying a skill                               | `skill-sync`  |
+| Creating/modifying Astro files (.astro)                        | `astro`       |
+| Writing TypeScript types/interfaces                            | `typescript`  |
+| Working with Tailwind classes                                  | `tailwind-4`  |
 | Creating/modifying UI components, sections, or visual elements | `frontier-ui` |
 
 ## Project Overview

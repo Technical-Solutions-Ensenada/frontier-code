@@ -1,0 +1,173 @@
+<!-- src/components/HeroVisual.astro -->
+<div class="relative w-full max-w-lg">
+    <div
+        class="relative bg-dark/80 backdrop-blur-xl rounded-2xl border border-cyan/20 shadow-2xl shadow-blue/20 overflow-hidden"
+    >
+        <!-- Header de terminal -->
+        <div
+            class="flex items-center gap-2 px-4 py-3 bg-dark border-b border-cyan/10"
+        >
+            <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+            <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+            <span class="ml-2 text-xs text-dark-400 font-mono">frontier</span>
+        </div>
+
+        <!-- Contenido -->
+        <div class="p-6 font-mono text-sm space-y-2 min-h-[280px]">
+            <div class="flex items-center gap-2 text-cyan">
+                <span class="text-dark-400">$</span>
+                <span id="terminal-line-1"></span>
+                <span class="inline-block w-2 h-4 bg-cyan animate-blink"></span>
+            </div>
+
+            <div
+                id="terminal-output"
+                class="text-dark-300 space-y-1 opacity-0 transition-opacity duration-500"
+            >
+            </div>
+
+            <div id="progress-container" class="hidden mt-4">
+                <div class="flex justify-between text-xs text-dark-400 mb-1">
+                    <span>Progreso</span>
+                    <span id="progress-percent">0%</span>
+                </div>
+                <div
+                    class="h-2 bg-dark rounded-full overflow-hidden border border-cyan/20"
+                >
+                    <div
+                        id="progress-bar"
+                        class="h-full bg-linear-to-r from-cyan to-blue transition-all duration-300"
+                        style="width: 0%"
+                    >
+                    </div>
+                </div>
+            </div>
+
+            <div
+                id="success-message"
+                class="hidden mt-4 p-3 bg-cyan/10 border border-cyan/30 rounded-lg"
+            >
+                <div class="flex items-center gap-2 text-cyan">
+                    <svg
+                        class="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="font-semibold">✓ Deploy exitoso</span>
+                </div>
+                <p class="text-xs text-dark-400 mt-1">
+                    Tiempo: 2.4s | Rendimiento: 100/100
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Decoración -->
+    <div
+        class="absolute -top-4 -right-4 w-24 h-24 bg-blue/10 rounded-lg -rotate-12 blur-xl"
+    >
+    </div>
+    <div
+        class="absolute -bottom-4 -left-4 w-32 h-32 bg-cyan/10 rounded-full blur-xl"
+    >
+    </div>
+</div>
+
+<style>
+    @keyframes blink {
+        0%,
+        50% {
+            opacity: 1;
+        }
+        51%,
+        100% {
+            opacity: 0;
+        }
+    }
+    .animate-blink {
+        animation: blink 1s infinite;
+    }
+</style>
+
+<script is:inline>
+    // Helper para delays limpios
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
+    // Elementos
+    const $ = (id) => document.getElementById(id);
+    const line1 = $("terminal-line-1");
+    const output = $("terminal-output");
+    const progressCont = $("progress-container");
+    const progressBar = $("progress-bar");
+    const progressPercent = $("progress-percent");
+    const successMsg = $("success-message");
+
+    const command = "frontiercode";
+    const outputs = [
+        "> Building for production...",
+        "> ✓ Compiled successfully in 1.2s",
+        "> ✓ Optimized 24 images",
+        "> ✓ Generated 12 static pages",
+    ];
+
+    async function runTerminalCycle() {
+        // 🔁 1. RESETEO EXPLÍCITO (evita crecimiento infinito)
+        line1.textContent = "";
+        output.innerHTML = "";
+        output.classList.add("opacity-0");
+        progressCont.classList.add("hidden");
+        progressBar.style.width = "0%";
+        progressPercent.textContent = "0%";
+        successMsg.classList.add("hidden");
+
+        await sleep(600);
+
+        // 🔤 2. ESCRIBIR COMANDO
+        for (const char of command) {
+            line1.textContent += char;
+            await sleep(50 + Math.random() * 40);
+        }
+        await sleep(400);
+
+        // 📜 3. MOSTRAR SALIDA
+        output.classList.remove("opacity-0");
+        for (const line of outputs) {
+            const div = document.createElement("div");
+            div.className = "text-dark-300";
+            div.textContent = line;
+            output.appendChild(div);
+            await sleep(250);
+        }
+        await sleep(300);
+
+        // 📊 4. BARRA DE PROGRESO
+        progressCont.classList.remove("hidden");
+        for (let i = 0; i <= 100; i += 2) {
+            progressBar.style.width = `${i}%`;
+            progressPercent.textContent = `${i}%`;
+            await sleep(25);
+        }
+        await sleep(500);
+
+        // ✅ 5. MENSAJE DE ÉXITO
+        successMsg.classList.remove("hidden");
+        await sleep(2200);
+
+        // 🔄 6. SIGUIENTE CICLO
+        await sleep(1000);
+        runTerminalCycle();
+    }
+
+    // Iniciar al cargar
+    document.addEventListener("DOMContentLoaded", () => {
+        setTimeout(runTerminalCycle, 800);
+    });
+</script>

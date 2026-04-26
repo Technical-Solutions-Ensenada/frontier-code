@@ -1,0 +1,776 @@
+---
+// src/components/HeroVisual.astro
+---
+
+<div
+    class="blueprint-visual relative w-full max-w-lg aspect-square flex items-center justify-center"
+    id="blueprintContainer"
+>
+    <svg
+        id="blueprintSvg"
+        viewBox="0 0 600 600"
+        class="w-full h-full overflow-visible"
+        xmlns="http://www.w3.org/2000/svg"
+    >
+        <defs>
+            <!-- ========================================== -->
+            <!-- PATRONES DE REJILLA (PLANO TÉCNICO)        -->
+            <!-- ========================================== -->
+            <pattern
+                id="gridMajor"
+                width="40"
+                height="40"
+                patternUnits="userSpaceOnUse"
+            >
+                <path
+                    d="M 40 0 L 0 0 0 40"
+                    fill="none"
+                    stroke="rgba(6, 182, 212, 0.15)"
+                    stroke-width="1"></path>
+            </pattern>
+            <pattern
+                id="gridMinor"
+                width="10"
+                height="10"
+                patternUnits="userSpaceOnUse"
+            >
+                <path
+                    d="M 10 0 L 0 0 0 10"
+                    fill="none"
+                    stroke="rgba(6, 182, 212, 0.06)"
+                    stroke-width="0.5"></path>
+            </pattern>
+
+            <!-- Máscara radial para desvanecer la rejilla en los bordes -->
+            <radialGradient id="fadeGrad" cx="50%" cy="50%" r="55%">
+                <stop offset="0%" stop-color="white" stop-opacity="1"></stop>
+                <stop offset="60%" stop-color="white" stop-opacity="0.8"></stop>
+                <stop offset="100%" stop-color="white" stop-opacity="0"></stop>
+            </radialGradient>
+            <mask id="gridFadeMask">
+                <rect width="600" height="600" fill="black"></rect>
+                <rect width="600" height="600" fill="url(#fadeGrad)"></rect>
+            </mask>
+
+            <!-- ========================================== -->
+            <!-- GRADIENTES PARA LÍNEAS GUÍA                 -->
+            <!-- ========================================== -->
+            <linearGradient id="guideLineH" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#06b6d4" stop-opacity="0"></stop>
+                <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.5"
+                ></stop>
+                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"
+                ></stop>
+            </linearGradient>
+            <linearGradient id="guideLineV" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0"></stop>
+                <stop offset="50%" stop-color="#06b6d4" stop-opacity="0.5"
+                ></stop>
+                <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"
+                ></stop>
+            </linearGradient>
+
+            <!-- Gradientes para cubos isométricos -->
+            <linearGradient id="cubeTop" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"
+                ></stop>
+                <stop offset="100%" stop-color="#a5f3fc" stop-opacity="0.9"
+                ></stop>
+            </linearGradient>
+            <linearGradient id="cubeLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#06b6d4" stop-opacity="0.9"
+                ></stop>
+                <stop offset="100%" stop-color="#0e7490" stop-opacity="0.9"
+                ></stop>
+            </linearGradient>
+            <linearGradient id="cubeRight" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.9"
+                ></stop>
+                <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0.9"
+                ></stop>
+            </linearGradient>
+
+            <linearGradient id="cubeTopSec" x1="0%" y1="100%" x2="100%" y2="0%">
+                <stop offset="0%" stop-color="#e9d5ff" stop-opacity="0.9"
+                ></stop>
+                <stop offset="100%" stop-color="#c084fc" stop-opacity="0.9"
+                ></stop>
+            </linearGradient>
+            <linearGradient
+                id="cubeLeftSec"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+            >
+                <stop offset="0%" stop-color="#a855f7" stop-opacity="0.9"
+                ></stop>
+                <stop offset="100%" stop-color="#7e22ce" stop-opacity="0.9"
+                ></stop>
+            </linearGradient>
+            <linearGradient
+                id="cubeRightSec"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="100%"
+            >
+                <stop offset="0%" stop-color="#8b5cf6" stop-opacity="0.9"
+                ></stop>
+                <stop offset="100%" stop-color="#4c1d95" stop-opacity="0.9"
+                ></stop>
+            </linearGradient>
+
+            <!-- Filtros de resplandor -->
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                <feGaussianBlur stdDeviation="3" result="blur"></feGaussianBlur>
+                <feMerge>
+                    <feMergeNode in="blur"></feMergeNode>
+                    <feMergeNode in="SourceGraphic"></feMergeNode>
+                </feMerge>
+            </filter>
+            <filter
+                id="glowStrong"
+                x="-50%"
+                y="-50%"
+                width="200%"
+                height="200%"
+            >
+                <feGaussianBlur stdDeviation="6"></feGaussianBlur>
+            </filter>
+        </defs>
+
+        <!-- FONDO TRANSPARENTE - solo rejilla y líneas guía -->
+
+        <!-- Rejilla técnica (papel milimetrado) -->
+        <rect
+            width="600"
+            height="600"
+            fill="url(#gridMinor)"
+            mask="url(#gridFadeMask)"></rect>
+        <rect
+            width="600"
+            height="600"
+            fill="url(#gridMajor)"
+            mask="url(#gridFadeMask)"></rect>
+
+        <!-- Líneas guía del plano CAD -->
+        <g id="guideLines" opacity="0.6">
+            <!-- Horizontales -->
+            <line
+                x1="0"
+                y1="100"
+                x2="600"
+                y2="100"
+                stroke="url(#guideLineH)"
+                stroke-width="1.5"
+                stroke-dasharray="8 6"></line>
+            <line
+                x1="0"
+                y1="200"
+                x2="600"
+                y2="200"
+                stroke="url(#guideLineH)"
+                stroke-width="1"
+                stroke-dasharray="12 8"></line>
+            <line
+                x1="0"
+                y1="300"
+                x2="600"
+                y2="300"
+                stroke="url(#guideLineH)"
+                stroke-width="2"
+                stroke-dasharray="6 4"></line>
+            <line
+                x1="0"
+                y1="400"
+                x2="600"
+                y2="400"
+                stroke="url(#guideLineH)"
+                stroke-width="1"
+                stroke-dasharray="8 6"></line>
+            <line
+                x1="0"
+                y1="500"
+                x2="600"
+                y2="500"
+                stroke="url(#guideLineH)"
+                stroke-width="1.5"
+                stroke-dasharray="10 5"></line>
+            <!-- Verticales -->
+            <line
+                x1="100"
+                y1="0"
+                x2="100"
+                y2="600"
+                stroke="url(#guideLineV)"
+                stroke-width="1.5"
+                stroke-dasharray="8 6"></line>
+            <line
+                x1="200"
+                y1="0"
+                x2="200"
+                y2="600"
+                stroke="url(#guideLineV)"
+                stroke-width="1"
+                stroke-dasharray="6 10"></line>
+            <line
+                x1="300"
+                y1="0"
+                x2="300"
+                y2="600"
+                stroke="url(#guideLineV)"
+                stroke-width="2"
+                stroke-dasharray="4 8"></line>
+            <line
+                x1="400"
+                y1="0"
+                x2="400"
+                y2="600"
+                stroke="url(#guideLineV)"
+                stroke-width="1"
+                stroke-dasharray="10 6"></line>
+            <line
+                x1="500"
+                y1="0"
+                x2="500"
+                y2="600"
+                stroke="url(#guideLineV)"
+                stroke-width="1.5"
+                stroke-dasharray="6 8"></line>
+            <!-- Diagonales de referencia isométrica -->
+            <line
+                x1="50"
+                y1="250"
+                x2="550"
+                y2="450"
+                stroke="url(#guideLineH)"
+                stroke-width="0.8"
+                stroke-dasharray="5 5"></line>
+            <line
+                x1="50"
+                y1="350"
+                x2="550"
+                y2="150"
+                stroke="url(#guideLineH)"
+                stroke-width="0.8"
+                stroke-dasharray="5 5"></line>
+        </g>
+
+        <!-- ========================================== -->
+        <!-- PIEZAS FLOTANTES QUE SE ENSAMBLAN            -->
+        <!-- ========================================== -->
+        <g id="floatingPieces" filter="url(#glow)">
+            <!-- Pieza triangular pequeña (órbita) -->
+            <polygon
+                points="0,-10 8,5 -8,5"
+                fill="#06b6d4"
+                opacity="0.9"
+                id="floatingTri1"
+            >
+                <!-- Animado con GSAP -->
+            </polygon>
+            <polygon
+                points="0,-8 6,4 -6,4"
+                fill="#3b82f6"
+                opacity="0.8"
+                id="floatingTri2"
+            >
+                <!-- Animado con GSAP -->
+            </polygon>
+            <!-- Rectángulo pequeño (módulo de código) -->
+            <rect
+                x="-6"
+                y="-6"
+                width="12"
+                height="12"
+                rx="2"
+                fill="#8b5cf6"
+                opacity="0.7"
+                id="floatingRect1"></rect>
+            <rect
+                x="-5"
+                y="-5"
+                width="10"
+                height="10"
+                rx="2"
+                fill="#a855f7"
+                opacity="0.6"
+                id="floatingRect2"></rect>
+            <!-- Círculos brillantes (puntos de unión) -->
+            <circle cx="0" cy="0" r="3" fill="#ffffff" id="floatingCircle1"
+            ></circle>
+            <circle cx="0" cy="0" r="2.5" fill="#ffffff" id="floatingCircle2"
+            ></circle>
+        </g>
+
+        <!-- ========================================== -->
+        <!-- ESTRUCTURA ISOMÉTRICA PRINCIPAL              -->
+        <!-- ========================================== -->
+        <g id="isoStructureGroup">
+            <!-- Sombra proyectada en el plano -->
+            <ellipse
+                cx="300"
+                cy="430"
+                rx="100"
+                ry="28"
+                fill="#06b6d4"
+                opacity="0.1"
+                filter="url(#glowStrong)"
+                id="isoShadow"></ellipse>
+
+            <!-- Cubo base (abajo) -->
+            <g id="cubeBase" class="iso-cube" transform="translate(0,0)">
+                <polygon
+                    points="300,380 400,430 300,480 200,430"
+                    fill="url(#cubeTop)"
+                    stroke="#06b6d4"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                    class="face top-face"></polygon>
+                <polygon
+                    points="200,430 300,480 300,530 200,480"
+                    fill="url(#cubeLeft)"
+                    stroke="#06b6d4"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                    class="face left-face"></polygon>
+                <polygon
+                    points="300,480 400,430 400,480 300,530"
+                    fill="url(#cubeRight)"
+                    stroke="#3b82f6"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                    class="face right-face"></polygon>
+                <!-- Aristas brillantes -->
+                <line
+                    x1="300"
+                    y1="380"
+                    x2="300"
+                    y2="480"
+                    stroke="#ffffff"
+                    stroke-width="2"
+                    filter="url(#glow)"
+                    opacity="0.7"
+                    class="glow-edge"></line>
+            </g>
+
+            <!-- Cubo intermedio (superpuesto y desplazado hacia atrás) -->
+            <g
+                id="cubeMiddle"
+                class="iso-cube"
+                opacity="0"
+                transform="translate(0,0)"
+            >
+                <polygon
+                    points="300,310 380,350 300,390 220,350"
+                    fill="url(#cubeTop)"
+                    stroke="#3b82f6"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                    class="face top-face"></polygon>
+                <polygon
+                    points="220,350 300,390 300,440 220,400"
+                    fill="url(#cubeLeft)"
+                    stroke="#06b6d4"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                    class="face left-face"></polygon>
+                <polygon
+                    points="300,390 380,350 380,400 300,440"
+                    fill="url(#cubeRight)"
+                    stroke="#3b82f6"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                    class="face right-face"></polygon>
+                <line
+                    x1="300"
+                    y1="310"
+                    x2="300"
+                    y2="390"
+                    stroke="#ffffff"
+                    stroke-width="2"
+                    filter="url(#glow)"
+                    opacity="0.6"
+                    class="glow-edge"></line>
+            </g>
+
+            <!-- Cubo superior (más pequeño, más atrás) -->
+            <g
+                id="cubeTop"
+                class="iso-cube"
+                opacity="0"
+                transform="translate(0,0)"
+            >
+                <polygon
+                    points="300,240 360,270 300,300 240,270"
+                    fill="url(#cubeTopSec)"
+                    stroke="#a855f7"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                    class="face top-face"></polygon>
+                <polygon
+                    points="240,270 300,300 300,340 240,310"
+                    fill="url(#cubeLeftSec)"
+                    stroke="#8b5cf6"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                    class="face left-face"></polygon>
+                <polygon
+                    points="300,300 360,270 360,310 300,340"
+                    fill="url(#cubeRightSec)"
+                    stroke="#a855f7"
+                    stroke-width="1.5"
+                    stroke-linejoin="round"
+                    class="face right-face"></polygon>
+                <line
+                    x1="300"
+                    y1="240"
+                    x2="300"
+                    y2="300"
+                    stroke="#ffffff"
+                    stroke-width="2"
+                    filter="url(#glow)"
+                    opacity="0.8"
+                    class="glow-edge"></line>
+            </g>
+        </g>
+
+        <!-- ========================================== -->
+        <!-- PUNTOS DE UNIÓN BRILLANTES                  -->
+        <!-- ========================================== -->
+        <g id="jointPoints" filter="url(#glowStrong)">
+            <circle
+                cx="300"
+                cy="380"
+                r="2.5"
+                fill="#ffffff"
+                opacity="0"
+                class="joint"
+                data-delay="0.5"></circle>
+            <circle
+                cx="400"
+                cy="430"
+                r="2"
+                fill="#ffffff"
+                opacity="0"
+                class="joint"
+                data-delay="0.8"></circle>
+            <circle
+                cx="200"
+                cy="430"
+                r="2"
+                fill="#ffffff"
+                opacity="0"
+                class="joint"
+                data-delay="0.8"></circle>
+            <circle
+                cx="300"
+                cy="480"
+                r="2"
+                fill="#ffffff"
+                opacity="0"
+                class="joint"
+                data-delay="1.0"></circle>
+            <circle
+                cx="300"
+                cy="310"
+                r="2.5"
+                fill="#ffffff"
+                opacity="0"
+                class="joint"
+                data-delay="1.5"></circle>
+            <circle
+                cx="380"
+                cy="350"
+                r="2"
+                fill="#ffffff"
+                opacity="0"
+                class="joint"
+                data-delay="1.8"></circle>
+            <circle
+                cx="300"
+                cy="240"
+                r="3"
+                fill="#ffffff"
+                opacity="0"
+                class="joint"
+                data-delay="2.5"></circle>
+        </g>
+
+        <!-- Partículas de construcción estáticas (pequeños brillos dispersos) -->
+        <g id="constructionDust" filter="url(#glow)">
+            <!-- Se generan por GSAP -->
+        </g>
+
+        <!-- Destello central de la esencia de la empresa -->
+        <circle
+            id="coreSpark"
+            cx="300"
+            cy="300"
+            r="5"
+            fill="#ffffff"
+            filter="url(#glowStrong)"
+            opacity="0"></circle>
+    </svg>
+</div>
+
+<script>
+    import gsap from "gsap";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const ctx = gsap.context(() => {
+            const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+
+            // 1. Líneas guía animadas (recorrido dashoffset)
+            gsap.to("#guideLines line", {
+                strokeDashoffset: -30,
+                duration: 3,
+                repeat: -1,
+                ease: "none",
+                stagger: { each: 0.1, from: "random" },
+            });
+
+            // 2. Piezas flotantes: órbita continua desde el inicio
+            // Triángulo 1
+            gsap.to("#floatingTri1", {
+                motionPath: {
+                    path: "#orbitPath", // No tenemos path explícito, usaremos coordenadas relativas
+                    // Simulamos órbita circular con actualización manual o creamos un path
+                },
+                duration: 6,
+                repeat: -1,
+                ease: "none",
+            });
+            // Como no hay path, usaré una ruta circular con MotionPath usando un path generado o animación basada en props.
+            // Para simplificar y asegurar compatibilidad, animaré las piezas con keyframes de movimiento usando un círculo trigonométrico con GSAP.
+            // Podemos usar un proxy para motionPath o una función. Optaré por definir un path SVG oculto y referenciarlo.
+
+            // Añado paths ocultos para las órbitas (r=120, r=150) centrados en 300,300
+            const orbitPaths = `
+                <path id="orbit1" d="M420,300 A120,120 0 1,1 180,300 A120,120 0 1,1 420,300" fill="none" stroke="none" />
+                <path id="orbit2" d="M450,300 A150,150 0 1,1 150,300 A150,150 0 1,1 450,300" fill="none" stroke="none" />
+            `;
+            const defs = document.querySelector("#blueprintSvg defs");
+            defs.insertAdjacentHTML("beforeend", orbitPaths);
+
+            // Reasignar piezas después de insertar paths
+            gsap.to("#floatingTri1", {
+                motionPath: {
+                    path: "#orbit1",
+                    alignOrigin: [0.5, 0.5],
+                    autoRotate: true,
+                },
+                duration: 6,
+                repeat: -1,
+                ease: "none",
+                delay: 0.3,
+            });
+            gsap.to("#floatingTri2", {
+                motionPath: {
+                    path: "#orbit2",
+                    alignOrigin: [0.5, 0.5],
+                    autoRotate: false,
+                },
+                duration: 8,
+                repeat: -1,
+                ease: "none",
+                delay: 0,
+            });
+            gsap.to("#floatingRect1", {
+                motionPath: {
+                    path: "#orbit1",
+                    alignOrigin: [0.5, 0.5],
+                    autoRotate: false,
+                    start: 0.5,
+                },
+                duration: 7,
+                repeat: -1,
+                ease: "none",
+                delay: 1.5,
+            });
+            gsap.to("#floatingRect2", {
+                motionPath: {
+                    path: "#orbit2",
+                    alignOrigin: [0.5, 0.5],
+                    autoRotate: true,
+                    start: 0.75,
+                },
+                duration: 9,
+                repeat: -1,
+                ease: "none",
+                delay: 0.8,
+            });
+            gsap.to("#floatingCircle1", {
+                motionPath: { path: "#orbit1", alignOrigin: [0.5, 0.5] },
+                duration: 5,
+                repeat: -1,
+                ease: "none",
+                delay: 2,
+            });
+            gsap.to("#floatingCircle2", {
+                motionPath: {
+                    path: "#orbit2",
+                    alignOrigin: [0.5, 0.5],
+                    start: 0.3,
+                },
+                duration: 6.5,
+                repeat: -1,
+                ease: "none",
+                delay: 1.2,
+            });
+
+            // 3. Ensamblaje secuencial de la estructura isométrica
+            // Aparece la sombra
+            tl.fromTo(
+                "#isoShadow",
+                { opacity: 0, scale: 0.5 },
+                { opacity: 0.1, scale: 1, duration: 1 },
+            );
+
+            // Construcción del cubo base (las caras se posicionan desde abajo)
+            tl.fromTo(
+                "#cubeBase .top-face",
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8 },
+                "-=0.5",
+            );
+            tl.fromTo(
+                "#cubeBase .left-face",
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.6 },
+                "-=0.4",
+            );
+            tl.fromTo(
+                "#cubeBase .right-face",
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.6 },
+                "-=0.4",
+            );
+            tl.fromTo(
+                "#cubeBase .glow-edge",
+                { opacity: 0 },
+                { opacity: 0.7, duration: 0.5 },
+                "-=0.3",
+            );
+
+            // Cubo intermedio (comienza invisible, luego aparece con elevación)
+            tl.set("#cubeMiddle", { opacity: 1 }); // visible para animar
+            tl.fromTo(
+                "#cubeMiddle .top-face",
+                { y: -40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8 },
+                "+=0.3",
+            );
+            tl.fromTo(
+                "#cubeMiddle .left-face",
+                { y: -40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.6 },
+                "-=0.4",
+            );
+            tl.fromTo(
+                "#cubeMiddle .right-face",
+                { y: -40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.6 },
+                "-=0.4",
+            );
+            tl.fromTo(
+                "#cubeMiddle .glow-edge",
+                { opacity: 0 },
+                { opacity: 0.6, duration: 0.5 },
+                "-=0.3",
+            );
+
+            // Cubo superior
+            tl.set("#cubeTop", { opacity: 1 });
+            tl.fromTo(
+                "#cubeTop .top-face",
+                { y: -60, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8 },
+                "+=0.3",
+            );
+            tl.fromTo(
+                "#cubeTop .left-face",
+                { y: -60, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.6 },
+                "-=0.4",
+            );
+            tl.fromTo(
+                "#cubeTop .right-face",
+                { y: -60, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.6 },
+                "-=0.4",
+            );
+            tl.fromTo(
+                "#cubeTop .glow-edge",
+                { opacity: 0 },
+                { opacity: 0.8, duration: 0.5 },
+                "-=0.3",
+            );
+
+            // 4. Puntos de unión brillantes que aparecen con retardo
+            document.querySelectorAll(".joint").forEach((joint) => {
+                const delay = parseFloat(joint.dataset.delay) || 0;
+                gsap.to(joint, {
+                    opacity: 1,
+                    scale: 1.5,
+                    duration: 0.5,
+                    delay: delay,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut",
+                });
+            });
+
+            // 5. Partículas de construcción (polvo flotante)
+            const dustContainer = document.getElementById("constructionDust");
+            for (let i = 0; i < 25; i++) {
+                const circle = document.createElementNS(
+                    "http://www.w3.org/2000/svg",
+                    "circle",
+                );
+                const x = gsap.utils.random(100, 500);
+                const y = gsap.utils.random(200, 480);
+                circle.setAttribute("cx", x);
+                circle.setAttribute("cy", y);
+                circle.setAttribute("r", gsap.utils.random(1, 3));
+                circle.setAttribute(
+                    "fill",
+                    `hsl(${gsap.utils.random(190, 260)}, 80%, 70%)`,
+                );
+                circle.setAttribute("opacity", "0");
+                dustContainer.appendChild(circle);
+
+                gsap.to(circle, {
+                    y: y - gsap.utils.random(10, 30),
+                    opacity: gsap.utils.random(0.2, 0.6),
+                    duration: gsap.utils.random(2, 5),
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut",
+                    delay: gsap.utils.random(0, 3),
+                });
+            }
+
+            // 6. Destello central pulsante
+            gsap.to("#coreSpark", {
+                opacity: 0.9,
+                r: 6,
+                duration: 2,
+                repeat: -1,
+                yoyo: true,
+                ease: "sine.inOut",
+                delay: 2.5, // Espera a que termine el ensamblaje
+            });
+        }, "#blueprintContainer");
+    });
+</script>
+
+<style>
+    .blueprint-visual {
+        background: transparent;
+    }
+    .blueprint-visual svg {
+        display: block;
+    }
+</style>

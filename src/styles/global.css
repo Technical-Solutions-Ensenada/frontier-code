@@ -10,9 +10,52 @@
   --color-frontier-dark: #0C171A;
   --color-frontier-light: #DEE6EC;
 
+  --color-brand-blue: #0862c8;
+  --color-brand-cyan: #2ad1c9;
+  --color-brand-dark: #0c171a;
+  --color-brand-light: #dee6ec;
+
+  --background-image-brand-gradient: linear-gradient(135deg, #2ad1c9 0%, #0862c8 100%);
+  --background-image-brand-gradient-fade: linear-gradient(135deg, rgba(42, 209, 201, 0) 0%, rgba(8, 98, 200, 1) 100%);
+
   /* ============================================ */
   /* FONTS - Brand Typography                    */
   /* ============================================ */
   --font-monda: 'Monda', sans-serif;
   --font-nunito: 'Nunito Sans', sans-serif;
+}
+
+@layer base {
+
+  /* Fuente por defecto para todo el cuerpo (párrafos, botones, etc.) */
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--color-frontier-light);
+  }
+
+  /* Titulares con la fuente Monda */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Monda', sans-serif;
+  }
+
+  /* Puedes extender a otros elementos si lo deseas */
+  .stat-number {
+    font-family: 'Monda', sans-serif;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Compensa la altura del header sticky (h-20 = 5rem) */
+section[id],
+article[id],
+div[id] {
+  scroll-margin-top: 5rem;
 }
