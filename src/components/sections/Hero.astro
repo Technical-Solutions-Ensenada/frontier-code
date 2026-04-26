@@ -128,14 +128,18 @@ import HeroSoftware from "../ui/HeroSoftware.astro";
       </div>
 
       <!-- Right Visual -->
-      <div class="order-1 lg:order-2 flex justify-center items-center">
+      <div
+        class="order-1 lg:order-2 pt-30 lg:pt-0 flex justify-center items-center"
+      >
         <HeroSoftware />
       </div>
     </div>
   </Container>
 
   <!-- Scroll Indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+  <div
+    class="hidden lg:block absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce"
+  >
     <svg
       class="w-6 h-6 text-frontier-cyan/50"
       fill="none"
