@@ -25,6 +25,30 @@
   --font-nunito: 'Nunito Sans', sans-serif;
 }
 
+@layer base {
+
+  /* Fuente por defecto para todo el cuerpo (párrafos, botones, etc.) */
+  body {
+    font-family: 'Nunito Sans', sans-serif;
+    color: var(--color-frontier-light);
+  }
+
+  /* Titulares con la fuente Monda */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Monda', sans-serif;
+  }
+
+  /* Puedes extender a otros elementos si lo deseas */
+  .stat-number {
+    font-family: 'Monda', sans-serif;
+  }
+}
+
 html {
   scroll-behavior: smooth;
 }
